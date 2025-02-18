@@ -1,0 +1,89 @@
+{
+  "tournament_details": {
+    "tournament_name": "2024 WSOP MAIN EVENT - FINAL TABLE",
+    "blind_levels": {
+      "small_blind": 800000,
+      "big_blind": 1600000
+    }
+  },
+  "player_information": {
+    "players": [
+      {
+        "name": "SAGLE",
+        "chip_stack": 68000000
+      },
+      {
+        "name": "ANGLOV",
+        "chip_stack": 56900000
+      },
+      {
+        "name": "GRIFF",
+        "chip_stack": 137000000
+      },
+      {
+        "name": "GONZALEZ",
+        "chip_stack": 14300000
+      },
+      {
+        "name": "LATINOIS",
+        "chip_stack": 24700000
+      },
+      {
+        "name": "KIM",
+        "chip_stack": 98600000
+      },
+      {
+        "name": "ASTEDT",
+        "chip_stack": 98200000
+      },
+      {
+        "name": "SEROCK",
+        "chip_stack": 86300000
+      },
+      {
+        "name": "TAMAYO",
+        "chip_stack": 22700000
+      }
+    ],
+    "button_seat": "D"
+  },
+  "pre_flop": [
+    {
+      "player_name": "SAGLE",
+      "action_type": "FOLD",
+      "amount": 0
+    },
+    {
+      "player_name": "GRIFF",
+      "action_type": "RAISE",
+      "amount": 3200000
+    },
+    {
+      "player_name": "GONZALEZ",
+      "action_type": "ALL_IN",
+      "amount": 14300000
+    }
+  ],
+  "post_flop": {
+    "flop_cards": "N/A",
+    "flop_action": []
+  },
+  "turn_actions": {
+    "turn_card": "N/A",
+    "turn_action": []
+  },
+  "river_actions": {
+    "river_card": "N/A",
+    "river_action": []
+  },
+  "showdown": {
+    "showdown": "N/A"
+  },
+  "summary": {
+    "summary": {
+      "final_pot_size": 21500000,
+      "board_cards": "N/A"
+    }
+  },
+  "missing_details": "Flop, turn, river cards and actions, and showdown details are not available."
+}

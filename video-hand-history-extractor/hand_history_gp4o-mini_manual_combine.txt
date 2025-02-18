@@ -1,0 +1,49 @@
+PokerStars Hand #123456789: Tournament #1234567, 2024 WSOP Main Event - Final Table - Level 800000/1600000 - 2025/02/17 20:21:03 ET
+Table 'Table 1' 9-max Seat #1 is the button
+Seat 1: Angelov (56900000 in chips)
+Seat 2: Latinois (24700000 in chips)
+Seat 3: Kim (98600000 in chips)
+Seat 4: Astedt (98200000 in chips)
+Seat 5: Serock (86300000 in chips)
+Seat 6: Griff (139700000 in chips)
+Seat 7: Tamayo (22700000 in chips)
+Seat 8: Gonzalez (14300000 in chips)
+Seat 9: Sagle (68100000 in chips)
+
+*** HOLE CARDS ***
+Griff: raises 3200000
+GRIFF: raises 3200000
+TAMAYO: folds
+Griff: raises 3200000
+Gonzalez: raises 14300000 and is all-in
+SAGLE: folds
+GRIFF: raises 3200000
+GONZALEZ: all_in 14300000
+ANGELov: folds
+GRIFF: raises 3200000
+GONZALEZ: raises 14300000 and is all-in
+GRIFF: calls 11110000
+GONZALEZ: raises 14300000 and is all-in
+
+*** FLOP *** [U n k n o w n]
+
+*** TURN *** [U n k n o w n] [Unknown]
+
+*** RIVER *** [U n k n o w n] [Unknown] [Unknown]
+
+*** SHOW DOWN ***
+GRIFF: shows [?? ??] 
+GONZALEZ: shows [?? ??] winner
+
+*** SUMMARY ***
+Total pot 7200000 | Rake 0
+Board [U n k n o w n]
+Seat 1: Angelov folded
+Seat 2: Latinois folded
+Seat 3: Kim folded
+Seat 4: Astedt folded
+Seat 5: Serock folded
+Seat 6: Griff showed [?? ??] and lose
+Seat 7: Tamayo folded
+Seat 8: Gonzalez showed [?? ??] and lose
+Seat 9: Sagle folded

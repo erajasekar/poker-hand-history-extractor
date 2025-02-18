@@ -9,80 +9,83 @@
   "player_information": {
     "players": [
       {
-        "name": "Angelov",
-        "chip_stack": "54M"
+        "name": "ANGELov",
+        "chips": "54M"
       },
       {
-        "name": "Griff",
-        "chip_stack": "139.7M"
+        "name": "LATINOIS",
+        "chips": "24.7M"
       },
       {
-        "name": "Gonzalez",
-        "chip_stack": "14.3M"
+        "name": "KIM",
+        "chips": "98.6M"
       },
       {
-        "name": "Latinois",
-        "chip_stack": "24.7M"
+        "name": "ASTEDT",
+        "chips": "98.2M"
       },
       {
-        "name": "Kim",
-        "chip_stack": "98.6M"
+        "name": "SEROCK",
+        "chips": "86.3M"
       },
       {
-        "name": "Astedt",
-        "chip_stack": "98.2M"
+        "name": "GRIFF",
+        "chips": "139.7M"
       },
       {
-        "name": "Serock",
-        "chip_stack": "86.3M"
+        "name": "TAMAYO",
+        "chips": "22.7M"
       },
       {
-        "name": "Tamayo",
-        "chip_stack": "22.7M"
+        "name": "GONZALEZ",
+        "chips": "14.3M"
       },
       {
-        "name": "Sagle",
-        "chip_stack": "68.1M"
+        "name": "SAGLE",
+        "chips": "68.1M"
       }
     ],
-    "button_seat": "Gonzalez"
+    "button_seat": "D"
   },
   "pre_flop": [
     {
-      "player": "Angelov",
-      "action_type": "Fold",
-      "amount": "N/A"
+      "player_name": "ANGELov",
+      "action_type": "FOLD",
+      "amount": null
     },
     {
-      "player": "Griff",
-      "action_type": "Raise",
+      "player_name": "GRIFF",
+      "action_type": "RAISE",
       "amount": "3.2M"
     },
     {
-      "player": "Gonzalez",
-      "action_type": "All In",
+      "player_name": "GONZALEZ",
+      "action_type": "ALL IN",
       "amount": "14.3M"
     }
   ],
   "post_flop": {
-    "flop_cards": [],
+    "flop_cards": null,
     "flop_action": []
   },
-  "turn_actions": {
+  "turn": {
     "turn_card": null,
     "turn_action": []
   },
-  "river_actions": {
+  "river": {
     "river_card": null,
     "river_action": []
   },
   "showdown": {
-    "winner": null,
-    "players_revealed": []
+    "showdown": null
   },
   "summary": {
-    "final_pot_size": "21,500,000",
-    "board_cards": null
+    "summary": {
+      "final_pot_size": "21,500,000",
+      "board_cards": null
+    }
   },
-  "missing_details": "Insufficient information available for post-flop, turn, river, and showdown actions."
+  "missing_details": {
+    "description": "Flop, turn, river cards, flop actions, turn actions, river actions, and showdown details are missing or unclear."
+  }
 }

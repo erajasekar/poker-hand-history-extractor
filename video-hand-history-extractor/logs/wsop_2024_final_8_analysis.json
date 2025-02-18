@@ -9,7 +9,7 @@
   "player_information": {
     "players": [
       {
-        "name": "ANGELOV",
+        "name": "ANGGELLOV",
         "chip_stack": "56,900,000"
       },
       {
@@ -38,14 +38,15 @@
       },
       {
         "name": "GONZALEZ",
-        "chip_stack": "14,300,000"
+        "chip_stack": "14,300,000",
+        "is_dealer_button": true
       },
       {
         "name": "SAGLE",
         "chip_stack": "68,100,000"
       }
     ],
-    "button_seat": "GONZALEZ"
+    "button_seat": "D"
   },
   "pre_flop": [],
   "post_flop": {
@@ -65,17 +66,17 @@
     "river_action": []
   },
   "showdown": {
-    "showdown": [
+    "players": [
       {
-        "player": "GRIFF",
+        "name": "GRIFF",
         "hand": "3\u2660 3\u2666"
       },
       {
-        "player": "GONZALEZ",
-        "hand": "8\u2660 8\u2665",
-        "winner": true
+        "name": "GONZALEZ",
+        "hand": "8\u2660 8\u2665"
       }
-    ]
+    ],
+    "winner": "GONZALEZ"
   },
   "summary": {
     "summary": {
@@ -89,5 +90,5 @@
       ]
     }
   },
-  "missing_details": "Pre-flop and action details are not available in the image."
+  "missing_details": "Pre-flop actions and post-flop turn/river actions are not specified."
 }

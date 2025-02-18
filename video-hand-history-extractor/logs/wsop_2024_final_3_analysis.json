@@ -10,39 +10,39 @@
     "players": [
       {
         "name": "ANGLOV",
-        "chips": 56900000
+        "chip_stack": 56900000
       },
       {
         "name": "LATINOIS",
-        "chips": 24700000
+        "chip_stack": 24700000
       },
       {
         "name": "KIM",
-        "chips": 98600000
+        "chip_stack": 98600000
       },
       {
         "name": "ASTEDT",
-        "chips": 98200000
+        "chip_stack": 98200000
       },
       {
         "name": "SEROCK",
-        "chips": 86300000
+        "chip_stack": 86300000
       },
       {
         "name": "GRIFF",
-        "chips": 139700000
+        "chip_stack": 139700000
       },
       {
         "name": "TAMAYO",
-        "chips": 22700000
+        "chip_stack": 22700000
       },
       {
         "name": "GONZALEZ",
-        "chips": 14300000
+        "chip_stack": 14300000
       },
       {
         "name": "SAGLE",
-        "chips": 68100000
+        "chip_stack": 68100000
       }
     ],
     "button_seat": "D"
@@ -81,5 +81,5 @@
       "board_cards": []
     }
   },
-  "missing_details": "Flop, turn, river cards, and actions are missing."
+  "missing_details": "Flop cards, turn card, river card, and actions on the flop, turn, and river are not provided in the image."
 }

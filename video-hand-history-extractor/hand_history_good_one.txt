@@ -1,0 +1,50 @@
+PokerStars Hand #UNKNOWN: Tournament #UNKNOWN, 2024 WSOP Main Event - 800K/1.6M - UNKNOWN
+Table 'Final Table' 9-max Seat #8 is the button
+
+Seat 1: ANGLOV (56900000)
+Seat 2: LATINOIS (24700000)
+Seat 3: KIM (98600000)
+Seat 4: ASTEDT (98200000)
+Seat 5: SEROCK (86300000)
+Seat 6: GRIFF (139700000)
+Seat 7: TAMAYO (22700000)
+Seat 8: GONZALEZ (14300000)
+Seat 9: SAGLE (68100000)
+
+GONZALEZ: posts small blind 800K
+ANGLOV: posts big blind 1.6M
+
+*** HOLE CARDS ***
+Dealt to UNKNOWN [UNKNOWN]
+
+GRIFF: raises 3200000
+GONZALEZ: all-in 14300000
+TAMAYO: folds
+ANGLOV: folds
+SAGLE: folds
+
+*** FLOP *** [5♥ 8♥ 4♣]
+
+*** TURN *** [5♥ 8♥ 4♣] [5♦]
+
+*** RIVER *** [5♥ 8♥ 4♣ 5♦] [9♠]
+
+*** SHOW DOWN ***
+GRIFF: shows [3♠ 3♦]
+GONZALEZ: shows [8♠ 8♦]
+GONZALEZ collected 32600000 from pot
+
+*** SUMMARY ***
+Total pot 32600000 | Rake 0
+Board [5♥ 8♥ 4♣ 5♦ 9♠]
+Seat 1: ANGLOV folded before Flop (didn't bet)
+Seat 2: LATINOIS folded before Flop (didn't bet)
+Seat 3: KIM folded before Flop (didn't bet)
+Seat 4: ASTEDT folded before Flop (didn't bet)
+Seat 5: SEROCK folded before Flop (didn't bet)
+Seat 6: GRIFF showed [3♠ 3♦] and lost with Two pair, Fives and Threes
+Seat 7: TAMAYO folded before Flop (didn't bet)
+Seat 8: GONZALEZ (button) (small blind) showed [8♠ 8♦] and won (32600000) with Full House, Eights full of Fives
+Seat 9: SAGLE (big blind) folded before Flop
+
+Note: The hand ID, tournament ID, date & time, hero's cards, and some actions are unknown due to missing data.

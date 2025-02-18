@@ -9,61 +9,73 @@
   "player_information": {
     "players": [
       {
-        "name": "SAGLE",
-        "chip_stack": 67000000
+        "name": "ANGELov",
+        "chip_stack": "56,900,000"
       },
       {
-        "name": "ANGELov",
-        "chip_stack": 56900000
+        "name": "LATINOIS",
+        "chip_stack": "24,700,000"
+      },
+      {
+        "name": "KIM",
+        "chip_stack": "98,600,000"
+      },
+      {
+        "name": "SAGLE",
+        "chip_stack": "68,100,000"
       },
       {
         "name": "GRIFF",
-        "chip_stack": 137000000
+        "chip_stack": "137,000,000"
+      },
+      {
+        "name": "TAMAYO",
+        "chip_stack": "22,700,000"
       },
       {
         "name": "GONZALEZ",
-        "chip_stack": 14300000
+        "chip_stack": "14,300,000"
       }
     ],
     "button_seat": "GONZALEZ"
   },
   "pre_flop": [
     {
-      "player_name": "SAGLE",
-      "action_type": "FOLD",
-      "amount": 0
+      "player": "GRIFF",
+      "action": "RAISE",
+      "amount": "3.2M"
     },
     {
-      "player_name": "GRIFF",
-      "action_type": "RAISE",
-      "amount": 3200000
+      "player": "GONZALEZ",
+      "action": "ALL IN",
+      "amount": "14.3M"
     },
     {
-      "player_name": "GONZALEZ",
-      "action_type": "ALL IN",
-      "amount": 14300000
+      "player": "SAGLE",
+      "action": "FOLD"
     }
   ],
   "post_flop": {
-    "flop_cards": "missing_details",
-    "flop_action": "missing_details"
+    "flop_cards": [],
+    "flop_action": []
   },
   "turn_actions": {
-    "turn_card": "missing_details",
-    "turn_action": "missing_details"
+    "turn_card": null,
+    "turn_action": []
   },
   "river_actions": {
-    "river_card": "missing_details",
-    "river_action": "missing_details"
+    "river_card": null,
+    "river_action": []
   },
   "showdown": {
-    "showdown": "missing_details"
+    "showdown": {},
+    "winner": null
   },
   "summary": {
     "summary": {
-      "final_pot_size": 21500000,
-      "board_cards": "missing_details"
+      "final_pot_size": "21,500,000",
+      "board_cards": []
     }
   },
-  "missing_details": "Flop, turn, river cards and corresponding actions as well as showdown details are not provided."
+  "missing_details": "Flop, turn, river actions, and showdown details are not available in the image."
 }

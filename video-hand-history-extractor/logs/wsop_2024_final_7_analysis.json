@@ -2,8 +2,8 @@
   "tournament_details": {
     "tournament_name": "2024 WSOP MAIN EVENT - FINAL TABLE",
     "blind_levels": {
-      "small_blind": 800000,
-      "big_blind": 1600000
+      "small_blind": "800K",
+      "big_blind": "1.6M"
     }
   },
   "player_information": {
@@ -45,7 +45,7 @@
         "chip_stack": 68100000
       }
     ],
-    "button_seat": "8"
+    "button_seat": "D"
   },
   "pre_flop": [],
   "post_flop": {
@@ -56,11 +56,11 @@
     ],
     "flop_action": []
   },
-  "turn_actions": {
+  "turn": {
     "turn_card": "",
     "turn_action": []
   },
-  "river_actions": {
+  "river": {
     "river_card": "",
     "river_action": []
   },
@@ -68,20 +68,17 @@
     "showdown": [
       {
         "player": "GRIFF",
-        "hand": "3\u26603\u2666",
-        "percentage": "3%"
+        "hand": "3\u2660 3\u2666"
       },
       {
         "player": "GONZALEZ",
-        "hand": "8\u26658\u2660",
-        "percentage": "95%",
-        "all_in": "14.3M"
+        "hand": "8\u2660 8\u2665"
       }
     ]
   },
   "summary": {
     "summary": {
-      "final_pot_size": "32,600,000",
+      "final_pot_size": 32600000,
       "board_cards": [
         "5\u2665",
         "8\u2665",
@@ -89,5 +86,5 @@
       ]
     }
   },
-  "missing_details": "Incomplete information about pre-flop actions, turn and river cards, and actions."
+  "missing_details": "Pre-Flop, Turn Actions, and River Actions details were not provided in the image."
 }

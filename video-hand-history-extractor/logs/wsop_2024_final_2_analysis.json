@@ -1,9 +1,9 @@
 {
   "tournament_details": {
-    "tournament_name": "2024 WSOP Main Event - Final Table",
+    "tournament_name": "2024 WSOP MAIN EVENT - FINAL TABLE",
     "blind_levels": {
-      "small_blind": 800000,
-      "big_blind": 1600000
+      "small_blind": "800K",
+      "big_blind": "1.6M"
     }
   },
   "player_information": {
@@ -49,18 +49,18 @@
   },
   "pre_flop": [
     {
-      "player_name": "GRIFF",
-      "action_type": "RAISE",
-      "amount": 3200000
+      "player": "GRIFF",
+      "action": "RAISE",
+      "amount": "3.2M"
     },
     {
-      "player_name": "TAMAYO",
-      "action_type": "FOLD",
-      "amount": null
+      "player": "TAMAYO",
+      "action": "FOLD",
+      "amount": ""
     }
   ],
-  "post_flop": {
-    "flop_cards": null,
+  "post_flop_actions": {
+    "flop_cards": [],
     "flop_action": []
   },
   "turn_actions": {
@@ -77,9 +77,9 @@
   },
   "summary": {
     "summary": {
-      "final_pot_size": 7200000,
-      "board_cards": null
+      "final_pot_size": "7,200,000",
+      "board_cards": []
     }
   },
-  "missing_details": "Community cards and actions on the flop, turn, and river are not provided in the image."
+  "missing_details": "Community cards and actions after the pre-flop stage are unclear or missing."
 }

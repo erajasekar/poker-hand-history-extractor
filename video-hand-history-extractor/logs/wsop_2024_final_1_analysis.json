@@ -1,82 +1,78 @@
 {
   "tournament_details": {
-    "tournament_name": "2024 WSOP Main Event - Final Table",
+    "tournament_name": "2024 WSOP Main Event",
     "blind_levels": {
-      "small_blind": 800000,
-      "big_blind": 1600000
+      "small_blind": "800K",
+      "big_blind": "1.6M"
     }
   },
   "player_information": {
     "players": [
       {
-        "name": "Angelov",
+        "name": "ANGLOV",
         "chip_stack": 56900000
       },
       {
-        "name": "Latinois",
+        "name": "LATINOIS",
         "chip_stack": 24700000
       },
       {
-        "name": "Kim",
+        "name": "KIM",
         "chip_stack": 98600000
       },
       {
-        "name": "Astedt",
+        "name": "ASTEDT",
         "chip_stack": 98200000
       },
       {
-        "name": "Serock",
+        "name": "SEROCK",
         "chip_stack": 86300000
       },
       {
-        "name": "Griff",
+        "name": "GRIFF",
         "chip_stack": 139700000
       },
       {
-        "name": "Tamayo",
+        "name": "TAMAYO",
         "chip_stack": 22700000
       },
       {
-        "name": "Gonzalez",
+        "name": "GONZALEZ",
         "chip_stack": 14300000
       },
       {
-        "name": "Sagle",
+        "name": "SAGLE",
         "chip_stack": 68100000
       }
     ],
-    "button_seat": null
+    "button_seat": "unknown"
   },
   "pre_flop": [
     {
-      "player_name": "Griff",
+      "player_name": "GRIFF",
       "action_type": "raise",
       "amount": 3200000
     }
   ],
   "post_flop": {
-    "flop_cards": [],
+    "flop_cards": "unknown",
     "flop_action": []
   },
-  "turn": {
-    "turn_card": null,
+  "turn_actions": {
+    "turn_card": "unknown",
     "turn_action": []
   },
-  "river": {
-    "river_card": null,
+  "river_actions": {
+    "river_card": "unknown",
     "river_action": []
   },
   "showdown": {
-    "showdown": {
-      "players": [],
-      "winner": null
-    }
+    "players": "unknown",
+    "winner": "unknown"
   },
   "summary": {
-    "summary": {
-      "final_pot_size": 7200000,
-      "board_cards": []
-    }
+    "final_pot_size": 7200000,
+    "board_cards": "unknown"
   },
-  "missing_details": "Flop cards, turn card, river card, and specific player actions after flop, turn, and river are not provided in the image."
+  "missing_details": "The image does not provide information about the flop cards, turn card, river card, or actions beyond the pre-flop stage."
 }

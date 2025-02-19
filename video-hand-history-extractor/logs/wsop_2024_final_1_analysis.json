@@ -1,6 +1,6 @@
 {
   "tournament_details": {
-    "tournament_name": "2024 WSOP Main Event",
+    "tournament_name": "2024 WSOP Main Event - Final Table",
     "blind_levels": {
       "small_blind": "800K",
       "big_blind": "1.6M"
@@ -9,7 +9,7 @@
   "player_information": {
     "players": [
       {
-        "name": "ANGLOV",
+        "name": "ANGELOV",
         "chip_stack": 56900000
       },
       {
@@ -45,7 +45,7 @@
         "chip_stack": 68100000
       }
     ],
-    "button_seat": "unknown"
+    "button_seat": "Not indicated"
   },
   "pre_flop": [
     {
@@ -55,24 +55,25 @@
     }
   ],
   "post_flop": {
-    "flop_cards": "unknown",
-    "flop_action": []
+    "flop_cards": "Not indicated",
+    "flop_action": "Not indicated"
   },
   "turn_actions": {
-    "turn_card": "unknown",
-    "turn_action": []
+    "turn_card": "Not indicated",
+    "turn_action": "Not indicated"
   },
   "river_actions": {
-    "river_card": "unknown",
-    "river_action": []
+    "river_card": "Not indicated",
+    "river_action": "Not indicated"
   },
   "showdown": {
-    "players": "unknown",
-    "winner": "unknown"
+    "showdown": "Not indicated"
   },
   "summary": {
-    "final_pot_size": 7200000,
-    "board_cards": "unknown"
+    "summary": {
+      "final_pot_size": 7200000,
+      "board_cards": "Not indicated"
+    }
   },
-  "missing_details": "The image does not provide information about the flop cards, turn card, river card, or actions beyond the pre-flop stage."
+  "missing_details": "Many details such as community cards, turn and river actions, showdown information, and button seat are not clear from the image."
 }

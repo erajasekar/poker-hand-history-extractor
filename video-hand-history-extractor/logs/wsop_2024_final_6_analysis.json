@@ -2,46 +2,46 @@
   "tournament_details": {
     "tournament_name": "2024 WSOP Main Event - Final Table",
     "blind_levels": {
-      "small_blind": "800K",
-      "big_blind": "1.6M"
+      "small_blind": 800000,
+      "big_blind": 1600000
     }
   },
   "player_information": {
     "players": [
       {
-        "name": "Angelov",
+        "name": "ANGELOV",
         "chip_stack": 56900000
       },
       {
-        "name": "Latinois",
+        "name": "LATINOIS",
         "chip_stack": 24700000
       },
       {
-        "name": "Kim",
+        "name": "KIM",
         "chip_stack": 98600000
       },
       {
-        "name": "Astedt",
+        "name": "ASTEDT",
         "chip_stack": 98200000
       },
       {
-        "name": "Serock",
+        "name": "SEROCK",
         "chip_stack": 86300000
       },
       {
-        "name": "Griff",
+        "name": "GRIFF",
         "chip_stack": 139700000
       },
       {
-        "name": "Tamayo",
+        "name": "TAMAYO",
         "chip_stack": 22700000
       },
       {
-        "name": "Gonzalez",
+        "name": "GONZALEZ",
         "chip_stack": 14300000
       },
       {
-        "name": "Sagle",
+        "name": "SAGLE",
         "chip_stack": 68100000
       }
     ],
@@ -49,37 +49,37 @@
   },
   "pre_flop": [
     {
-      "player": "Gonzalez",
-      "action": "All In",
-      "amount": "14.3M"
+      "player_name": "GRIFF",
+      "action_type": "CALL",
+      "amount": 11100000
     },
     {
-      "player": "Griff",
-      "action": "Call",
-      "amount": "11.1M"
+      "player_name": "GONZALEZ",
+      "action_type": "ALL IN",
+      "amount": 14300000
     }
   ],
   "post_flop": {
     "flop_cards": [],
     "flop_action": []
   },
-  "turn": {
+  "turn_actions": {
     "turn_card": null,
     "turn_action": []
   },
-  "river": {
+  "river_actions": {
     "river_card": null,
     "river_action": []
   },
   "showdown": {
-    "players": [],
+    "showdown": [],
     "winner": null
   },
   "summary": {
     "summary": {
-      "final_pot_size": "32,600,000",
-      "board_cards": []
+      "final_pot_size": 32600000,
+      "board_cards": null
     }
   },
-  "missing_details": "Community cards and actions after the flop, turn, river, and showdown details are not visible in the image."
+  "missing_details": "Community cards and subsequent actions after the flop are not visible."
 }

@@ -1,0 +1,38 @@
+PokerStars Hand #1: Tournament #1, 2024 WSOP Main Event - Final Table - 800K/1.6M - 2024-07-01 00:00:00
+Table 'Final Table' 9-max Seat #7 is the button
+
+Seat 1: Angelov (5690000)
+Seat 2: Latinois (24700000)
+Seat 3: Kim (98600000)
+Seat 4: Astedt (98920000)
+Seat 5: Serock (86300000)
+Seat 6: Griff (139700000)
+Seat 7: Tamayo (22700000)
+Seat 8: Gonzalez (14300000)
+Seat 9: Sagle (68100000)
+
+*** HOLE CARDS ***
+Dealt to [Hero] [Hole Cards]
+
+[Pre-Flop Actions]
+
+*** FLOP *** [5♥, 8♥, 4♠]
+[Flop Actions]
+
+*** TURN *** [5♥, 8♥, 4♠] [5♦]
+[Turn Actions]
+
+*** RIVER *** [5♥, 8♥, 4♠, 5♦] [9♠]
+[River Actions]
+
+*** SHOW DOWN ***
+[Showdown Details]
+
+[Winner Announcement]
+
+*** SUMMARY ***
+Total pot 32,600,000 | Rake 0
+Board [5♥, 8♥, 4♠, 5♦, 9♠]
+[Seat-wise Results]
+
+Note: Pre-flop and action details are not available in the image.

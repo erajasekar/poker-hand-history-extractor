@@ -10,39 +10,39 @@
     "players": [
       {
         "name": "ANGELov",
-        "chips": "54M"
+        "chip_stack": "54M"
       },
       {
         "name": "LATINOIS",
-        "chips": "24.7M"
+        "chip_stack": "24.7M"
       },
       {
         "name": "KIM",
-        "chips": "98.6M"
+        "chip_stack": "98.6M"
       },
       {
         "name": "ASTEDT",
-        "chips": "98.2M"
+        "chip_stack": "98.2M"
       },
       {
         "name": "SEROCK",
-        "chips": "86.3M"
+        "chip_stack": "86.3M"
       },
       {
         "name": "GRIFF",
-        "chips": "139.7M"
+        "chip_stack": "139.7M"
       },
       {
         "name": "TAMAYO",
-        "chips": "22.7M"
+        "chip_stack": "22.7M"
       },
       {
         "name": "GONZALEZ",
-        "chips": "14.3M"
+        "chip_stack": "14.3M"
       },
       {
         "name": "SAGLE",
-        "chips": "68.1M"
+        "chip_stack": "68.1M"
       }
     ],
     "button_seat": "D"
@@ -50,8 +50,7 @@
   "pre_flop": [
     {
       "player_name": "ANGELov",
-      "action_type": "FOLD",
-      "amount": null
+      "action_type": "FOLD"
     },
     {
       "player_name": "GRIFF",
@@ -65,27 +64,26 @@
     }
   ],
   "post_flop": {
-    "flop_cards": null,
+    "flop_cards": [],
     "flop_action": []
   },
-  "turn": {
+  "turn_actions": {
     "turn_card": null,
     "turn_action": []
   },
-  "river": {
+  "river_actions": {
     "river_card": null,
     "river_action": []
   },
   "showdown": {
-    "showdown": null
+    "showdown": [],
+    "winner": null
   },
   "summary": {
     "summary": {
       "final_pot_size": "21,500,000",
-      "board_cards": null
+      "board_cards": []
     }
   },
-  "missing_details": {
-    "description": "Flop, turn, river cards, flop actions, turn actions, river actions, and showdown details are missing or unclear."
-  }
+  "missing_details": "Flop, turn, river cards and actions are not visible in the image."
 }

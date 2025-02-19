@@ -1,6 +1,6 @@
 {
   "tournament_details": {
-    "tournament_name": "2024 WSOP Main Event",
+    "tournament_name": "2024 WSOP Main Event - Final Table",
     "blind_levels": {
       "small_blind": "800K",
       "big_blind": "1.6M"
@@ -9,44 +9,43 @@
   "player_information": {
     "players": [
       {
-        "name": "ANGGELLOV",
-        "chip_stack": "56,900,000"
+        "name": "Angelov",
+        "chip_stack": 5690000
       },
       {
-        "name": "LATINOIS",
-        "chip_stack": "24,700,000"
+        "name": "Latinois",
+        "chip_stack": 24700000
       },
       {
-        "name": "KIM",
-        "chip_stack": "98,600,000"
+        "name": "Kim",
+        "chip_stack": 98600000
       },
       {
-        "name": "ASTEDT",
-        "chip_stack": "98,200,000"
+        "name": "Astedt",
+        "chip_stack": 98920000
       },
       {
-        "name": "SEROCK",
-        "chip_stack": "86,300,000"
+        "name": "Serock",
+        "chip_stack": 86300000
       },
       {
-        "name": "GRIFF",
-        "chip_stack": "139,700,000"
+        "name": "Griff",
+        "chip_stack": 139700000
       },
       {
-        "name": "TAMAYO",
-        "chip_stack": "22,700,000"
+        "name": "Tamayo",
+        "chip_stack": 22700000
       },
       {
-        "name": "GONZALEZ",
-        "chip_stack": "14,300,000",
-        "is_dealer_button": true
+        "name": "Gonzalez",
+        "chip_stack": 14300000
       },
       {
-        "name": "SAGLE",
-        "chip_stack": "68,100,000"
+        "name": "Sagle",
+        "chip_stack": 68100000
       }
     ],
-    "button_seat": "D"
+    "button_seat": 7
   },
   "pre_flop": [],
   "post_flop": {
@@ -66,17 +65,8 @@
     "river_action": []
   },
   "showdown": {
-    "players": [
-      {
-        "name": "GRIFF",
-        "hand": "3\u2660 3\u2666"
-      },
-      {
-        "name": "GONZALEZ",
-        "hand": "8\u2660 8\u2665"
-      }
-    ],
-    "winner": "GONZALEZ"
+    "showdown": [],
+    "winner": null
   },
   "summary": {
     "summary": {
@@ -90,5 +80,5 @@
       ]
     }
   },
-  "missing_details": "Pre-flop actions and post-flop turn/river actions are not specified."
+  "missing_details": "Pre-flop and action details are not available in the image."
 }

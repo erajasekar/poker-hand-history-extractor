@@ -47,7 +47,15 @@
     ],
     "button_seat": "D"
   },
-  "pre_flop": [],
+  "pre_flop": {
+    "actions": [
+      {
+        "player_name": "GONZALEZ",
+        "action_type": "ALL IN",
+        "amount": "14.3M"
+      }
+    ]
+  },
   "post_flop": {
     "flop_cards": [
       "5\u2665",
@@ -56,29 +64,30 @@
     ],
     "flop_action": []
   },
-  "turn": {
+  "turn_actions": {
     "turn_card": "",
     "turn_action": []
   },
-  "river": {
+  "river_actions": {
     "river_card": "",
     "river_action": []
   },
   "showdown": {
     "showdown": [
       {
-        "player": "GRIFF",
-        "hand": "3\u2660 3\u2666"
+        "player_name": "GRIFF",
+        "hand": "3\u2666 3\u2660"
       },
       {
-        "player": "GONZALEZ",
-        "hand": "8\u2660 8\u2665"
+        "player_name": "GONZALEZ",
+        "hand": "8\u2665 8\u2660"
       }
-    ]
+    ],
+    "winner": "GONZALEZ"
   },
   "summary": {
     "summary": {
-      "final_pot_size": 32600000,
+      "final_pot_size": "32,600,000",
       "board_cards": [
         "5\u2665",
         "8\u2665",
@@ -86,5 +95,5 @@
       ]
     }
   },
-  "missing_details": "Pre-Flop, Turn Actions, and River Actions details were not provided in the image."
+  "missing_details": "Turn and river actions are not available."
 }

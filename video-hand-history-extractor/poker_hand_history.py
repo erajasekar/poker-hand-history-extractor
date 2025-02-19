@@ -16,12 +16,14 @@ class PokerHandHistoryGenerator:
         # Create logs directory if it doesn't exist
         Path(log_dir).mkdir(parents=True, exist_ok=True)
         
-        # Set up logging
+        # Set up logging with timestamp in filename
+        current_time = datetime.now().strftime("%Y%m%d_%H%M%S")
+        log_filename = f'poker_analysis_{current_time}.log'
         logging.basicConfig(
             level=logging.INFO,
             format='%(asctime)s - %(levelname)s - %(message)s',
             handlers=[
-                logging.FileHandler(os.path.join(log_dir, 'poker_analysis.log')),
+                logging.FileHandler(os.path.join(log_dir, log_filename)),
                 logging.StreamHandler()
             ]
         )
@@ -88,7 +90,8 @@ class PokerHandHistoryGenerator:
                             ]
                         }
                     ],
-                    max_tokens=4000
+                    max_tokens=4000,
+                    temperature=0
                 )
                 
                 # Extract and parse JSON from response
@@ -188,7 +191,7 @@ class PokerHandHistoryGenerator:
                     {"role": "system", "content": "You are a poker hand history generator that creates detailed, accurate hand histories in PokerStars format."},
                     {"role": "user", "content": prompt}
                 ],
-                temperature=0.2,  # Lower temperature for more consistent output
+                temperature=0,  # Lower temperature for more consistent output
                 max_tokens=2000
             )
             
@@ -246,18 +249,24 @@ def main():
         print("Error: OPENAI_API_KEY environment variable not set")
         return
     
-    generator = PokerHandHistoryGenerator(api_key)
+    # Number of times to process the directory
+    process_count = 3  # Change this value to process multiple times
     
-    # Example usage
-    directory = "screenshots/game2"  # Directory containing poker screenshots
-    hand_history = generator.process_directory(directory)
-    
-    # Save the hand history to a file
-    output_file = "hand_history.txt"
-    with open(output_file, "w") as f:
-        f.write(hand_history)
-    
-    print(f"Hand history has been generated and saved to {output_file}")
+    for i in range(process_count):
+        print(f"\nProcessing iteration {i+1} of {process_count}")
+        generator = PokerHandHistoryGenerator(api_key)
+        
+        # Example usage
+        directory = "screenshots/game21"  # Directory containing poker screenshots
+        hand_history = generator.process_directory(directory)
+        
+        # Save the hand history to a file with timestamp
+        current_time = datetime.now().strftime("%Y%m%d_%H%M%S")
+        output_file = f"hand_history_{current_time}.txt"
+        with open(output_file, "w") as f:
+            f.write(hand_history)
+        
+        print(f"Hand history has been generated and saved to {output_file}")
 
 if __name__ == "__main__":
     main()

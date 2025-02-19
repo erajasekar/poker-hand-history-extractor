@@ -106,8 +106,10 @@ class PokerHandHistoryGenerator:
                     else:
                         raise Exception("Failed to parse JSON from response")
                 
-                # Save analysis output to a JSON file 
-                analysis_filename = os.path.splitext(os.path.basename(image_path))[0] + "_analysis.json"
+                # Save analysis output to a JSON file with timestamp
+                current_time = datetime.now().strftime("%Y%m%d_%H%M%S")
+                base_name = os.path.splitext(os.path.basename(image_path))[0]
+                analysis_filename = f"{base_name}_analysis_{current_time}.json"
                 analysis_path = os.path.join(self.log_dir, analysis_filename)
                 with open(analysis_path, 'w') as f:
                     json.dump(result, f, indent=2)

@@ -1,0 +1,48 @@
+PokerStars Hand #N/A: Tournament #N/A, 2024 WSOP Main Event - Final Table - 800K/1.6M - N/A
+Table 'N/A' 9-max Seat #D is the button
+
+Seat 1: ANGLOV (5690000) 
+Seat 2: LATINOIS (24700000) 
+Seat 3: KIM (98600000)
+Seat 4: ASTEDT (98920000)
+Seat 5: SEROCK (86300000)
+Seat 6: GRIFF (139700000)
+Seat 7: TAMAYO (22700000)
+Seat 8: GONZALEZ (18300000)
+Seat 9: SAGLE (68100000)
+
+[Player Actions: Posting Blinds & Antes]
+
+*** HOLE CARDS ***
+Dealt to [Hero] [Hole Cards]
+
+[Pre-Flop Actions]
+
+*** FLOP *** [5♥, 8♦, 4♣]
+[Flop Actions]
+
+*** TURN *** [5♥, 8♦, 4♣] [5♠]
+[Turn Actions]
+
+*** RIVER *** [5♥, 8♦, 4♣, 5♠] [9♠]
+[River Actions]
+
+*** SHOW DOWN ***
+GRIFF shows [3♠ 3♦]
+GONZALEZ shows [8♠ 8♣]
+GONZALEZ wins
+
+*** SUMMARY ***
+Total pot 32600000 | Rake N/A
+Board [5♥, 8♦, 4♣, 5♠, 9♠]
+Seat 1: ANGLOV folded before Flop (didn't bet)
+Seat 2: LATINOIS folded before Flop (didn't bet)
+Seat 3: KIM folded before Flop (didn't bet)
+Seat 4: ASTEDT folded before Flop (didn't bet)
+Seat 5: SEROCK folded before Flop (didn't bet)
+Seat 6: GRIFF lost with Three of a kind, Fives [3♠ 3♦]
+Seat 7: TAMAYO folded before Flop (didn't bet)
+Seat 8: GONZALEZ won (32600000) with Full House, Eights full of Fives [8♠ 8♣]
+Seat 9: SAGLE folded before Flop (didn't bet)
+
+Note: The hand ID, tournament ID, table name, date & time, hero's hole cards, player actions, and rake amount are not provided in the image. The seating arrangement and the actions of each player are assumed for the purpose of this example.

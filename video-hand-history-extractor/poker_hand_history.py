@@ -42,84 +42,32 @@ class PokerHandHistoryGenerator:
     def analyze_image(self, image_path: str) -> Dict[str, Any]:
         """Analyze a single poker game image using OpenAI Vision."""
         prompt = """
-        Objective:
+        Extract the following poker game details from the provided image and output the information in a structured JSON format.
 
-        Extract poker game details and hand history from the provided image and structure the output in JSON format that strictly adheres to the given JSON schema.
-
-        Guidelines:
-            1. Data Extraction & Formatting:
-            • Identify all relevant poker game details from the image, including player names, bets, community cards, and actions.
-            • Structure the extracted data into the required JSON fields.
-            • Ensure all extracted text is clean and free of OCR artifacts.
-            2. Handling Missing or Unavailable Data:
-            • If a required field is missing in the image, assign:
-            • "missing" for string fields.
-            • 0 for numeric fields.
-            • false for boolean fields.
-            • [] for empty lists.
-            • Auto-generate unique IDs for player_id, game_number, and other identifier fields based on the expected data type.
-            3. Data Validation:
-            • Ensure the final JSON output strictly conforms to the given schema.
-            • Verify all required fields are populated.
-            • Validate JSON structure to avoid schema mismatches.
-
-        Step-by-Step Extraction Guide:
-
-        1. Extract General Game Information
-            • spec_version: Assign a default version (e.g., "1.0").
-            • site_name: Extract poker platform/site name.
-            • network_name: Extract poker network (if present).
-            • internal_version: Extract or assign "missing".
-            • tournament: Determine whether it is a tournament (true/false).
-            • tournament_info: If applicable, extract tournament details.
-            • game_number: Auto-generate if not visible.
-            • start_date_utc: Extract timestamp or assign "missing".
-            • table_name and table_handle: Extract if available.
-            • table_skin: Extract or set "missing".
-            • game_type: Identify from the game (e.g., "Texas Hold'em").
-            • bet_limit: Extract bet type (e.g., "No Limit", "Pot Limit") and set "bet_cap" to 0 if unknown.
-            • table_size: Count number of seats at the table.
-            • currency: Extract (e.g., "USD", "missing" if not available).
-            • dealer_seat: Identify dealer position.
-            • small_blind_amount and big_blind_amount: Extract from game info.
-            • ante_amount: Extract or set 0 if not applicable.
-            • hero_player_id: Identify the "Hero" player (if applicable).
-
-        2. Extract Player Information
-            • Identify all players in the game.
-            • For each player, extract:
-            • id: Assign an auto-generated unique integer.
-            • seat: Identify from the image.
-            • name and display: Extract player name.
-            • starting_stack: Extract or assign 0 if missing.
-            • player_bounty: Extract for tournaments or assign 0.
-            • is_sitting_out: Determine if the player is inactive (true/false).
-
-        3. Extract Hand Rounds and Actions
-            • Identify each game round (Pre-Flop, Flop, Turn, River).
-            • Extract community cards for each round.
-            • Capture player actions per round, including:
-            • player_id: Find player_id from Player Information by matching the player name.
-            • action_type: Extract ("fold", "call", "raise", "check", "bet", "all-in").
-            • amount: Extract the bet amount.
-            • is_all_in: Determine if the player went all-in (true/false).
-
-        4. Extract Pot and Winnings
-            • Identify the total pot size and breakdown.
-            • Extract winners and their earnings.
-            • Capture their final hands, including:
-            • player_id
-            • amount
-            • hand: List of final hole cards.
-            • hand_name: Extract the name of the winning hand (e.g., "Flush").
-
-        5. Extract Tournament-Specific Details (If Applicable)
-            • If a tournament, capture:
-            • Buy-in, entry fee, bounty.
-            • Tournament start time, structure details.
-            • Remaining players, prize pool, and payout information.
-
-        The output should be a valid JSON object with an "ohh" root property containing all the extracted information.
+        Fields to Extract:
+        1. Tournament Details:
+           • tournament_name: Name of the tournament.
+           • blind_levels: Current blinds (small blind, big blind).
+        2. Player Information:
+           • players: List of players with their chip stacks.
+           • button_seat: Seat number of the dealer button.
+        3. Pre-Flop Action:
+           • pre_flop: List of actions with player name, action type, and amount.
+        4. Post-Flop Actions:
+           • flop_cards: Three community cards.
+           • flop_action: List of actions taken on the flop.
+        5. Turn Actions:
+           • turn_card: Fourth community card.
+           • turn_action: List of actions taken on the turn.
+        6. River Actions:
+           • river_card: Fifth community card.
+           • river_action: List of actions taken on the river.
+        7. Showdown:
+           • showdown: Players who revealed their hands and the winner.
+        8. Summary:
+           • summary: Final pot size and board cards.
+        
+        Note: If any information is unclear in the image, include a "missing_details" field with an explanation.
         """
         
         try:
@@ -131,180 +79,159 @@ class PokerHandHistoryGenerator:
                     "type": "object",
                     "additionalProperties": False,
                     "properties": {
-                        "ohh": {
+                      "tournament_details": {
+                        "type": "object",
+                        "additionalProperties": False,
+                        "properties": {
+                          "tournament_name": { "type": "string" },
+                          "blind_levels": {
                             "type": "object",
                             "additionalProperties": False,
                             "properties": {
-                                "spec_version": {"type": "string"},
-                                "site_name": {"type": "string"},
-                                "network_name": {"type": ["string", "null"]},
-                                "internal_version": {"type": ["string", "null"]},
-                                "tournament": {"type": ["boolean", "null"]},
-                                "tournament_info": {
-                                    "type": ["object", "null"],
-                                    "additionalProperties": False,
-                                    "properties": {
-                                        "id": {"type": "string"},
-                                        "buyin": {"type": "number"},
-                                        "entry_fee": {"type": "number"},
-                                        "bounty": {"type": "number"},
-                                        "speed": {
-                                            "type": "object",
-                                            "additionalProperties": False,
-                                            "properties": {
-                                                "type": {"type": "string"},
-                                                "duration": {"type": ["integer", "null"]}
-                                            },
-                                            "required": ["type", "duration"]
-                                        },
-                                        "start_time": {"type": "string"},
-                                        "table_size": {"type": "integer"},
-                                        "starting_stack": {"type": "number"},
-                                        "current_level": {"type": "integer"},
-                                        "level_duration": {"type": "integer"},
-                                        "late_reg_duration": {"type": "integer"},
-                                        "rebuy_duration": {"type": "integer"},
-                                        "addon_duration": {"type": "integer"},
-                                        "players_remaining": {"type": "integer"},
-                                        "prize_pool": {"type": "number"},
-                                        "in_the_money": {"type": "boolean"}
-                                    },
-                                    "required": [
-                                        "id", "buyin", "entry_fee", "bounty", "speed",
-                                        "start_time", "table_size", "starting_stack",
-                                        "current_level", "level_duration", "late_reg_duration",
-                                        "rebuy_duration", "addon_duration", "players_remaining",
-                                        "prize_pool", "in_the_money"
-                                    ]
-                                },
-                                "game_number": {"type": "string"},
-                                "start_date_utc": {"type": "string"},
-                                "table_name": {"type": ["string", "null"]},
-                                "table_handle": {"type": ["string", "null"]},
-                                "table_skin": {"type": ["string", "null"]},
-                                "game_type": {"type": "string"},
-                                "bet_limit": {
-                                    "type": "object",
-                                    "additionalProperties": False,
-                                    "properties": {
-                                        "bet_type": {"type": "string"},
-                                        "bet_cap": {"type": ["number", "null"]}
-                                    },
-                                    "required": ["bet_type", "bet_cap"]
-                                },
-                                "table_size": {"type": "integer"},
-                                "currency": {"type": "string"},
-                                "dealer_seat": {"type": "integer"},
-                                "small_blind_amount": {"type": "number"},
-                                "big_blind_amount": {"type": "number"},
-                                "ante_amount": {"type": ["number", "null"]},
-                                "hero_player_id": {"type": ["integer", "null"]},
-                                "flags": {
-                                    "type": ["array", "null"],
-                                    "items": {"type": "string"}
-                                },
-                                "players": {
-                                    "type": "array",
-                                    "items": {
-                                        "type": "object",
-                                        "additionalProperties": False,
-                                        "properties": {
-                                            "id": {"type": "integer"},
-                                            "seat": {"type": "integer"},
-                                            "name": {"type": "string"},
-                                            "display": {"type": ["string", "null"]},
-                                            "starting_stack": {"type": "number"},
-                                            "player_bounty": {"type": ["number", "null"]},
-                                            "is_sitting_out": {"type": ["boolean", "null"]}
-                                        },
-                                        "required": ["id", "seat", "name", "display", "starting_stack", "player_bounty", "is_sitting_out"]
-                                    }
-                                },
-                                "rounds": {
-                                    "type": "array",
-                                    "items": {
-                                        "type": "object",
-                                        "additionalProperties": False,
-                                        "properties": {
-                                            "name": {"type": ["string", "null"]},
-                                            "street_cards": {
-                                                "type": ["array", "null"],
-                                                "items": {"type": "string"}
-                                            },
-                                            "actions": {
-                                                "type": "array",
-                                                "items": {
-                                                    "type": "object",
-                                                    "additionalProperties": False,
-                                                    "properties": {
-                                                        "player_id": {"type": "integer"},
-                                                        "action_type": {"type": ["string", "null"]},
-                                                        "amount": {"type": ["number", "null"]},
-                                                        "is_all_in": {"type": ["boolean", "null"]}
-                                                    },
-                                                    "required": ["player_id", "action_type", "amount", "is_all_in"]
-                                                }
-                                            }
-                                        },
-                                        "required": ["name", "street_cards", "actions"]
-                                    }
-                                },
-                                "pots": {
-                                    "type": "array",
-                                    "items": {
-                                        "type": "object",
-                                        "additionalProperties": False,
-                                        "properties": {
-                                            "type": {"type": ["string", "null"]},
-                                            "amount": {"type": "number"},
-                                            "rake": {"type": ["number", "null"]},
-                                            "player_wins": {
-                                                "type": "array",
-                                                "items": {
-                                                    "type": "object",
-                                                    "additionalProperties": False,
-                                                    "properties": {
-                                                        "player_id": {"type": "integer"},
-                                                        "amount": {"type": ["number", "null"]},
-                                                        "hand": {
-                                                            "type": ["array", "null"],
-                                                            "items": {"type": "string"}
-                                                        },
-                                                        "hand_name": {"type": ["string", "null"]}
-                                                    },
-                                                    "required": ["player_id", "amount", "hand", "hand_name"]
-                                                }
-                                            }
-                                        },
-                                        "required": ["type", "amount", "rake", "player_wins"]
-                                    }
-                                },
-                                "tournament_bounties": {
-                                    "type": "array",
-                                    "items": {
-                                        "type": "object",
-                                        "additionalProperties": False,
-                                        "properties": {
-                                            "player_id": {"type": "integer"},
-                                            "amount": {"type": "number"}
-                                        },
-                                        "required": ["player_id", "amount"]
-                                    }
-                                }
+                              "small_blind": { "type": "string" },
+                              "big_blind": { "type": "string" }
                             },
-                            "required": [
-                                "spec_version", "site_name", "network_name", "internal_version",
-                                "tournament", "tournament_info", "game_number", "start_date_utc",
-                                "table_name", "table_handle", "table_skin", "game_type",
-                                "bet_limit", "table_size", "currency", "dealer_seat",
-                                "small_blind_amount", "big_blind_amount", "ante_amount",
-                                "hero_player_id", "flags", "players", "rounds", "pots",
-                                "tournament_bounties"
-                            ]
+                            "required": ["small_blind", "big_blind"]
+                          }
+                        },
+                        "required": ["tournament_name", "blind_levels"]
+                      },
+                      "player_information": {
+                        "type": "object",
+                        "additionalProperties": False,
+                        "properties": {
+                          "players": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": False,
+                              "properties": {
+                                "name": { "type": "string" },
+                                "chip_stack": { "type": "string" }
+                              },
+                              "required": ["name", "chip_stack"]
+                            }
+                          },
+                          "button_seat": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+                        },
+                        "required": ["players", "button_seat"]
+                      },
+                      "pre_flop": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "additionalProperties": False,
+                          "properties": {
+                            "player_name": { "type": "string" },
+                            "action_type": { "type": "string" },
+                            "amount": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+                          },
+                          "required": ["player_name", "action_type", "amount"]
                         }
+                      },
+                      "post_flop": {
+                        "type": "object",
+                        "additionalProperties": False,
+                        "properties": {
+                          "flop_cards": { "anyOf": [{ "type": "array", "items": { "type": "string" } }, { "type": "string" }, { "type": "null" }] },
+                          "flop_action": { 
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": False,
+                              "properties": {
+                                "player_name": { "type": "string" },
+                                "action_type": { "type": "string" },
+                                "amount": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+                              },
+                              "required": ["player_name", "action_type", "amount"]
+                            }
+                          }
+                        },
+                        "required": ["flop_cards", "flop_action"]
+                      },
+                      "turn_actions": {
+                        "type": "object",
+                        "additionalProperties": False,
+                        "properties": {
+                          "turn_card": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+                          "turn_action": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": False,
+                              "properties": {
+                                "player_name": { "type": "string" },
+                                "action_type": { "type": "string" },
+                                "amount": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+                              },
+                              "required": ["player_name", "action_type", "amount"]
+                            }
+                          }
+                        },
+                        "required": ["turn_card", "turn_action"]
+                      },
+                      "river_actions": {
+                        "type": "object",
+                        "additionalProperties": False,
+                        "properties": {
+                          "river_card": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+                          "river_action": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": False,
+                              "properties": {
+                                "player_name": { "type": "string" },
+                                "action_type": { "type": "string" },
+                                "amount": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+                              },
+                              "required": ["player_name", "action_type", "amount"]
+                            }
+                          }
+                        },
+                        "required": ["river_card", "river_action"]
+                      },
+                      "showdown": {
+                        "type": "object",
+                        "additionalProperties": False,
+                        "properties": {
+                          "players": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "additionalProperties": False,
+                              "properties": {
+                                "name": { "type": "string" },
+                                "hand": { "type": "string" }
+                              },
+                              "required": ["name", "hand"]
+                            }
+                          },
+                          "winner": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+                        },
+                        "required": ["players", "winner"]
+                      },
+                      "summary": {
+                        "type": "object",
+                        "additionalProperties": False,
+                        "properties": {
+                          "summary": {
+                            "type": "object",
+                            "additionalProperties": False,
+                            "properties": {
+                              "final_pot_size": { "type": "string" },
+                              "board_cards": { "anyOf": [{ "type": "array", "items": { "type": "string" } }, { "type": "string" }, { "type": "null" }] }
+                            },
+                            "required": ["final_pot_size", "board_cards"]
+                          }
+                        },
+                        "required": ["summary"]
+                      },
+                      "missing_details": { "type": "string" }
                     },
-                    "required": ["ohh"]
-                }
+                    "required": ["tournament_details", "player_information", "pre_flop", "post_flop", "turn_actions", "river_actions", "showdown", "summary", "missing_details"]
+                  }
 
                 response = self.client.chat.completions.create(
                     model="gpt-4o-mini",
@@ -327,7 +254,7 @@ class PokerHandHistoryGenerator:
                     response_format={
                         "type": "json_schema",
                         "json_schema": {
-                            "name": "Poker_Open_Hand_Schema",
+                            "name": "Crafty_Wheel_Hand_Schema",
                             "strict": True,
                             "schema": json_schema
                         }
@@ -471,7 +398,7 @@ def main():
         generator = PokerHandHistoryGenerator(api_key)
         
         # Example usage
-        directory = "screenshots/game2"  # Directory containing poker screenshots
+        directory = "screenshots/game21"  # Directory containing poker screenshots
         hand_history = generator.process_directory(directory)
         
         # Save the hand history to a file with timestamp

@@ -137,11 +137,11 @@ class PokerHandHistoryGenerator:
                             "properties": {
                                 "spec_version": {"type": "string"},
                                 "site_name": {"type": "string"},
-                                "network_name": {"type": "string"},
-                                "internal_version": {"type": "string"},
-                                "tournament": {"type": "boolean"},
+                                "network_name": {"type": ["string", "null"]},
+                                "internal_version": {"type": ["string", "null"]},
+                                "tournament": {"type": ["boolean", "null"]},
                                 "tournament_info": {
-                                    "type": "object",
+                                    "type": ["object", "null"],
                                     "additionalProperties": False,
                                     "properties": {
                                         "id": {"type": "string"},
@@ -153,9 +153,9 @@ class PokerHandHistoryGenerator:
                                             "additionalProperties": False,
                                             "properties": {
                                                 "type": {"type": "string"},
-                                                "duration": {"type": "integer"}
+                                                "duration": {"type": ["integer", "null"]}
                                             },
-                                            "required": ["type"]
+                                            "required": ["type", "duration"]
                                         },
                                         "start_time": {"type": "string"},
                                         "table_size": {"type": "integer"},
@@ -168,20 +168,27 @@ class PokerHandHistoryGenerator:
                                         "players_remaining": {"type": "integer"},
                                         "prize_pool": {"type": "number"},
                                         "in_the_money": {"type": "boolean"}
-                                    }
+                                    },
+                                    "required": [
+                                        "id", "buyin", "entry_fee", "bounty", "speed",
+                                        "start_time", "table_size", "starting_stack",
+                                        "current_level", "level_duration", "late_reg_duration",
+                                        "rebuy_duration", "addon_duration", "players_remaining",
+                                        "prize_pool", "in_the_money"
+                                    ]
                                 },
                                 "game_number": {"type": "string"},
                                 "start_date_utc": {"type": "string"},
-                                "table_name": {"type": "string"},
-                                "table_handle": {"type": "string"},
-                                "table_skin": {"type": "string"},
+                                "table_name": {"type": ["string", "null"]},
+                                "table_handle": {"type": ["string", "null"]},
+                                "table_skin": {"type": ["string", "null"]},
                                 "game_type": {"type": "string"},
                                 "bet_limit": {
                                     "type": "object",
                                     "additionalProperties": False,
                                     "properties": {
                                         "bet_type": {"type": "string"},
-                                        "bet_cap": {"type": "number"}
+                                        "bet_cap": {"type": ["number", "null"]}
                                     },
                                     "required": ["bet_type"]
                                 },
@@ -190,10 +197,10 @@ class PokerHandHistoryGenerator:
                                 "dealer_seat": {"type": "integer"},
                                 "small_blind_amount": {"type": "number"},
                                 "big_blind_amount": {"type": "number"},
-                                "ante_amount": {"type": "number"},
-                                "hero_player_id": {"type": "integer"},
+                                "ante_amount": {"type": ["number", "null"]},
+                                "hero_player_id": {"type": ["integer", "null"]},
                                 "flags": {
-                                    "type": "array",
+                                    "type": ["array", "null"],
                                     "items": {"type": "string"}
                                 },
                                 "players": {
@@ -205,12 +212,12 @@ class PokerHandHistoryGenerator:
                                             "id": {"type": "integer"},
                                             "seat": {"type": "integer"},
                                             "name": {"type": "string"},
-                                            "display": {"type": "string"},
+                                            "display": {"type": ["string", "null"]},
                                             "starting_stack": {"type": "number"},
-                                            "player_bounty": {"type": "number"},
-                                            "is_sitting_out": {"type": "boolean"}
+                                            "player_bounty": {"type": ["number", "null"]},
+                                            "is_sitting_out": {"type": ["boolean", "null"]}
                                         },
-                                        "required": ["id", "seat", "name", "starting_stack"]
+                                        "required": ["id", "seat", "name", "display", "starting_stack", "player_bounty", "is_sitting_out"]
                                     }
                                 },
                                 "rounds": {
@@ -219,9 +226,9 @@ class PokerHandHistoryGenerator:
                                         "type": "object",
                                         "additionalProperties": False,
                                         "properties": {
-                                            "name": {"type": "string"},
+                                            "name": {"type": ["string", "null"]},
                                             "street_cards": {
-                                                "type": "array",
+                                                "type": ["array", "null"],
                                                 "items": {"type": "string"}
                                             },
                                             "actions": {
@@ -231,15 +238,15 @@ class PokerHandHistoryGenerator:
                                                     "additionalProperties": False,
                                                     "properties": {
                                                         "player_id": {"type": "integer"},
-                                                        "action_type": {"type": "string"},
-                                                        "amount": {"type": "number"},
-                                                        "is_all_in": {"type": "boolean"}
+                                                        "action_type": {"type": ["string", "null"]},
+                                                        "amount": {"type": ["number", "null"]},
+                                                        "is_all_in": {"type": ["boolean", "null"]}
                                                     },
-                                                    "required": ["player_id"]
+                                                    "required": ["player_id", "action_type", "amount", "is_all_in"]
                                                 }
                                             }
                                         },
-                                        "required": ["actions"]
+                                        "required": ["name", "street_cards", "actions"]
                                     }
                                 },
                                 "pots": {
@@ -248,9 +255,9 @@ class PokerHandHistoryGenerator:
                                         "type": "object",
                                         "additionalProperties": False,
                                         "properties": {
-                                            "type": {"type": "string"},
+                                            "type": {"type": ["string", "null"]},
                                             "amount": {"type": "number"},
-                                            "rake": {"type": "number"},
+                                            "rake": {"type": ["number", "null"]},
                                             "player_wins": {
                                                 "type": "array",
                                                 "items": {
@@ -258,14 +265,14 @@ class PokerHandHistoryGenerator:
                                                     "additionalProperties": False,
                                                     "properties": {
                                                         "player_id": {"type": "integer"},
-                                                        "amount": {"type": "number"},
+                                                        "amount": {"type": ["number", "null"]},
                                                         "hand": {
-                                                            "type": "array",
+                                                            "type": ["array", "null"],
                                                             "items": {"type": "string"}
                                                         },
-                                                        "hand_name": {"type": "string"}
+                                                        "hand_name": {"type": ["string", "null"]}
                                                     },
-                                                    "required": ["player_id"]
+                                                    "required": ["player_id", "amount", "hand", "hand_name"]
                                                 }
                                             }
                                         },
@@ -286,9 +293,13 @@ class PokerHandHistoryGenerator:
                                 }
                             },
                             "required": [
-                                "spec_version", "site_name", "game_number", "start_date_utc",
-                                "game_type", "bet_limit", "table_size", "currency", "dealer_seat",
-                                "small_blind_amount", "big_blind_amount", "players", "rounds", "pots"
+                                "spec_version", "site_name", "network_name", "internal_version",
+                                "tournament", "tournament_info", "game_number", "start_date_utc",
+                                "table_name", "table_handle", "table_skin", "game_type",
+                                "bet_limit", "table_size", "currency", "dealer_seat",
+                                "small_blind_amount", "big_blind_amount", "ante_amount",
+                                "hero_player_id", "flags", "players", "rounds", "pots",
+                                "tournament_bounties"
                             ]
                         }
                     },

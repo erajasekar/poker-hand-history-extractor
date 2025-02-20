@@ -1,0 +1,91 @@
+{
+  "tournament_details": {
+    "tournament_name": "2024 WSOP Main Event",
+    "blind_levels": {
+      "small_blind": "800K",
+      "big_blind": "1.6M"
+    }
+  },
+  "player_information": {
+    "players": [
+      {
+        "name": "ANGELOV",
+        "chip_stack": "56,900,000"
+      },
+      {
+        "name": "LATINOIS",
+        "chip_stack": "24,700,000"
+      },
+      {
+        "name": "KIM",
+        "chip_stack": "98,600,000"
+      },
+      {
+        "name": "ASTEDT",
+        "chip_stack": "98,200,000"
+      },
+      {
+        "name": "SEROCK",
+        "chip_stack": "86,300,000"
+      },
+      {
+        "name": "GRIFF",
+        "chip_stack": "139,700,000"
+      },
+      {
+        "name": "TAMAYO",
+        "chip_stack": "22,700,000"
+      },
+      {
+        "name": "GONZALEZ",
+        "chip_stack": "14,300,000"
+      },
+      {
+        "name": "SAGLE",
+        "chip_stack": "68,100,000"
+      }
+    ],
+    "button_seat": "D"
+  },
+  "pre_flop": [],
+  "post_flop": {
+    "flop_cards": [
+      "5\u2665",
+      "8\u2665",
+      "4\u2663"
+    ],
+    "flop_action": []
+  },
+  "turn_actions": {
+    "turn_card": null,
+    "turn_action": []
+  },
+  "river_actions": {
+    "river_card": null,
+    "river_action": []
+  },
+  "showdown": {
+    "players": [
+      {
+        "name": "GRIFF",
+        "hand": "3\u26603\u2666"
+      },
+      {
+        "name": "GONZALEZ",
+        "hand": "8\u26658\u2660"
+      }
+    ],
+    "winner": "GONZALEZ"
+  },
+  "summary": {
+    "summary": {
+      "final_pot_size": "32,600,000",
+      "board_cards": [
+        "5\u2665",
+        "8\u2665",
+        "4\u2663"
+      ]
+    }
+  },
+  "missing_details": "Pre-flop, turn, and river actions are not provided in the image."
+}

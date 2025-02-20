@@ -129,9 +129,11 @@ class PokerHandHistoryGenerator:
                 # Define the JSON schema
                 json_schema = {
                     "type": "object",
+                    "additionalProperties": False,
                     "properties": {
                         "ohh": {
                             "type": "object",
+                            "additionalProperties": False,
                             "properties": {
                                 "spec_version": {"type": "string"},
                                 "site_name": {"type": "string"},
@@ -140,6 +142,7 @@ class PokerHandHistoryGenerator:
                                 "tournament": {"type": "boolean"},
                                 "tournament_info": {
                                     "type": "object",
+                                    "additionalProperties": False,
                                     "properties": {
                                         "id": {"type": "string"},
                                         "buyin": {"type": "number"},
@@ -147,6 +150,7 @@ class PokerHandHistoryGenerator:
                                         "bounty": {"type": "number"},
                                         "speed": {
                                             "type": "object",
+                                            "additionalProperties": False,
                                             "properties": {
                                                 "type": {"type": "string"},
                                                 "duration": {"type": "integer"}
@@ -174,6 +178,7 @@ class PokerHandHistoryGenerator:
                                 "game_type": {"type": "string"},
                                 "bet_limit": {
                                     "type": "object",
+                                    "additionalProperties": False,
                                     "properties": {
                                         "bet_type": {"type": "string"},
                                         "bet_cap": {"type": "number"}
@@ -195,6 +200,7 @@ class PokerHandHistoryGenerator:
                                     "type": "array",
                                     "items": {
                                         "type": "object",
+                                        "additionalProperties": False,
                                         "properties": {
                                             "id": {"type": "integer"},
                                             "seat": {"type": "integer"},
@@ -211,6 +217,7 @@ class PokerHandHistoryGenerator:
                                     "type": "array",
                                     "items": {
                                         "type": "object",
+                                        "additionalProperties": False,
                                         "properties": {
                                             "name": {"type": "string"},
                                             "street_cards": {
@@ -221,6 +228,7 @@ class PokerHandHistoryGenerator:
                                                 "type": "array",
                                                 "items": {
                                                     "type": "object",
+                                                    "additionalProperties": False,
                                                     "properties": {
                                                         "player_id": {"type": "integer"},
                                                         "action_type": {"type": "string"},
@@ -238,6 +246,7 @@ class PokerHandHistoryGenerator:
                                     "type": "array",
                                     "items": {
                                         "type": "object",
+                                        "additionalProperties": False,
                                         "properties": {
                                             "type": {"type": "string"},
                                             "amount": {"type": "number"},
@@ -246,6 +255,7 @@ class PokerHandHistoryGenerator:
                                                 "type": "array",
                                                 "items": {
                                                     "type": "object",
+                                                    "additionalProperties": False,
                                                     "properties": {
                                                         "player_id": {"type": "integer"},
                                                         "amount": {"type": "number"},
@@ -266,6 +276,7 @@ class PokerHandHistoryGenerator:
                                     "type": "array",
                                     "items": {
                                         "type": "object",
+                                        "additionalProperties": False,
                                         "properties": {
                                             "player_id": {"type": "integer"},
                                             "amount": {"type": "number"}
@@ -302,7 +313,14 @@ class PokerHandHistoryGenerator:
                     ],
                     max_tokens=4000,
                     temperature=0,
-                    response_format={"type": "json_object", "schema": json_schema}
+                    response_format={
+                        "type": "json_schema",
+                        "json_schema": {
+                            "name": "Poker_Open_Hand_Schema",
+                            "strict": True,
+                            "schema": json_schema
+                        }
+                    }
                 )
                 
                 # Extract and parse JSON from response

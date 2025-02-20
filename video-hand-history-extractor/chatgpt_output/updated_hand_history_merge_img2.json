@@ -1,0 +1,160 @@
+{
+    "ohh": {
+        "spec_version": "1.0",
+        "site_name": "PokerGO",
+        "network_name": "WSOP",
+        "internal_version": "1.0",
+        "tournament": true,
+        "tournament_info": {
+            "id": "WSOP_2024_Main_Event",
+            "buyin": "missing",
+            "entry_fee": "missing",
+            "bounty": 0,
+            "speed": {
+                "type": "standard",
+                "duration": 0
+            },
+            "start_time": "missing",
+            "table_size": 9,
+            "starting_stack": "missing",
+            "current_level": "missing",
+            "level_duration": "missing",
+            "late_reg_duration": "missing",
+            "rebuy_duration": "missing",
+            "addon_duration": "missing",
+            "players_remaining": "missing",
+            "prize_pool": "missing",
+            "in_the_money": "missing"
+        },
+        "game_number": "missing",
+        "start_date_utc": "2025-02-20T00:16:26.700108",
+        "table_name": "WSOP Final Table",
+        "table_handle": "missing",
+        "table_skin": "missing",
+        "game_type": "Texas Hold'em",
+        "bet_limit": {
+            "bet_type": "No Limit",
+            "bet_cap": 0
+        },
+        "table_size": 9,
+        "currency": "USD",
+        "dealer_seat": "missing",
+        "small_blind_amount": 800000,
+        "big_blind_amount": 1600000,
+        "ante_amount": 0,
+        "hero_player_id": "missing",
+        "flags": [],
+        "players": [
+            {
+                "id": 1,
+                "seat": 1,
+                "name": "Angelov",
+                "display": "Angelov",
+                "starting_stack": 56900000,
+                "player_bounty": 0,
+                "is_sitting_out": false
+            },
+            {
+                "id": 2,
+                "seat": 2,
+                "name": "Latinois",
+                "display": "Latinois",
+                "starting_stack": 24700000,
+                "player_bounty": 0,
+                "is_sitting_out": false
+            },
+            {
+                "id": 3,
+                "seat": 3,
+                "name": "Kim",
+                "display": "Kim",
+                "starting_stack": 98600000,
+                "player_bounty": 0,
+                "is_sitting_out": false
+            },
+            {
+                "id": 4,
+                "seat": 4,
+                "name": "Astedt",
+                "display": "Astedt",
+                "starting_stack": 98200000,
+                "player_bounty": 0,
+                "is_sitting_out": false
+            },
+            {
+                "id": 5,
+                "seat": 5,
+                "name": "Serock",
+                "display": "Serock",
+                "starting_stack": 86300000,
+                "player_bounty": 0,
+                "is_sitting_out": false
+            },
+            {
+                "id": 6,
+                "seat": 6,
+                "name": "Griff",
+                "display": "Griff",
+                "starting_stack": 139700000,
+                "player_bounty": 0,
+                "is_sitting_out": false
+            },
+            {
+                "id": 7,
+                "seat": 7,
+                "name": "Tamayo",
+                "display": "Tamayo",
+                "starting_stack": 22700000,
+                "player_bounty": 0,
+                "is_sitting_out": false
+            },
+            {
+                "id": 8,
+                "seat": 8,
+                "name": "Gonzalez",
+                "display": "Gonzalez",
+                "starting_stack": 14300000,
+                "player_bounty": 0,
+                "is_sitting_out": false
+            },
+            {
+                "id": 9,
+                "seat": 9,
+                "name": "Sagle",
+                "display": "Sagle",
+                "starting_stack": 68100000,
+                "player_bounty": 0,
+                "is_sitting_out": false
+            }
+        ],
+        "rounds": [
+            {
+                "name": "Preflop",
+                "street_cards": [],
+                "actions": [
+                    {
+                        "player_id": 6,
+                        "action_type": "raise",
+                        "amount": 3200000,
+                        "is_all_in": false
+                    },
+                    {
+                        "player_id": 7,
+                        "action_type": "fold",
+                        "amount": 0,
+                        "is_all_in": false
+                    }
+                ]
+            }
+        ],
+        "pots": [
+            {
+                "type": "main",
+                "amount": 7200000,
+                "rake": 0,
+                "player_wins": []
+            }
+        ],
+        "tournament_bounties": []
+    }
+}

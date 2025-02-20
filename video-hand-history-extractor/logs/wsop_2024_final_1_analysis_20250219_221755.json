@@ -1,7 +1,7 @@
 {
   "ohh": {
     "spec_version": "1.0",
-    "site_name": "pokergo.com",
+    "site_name": "pokerGO",
     "network_name": "missing",
     "internal_version": "missing",
     "tournament": true,
@@ -23,12 +23,12 @@
       "rebuy_duration": 0,
       "addon_duration": 0,
       "players_remaining": 0,
-      "prize_pool": 0,
+      "prize_pool": 7200000,
       "in_the_money": false
     },
     "game_number": "1",
     "start_date_utc": "missing",
-    "table_name": "Monkey Tilt",
+    "table_name": "missing",
     "table_handle": "missing",
     "table_skin": "missing",
     "game_type": "Texas Hold'em",
@@ -48,7 +48,7 @@
       {
         "id": 1,
         "seat": 1,
-        "name": "Griff",
+        "name": "GRIFF",
         "display": "GRIFF",
         "starting_stack": 137000000,
         "player_bounty": 0,
@@ -57,7 +57,7 @@
       {
         "id": 2,
         "seat": 2,
-        "name": "Tamayo",
+        "name": "TAMAYO",
         "display": "TAMAYO",
         "starting_stack": 22700000,
         "player_bounty": 0,
@@ -66,8 +66,8 @@
       {
         "id": 3,
         "seat": 3,
-        "name": "Angelov",
-        "display": "ANGELOV",
+        "name": "ANGELOV",
+        "display": "ANGEL",
         "starting_stack": 56900000,
         "player_bounty": 0,
         "is_sitting_out": false
@@ -75,7 +75,7 @@
       {
         "id": 4,
         "seat": 4,
-        "name": "Latinois",
+        "name": "LATINOIS",
         "display": "LATINOIS",
         "starting_stack": 24700000,
         "player_bounty": 0,
@@ -84,7 +84,7 @@
       {
         "id": 5,
         "seat": 5,
-        "name": "Kim",
+        "name": "KIM",
         "display": "KIM",
         "starting_stack": 98600000,
         "player_bounty": 0,
@@ -93,7 +93,7 @@
       {
         "id": 6,
         "seat": 6,
-        "name": "Astedt",
+        "name": "ASTEDT",
         "display": "ASTEDT",
         "starting_stack": 98200000,
         "player_bounty": 0,
@@ -102,7 +102,7 @@
       {
         "id": 7,
         "seat": 7,
-        "name": "Serock",
+        "name": "SEROCK",
         "display": "SEROCK",
         "starting_stack": 86300000,
         "player_bounty": 0,
@@ -111,7 +111,7 @@
       {
         "id": 8,
         "seat": 8,
-        "name": "Gonzalez",
+        "name": "GONZALEZ",
         "display": "GONZALEZ",
         "starting_stack": 14300000,
         "player_bounty": 0,
@@ -120,7 +120,7 @@
       {
         "id": 9,
         "seat": 9,
-        "name": "Sagle",
+        "name": "SAGLE",
         "display": "SAGLE",
         "starting_stack": 68100000,
         "player_bounty": 0,

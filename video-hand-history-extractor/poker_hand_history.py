@@ -99,7 +99,7 @@ class PokerHandHistoryGenerator:
             • Identify each game round (Pre-Flop, Flop, Turn, River).
             • Extract community cards for each round.
             • Capture player actions per round, including:
-            • player_id: Map player ID.
+            • player_id: Find player_id from Player Information by matching the player name.
             • action_type: Extract ("fold", "call", "raise", "check", "bet", "all-in").
             • amount: Extract the bet amount.
             • is_all_in: Determine if the player went all-in (true/false).
@@ -448,7 +448,8 @@ class PokerHandHistoryGenerator:
             if not image_data:
                 raise Exception("No valid image analysis data available")
                 
-            return self.generate_hand_history(image_data)
+            #return self.generate_hand_history(image_data)
+            return json.dumps(image_data, indent=2)
             
         except Exception as e:
             error_msg = f"Error processing directory {directory}: {str(e)}"
@@ -463,7 +464,7 @@ def main():
         return
     
     # Number of times to process the directory
-    process_count = 3  # Change this value to process multiple times
+    process_count = 1  # Change this value to process multiple times
     
     for i in range(process_count):
         print(f"\nProcessing iteration {i+1} of {process_count}")

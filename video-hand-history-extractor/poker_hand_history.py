@@ -464,14 +464,14 @@ def main():
         return
     
     # Number of times to process the directory
-    process_count = 3  # Change this value to process multiple times
+    process_count = 1  # Change this value to process multiple times
     
     for i in range(process_count):
         print(f"\nProcessing iteration {i+1} of {process_count}")
         generator = PokerHandHistoryGenerator(api_key)
         
         # Example usage
-        directory = "screenshots/game21"  # Directory containing poker screenshots
+        directory = "screenshots/game2"  # Directory containing poker screenshots
         hand_history = generator.process_directory(directory)
         
         # Save the hand history to a file with timestamp

@@ -42,38 +42,248 @@ class PokerHandHistoryGenerator:
     def analyze_image(self, image_path: str) -> Dict[str, Any]:
         """Analyze a single poker game image using OpenAI Vision."""
         prompt = """
-        Extract the following poker game details from the provided image and output the information in a structured JSON format.
+        Objective:
 
-        Fields to Extract:
-        1. Tournament Details:
-           • tournament_name: Name of the tournament.
-           • blind_levels: Current blinds (small blind, big blind).
-        2. Player Information:
-           • players: List of players with their chip stacks.
-           • button_seat: Seat number of the dealer button.
-        3. Pre-Flop Action:
-           • pre_flop: List of actions with player name, action type, and amount.
-        4. Post-Flop Actions:
-           • flop_cards: Three community cards.
-           • flop_action: List of actions taken on the flop.
-        5. Turn Actions:
-           • turn_card: Fourth community card.
-           • turn_action: List of actions taken on the turn.
-        6. River Actions:
-           • river_card: Fifth community card.
-           • river_action: List of actions taken on the river.
-        7. Showdown:
-           • showdown: Players who revealed their hands and the winner.
-        8. Summary:
-           • summary: Final pot size and board cards.
-        
-        Note: If any information is unclear in the image, include a "missing_details" field with an explanation.
+        Extract poker game details and hand history from the provided image and structure the output in JSON format that strictly adheres to the given JSON schema.
+
+        Guidelines:
+            1. Data Extraction & Formatting:
+            • Identify all relevant poker game details from the image, including player names, bets, community cards, and actions.
+            • Structure the extracted data into the required JSON fields.
+            • Ensure all extracted text is clean and free of OCR artifacts.
+            2. Handling Missing or Unavailable Data:
+            • If a required field is missing in the image, assign:
+            • "missing" for string fields.
+            • 0 for numeric fields.
+            • false for boolean fields.
+            • [] for empty lists.
+            • Auto-generate unique IDs for player_id, game_number, and other identifier fields based on the expected data type.
+            3. Data Validation:
+            • Ensure the final JSON output strictly conforms to the given schema.
+            • Verify all required fields are populated.
+            • Validate JSON structure to avoid schema mismatches.
+
+        Step-by-Step Extraction Guide:
+
+        1. Extract General Game Information
+            • spec_version: Assign a default version (e.g., "1.0").
+            • site_name: Extract poker platform/site name.
+            • network_name: Extract poker network (if present).
+            • internal_version: Extract or assign "missing".
+            • tournament: Determine whether it is a tournament (true/false).
+            • tournament_info: If applicable, extract tournament details.
+            • game_number: Auto-generate if not visible.
+            • start_date_utc: Extract timestamp or assign "missing".
+            • table_name and table_handle: Extract if available.
+            • table_skin: Extract or set "missing".
+            • game_type: Identify from the game (e.g., "Texas Hold'em").
+            • bet_limit: Extract bet type (e.g., "No Limit", "Pot Limit") and set "bet_cap" to 0 if unknown.
+            • table_size: Count number of seats at the table.
+            • currency: Extract (e.g., "USD", "missing" if not available).
+            • dealer_seat: Identify dealer position.
+            • small_blind_amount and big_blind_amount: Extract from game info.
+            • ante_amount: Extract or set 0 if not applicable.
+            • hero_player_id: Identify the "Hero" player (if applicable).
+
+        2. Extract Player Information
+            • Identify all players in the game.
+            • For each player, extract:
+            • id: Assign an auto-generated unique integer.
+            • seat: Identify from the image.
+            • name and display: Extract player name.
+            • starting_stack: Extract or assign 0 if missing.
+            • player_bounty: Extract for tournaments or assign 0.
+            • is_sitting_out: Determine if the player is inactive (true/false).
+
+        3. Extract Hand Rounds and Actions
+            • Identify each game round (Pre-Flop, Flop, Turn, River).
+            • Extract community cards for each round.
+            • Capture player actions per round, including:
+            • player_id: Map player ID.
+            • action_type: Extract ("fold", "call", "raise", "check", "bet", "all-in").
+            • amount: Extract the bet amount.
+            • is_all_in: Determine if the player went all-in (true/false).
+
+        4. Extract Pot and Winnings
+            • Identify the total pot size and breakdown.
+            • Extract winners and their earnings.
+            • Capture their final hands, including:
+            • player_id
+            • amount
+            • hand: List of final hole cards.
+            • hand_name: Extract the name of the winning hand (e.g., "Flush").
+
+        5. Extract Tournament-Specific Details (If Applicable)
+            • If a tournament, capture:
+            • Buy-in, entry fee, bounty.
+            • Tournament start time, structure details.
+            • Remaining players, prize pool, and payout information.
+
+        The output should be a valid JSON object with an "ohh" root property containing all the extracted information.
         """
         
         try:
             logging.info(f"Analyzing image: {image_path}")
             
             with open(image_path, "rb") as image_file:
+                # Define the JSON schema
+                json_schema = {
+                    "type": "object",
+                    "properties": {
+                        "ohh": {
+                            "type": "object",
+                            "properties": {
+                                "spec_version": {"type": "string"},
+                                "site_name": {"type": "string"},
+                                "network_name": {"type": "string"},
+                                "internal_version": {"type": "string"},
+                                "tournament": {"type": "boolean"},
+                                "tournament_info": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {"type": "string"},
+                                        "buyin": {"type": "number"},
+                                        "entry_fee": {"type": "number"},
+                                        "bounty": {"type": "number"},
+                                        "speed": {
+                                            "type": "object",
+                                            "properties": {
+                                                "type": {"type": "string"},
+                                                "duration": {"type": "integer"}
+                                            },
+                                            "required": ["type"]
+                                        },
+                                        "start_time": {"type": "string"},
+                                        "table_size": {"type": "integer"},
+                                        "starting_stack": {"type": "number"},
+                                        "current_level": {"type": "integer"},
+                                        "level_duration": {"type": "integer"},
+                                        "late_reg_duration": {"type": "integer"},
+                                        "rebuy_duration": {"type": "integer"},
+                                        "addon_duration": {"type": "integer"},
+                                        "players_remaining": {"type": "integer"},
+                                        "prize_pool": {"type": "number"},
+                                        "in_the_money": {"type": "boolean"}
+                                    }
+                                },
+                                "game_number": {"type": "string"},
+                                "start_date_utc": {"type": "string"},
+                                "table_name": {"type": "string"},
+                                "table_handle": {"type": "string"},
+                                "table_skin": {"type": "string"},
+                                "game_type": {"type": "string"},
+                                "bet_limit": {
+                                    "type": "object",
+                                    "properties": {
+                                        "bet_type": {"type": "string"},
+                                        "bet_cap": {"type": "number"}
+                                    },
+                                    "required": ["bet_type"]
+                                },
+                                "table_size": {"type": "integer"},
+                                "currency": {"type": "string"},
+                                "dealer_seat": {"type": "integer"},
+                                "small_blind_amount": {"type": "number"},
+                                "big_blind_amount": {"type": "number"},
+                                "ante_amount": {"type": "number"},
+                                "hero_player_id": {"type": "integer"},
+                                "flags": {
+                                    "type": "array",
+                                    "items": {"type": "string"}
+                                },
+                                "players": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {"type": "integer"},
+                                            "seat": {"type": "integer"},
+                                            "name": {"type": "string"},
+                                            "display": {"type": "string"},
+                                            "starting_stack": {"type": "number"},
+                                            "player_bounty": {"type": "number"},
+                                            "is_sitting_out": {"type": "boolean"}
+                                        },
+                                        "required": ["id", "seat", "name", "starting_stack"]
+                                    }
+                                },
+                                "rounds": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {"type": "string"},
+                                            "street_cards": {
+                                                "type": "array",
+                                                "items": {"type": "string"}
+                                            },
+                                            "actions": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "player_id": {"type": "integer"},
+                                                        "action_type": {"type": "string"},
+                                                        "amount": {"type": "number"},
+                                                        "is_all_in": {"type": "boolean"}
+                                                    },
+                                                    "required": ["player_id"]
+                                                }
+                                            }
+                                        },
+                                        "required": ["actions"]
+                                    }
+                                },
+                                "pots": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "type": {"type": "string"},
+                                            "amount": {"type": "number"},
+                                            "rake": {"type": "number"},
+                                            "player_wins": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "player_id": {"type": "integer"},
+                                                        "amount": {"type": "number"},
+                                                        "hand": {
+                                                            "type": "array",
+                                                            "items": {"type": "string"}
+                                                        },
+                                                        "hand_name": {"type": "string"}
+                                                    },
+                                                    "required": ["player_id"]
+                                                }
+                                            }
+                                        },
+                                        "required": ["amount", "player_wins"]
+                                    }
+                                },
+                                "tournament_bounties": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "player_id": {"type": "integer"},
+                                            "amount": {"type": "number"}
+                                        },
+                                        "required": ["player_id", "amount"]
+                                    }
+                                }
+                            },
+                            "required": [
+                                "spec_version", "site_name", "game_number", "start_date_utc",
+                                "game_type", "bet_limit", "table_size", "currency", "dealer_seat",
+                                "small_blind_amount", "big_blind_amount", "players", "rounds", "pots"
+                            ]
+                        }
+                    },
+                    "required": ["ohh"]
+                }
+
                 response = self.client.chat.completions.create(
                     model="gpt-4o-mini",
                     messages=[
@@ -91,7 +301,8 @@ class PokerHandHistoryGenerator:
                         }
                     ],
                     max_tokens=4000,
-                    temperature=0
+                    temperature=0,
+                    response_format={"type": "json_object", "schema": json_schema}
                 )
                 
                 # Extract and parse JSON from response
@@ -180,37 +391,8 @@ class PokerHandHistoryGenerator:
         return prompt
 
     def generate_hand_history(self, image_data: List[Dict[str, Any]]) -> str:
-        """Generate PokerStars format hand history using LLM."""
-        
-        # Generate the prompt for the LLM
-        prompt = self._generate_hand_history_prompt(image_data)
-        
-        try:
-            # Call OpenAI API to generate the hand history
-            response = self.client.chat.completions.create(
-                model="gpt-4",  # Using GPT-4 for better structured output
-                messages=[
-                    {"role": "system", "content": "You are a poker hand history generator that creates detailed, accurate hand histories in PokerStars format."},
-                    {"role": "user", "content": prompt}
-                ],
-                temperature=0,  # Lower temperature for more consistent output
-                max_tokens=2000
-            )
-            
-            # Extract the hand history from the response
-            hand_history = response.choices[0].message.content
-            
-            # Clean up the response - remove any markdown code blocks if present
-            hand_history = re.sub(r'```[^\n]*\n', '', hand_history)
-            hand_history = hand_history.replace('```', '')
-            hand_history = hand_history.strip()
-            
-            return hand_history
-            
-        except Exception as e:
-            error_msg = f"Error generating hand history: {str(e)}"
-            logging.error(error_msg)
-            raise Exception(error_msg)
+        """Generate hand history from analyzed image data."""
+        raise NotImplementedError("Hand history generation not implemented yet")
 
 
 

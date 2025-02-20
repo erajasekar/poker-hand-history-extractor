@@ -355,9 +355,37 @@ class PokerHandHistoryGenerator:
         return prompt
 
     def generate_hand_history(self, image_data: List[Dict[str, Any]]) -> str:
-        """Generate hand history from analyzed image data."""
-        raise NotImplementedError("Hand history generation not implemented yet")
-
+        """Generate PokerStars format hand history using LLM."""
+        
+        # Generate the prompt for the LLM
+        prompt = self._generate_hand_history_prompt(image_data)
+        
+        try:
+            # Call OpenAI API to generate the hand history
+            response = self.client.chat.completions.create(
+                model="gpt-4",  # Using GPT-4 for better structured output
+                messages=[
+                    {"role": "system", "content": "You are a poker hand history generator that creates detailed, accurate hand histories in PokerStars format."},
+                    {"role": "user", "content": prompt}
+                ],
+                temperature=0,  # Lower temperature for more consistent output
+                max_tokens=2000
+            )
+            
+            # Extract the hand history from the response
+            hand_history = response.choices[0].message.content
+            
+            # Clean up the response - remove any markdown code blocks if present
+            hand_history = re.sub(r'```[^\n]*\n', '', hand_history)
+            hand_history = hand_history.replace('```', '')
+            hand_history = hand_history.strip()
+            
+            return hand_history
+            
+        except Exception as e:
+            error_msg = f"Error generating hand history: {str(e)}"
+            logging.error(error_msg)
+            raise Exception(error_msg)
 
 
     def process_directory(self, directory: str) -> str:
@@ -383,8 +411,7 @@ class PokerHandHistoryGenerator:
             if not image_data:
                 raise Exception("No valid image analysis data available")
                 
-            #return self.generate_hand_history(image_data)
-            return json.dumps(image_data, indent=2)
+            return self.generate_hand_history(image_data)
             
         except Exception as e:
             error_msg = f"Error processing directory {directory}: {str(e)}"

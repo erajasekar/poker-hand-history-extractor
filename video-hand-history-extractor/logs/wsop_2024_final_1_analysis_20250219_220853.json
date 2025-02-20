@@ -1,0 +1,167 @@
+{
+  "ohh": {
+    "spec_version": "1.0",
+    "site_name": "pokergo.com",
+    "network_name": "missing",
+    "internal_version": "missing",
+    "tournament": true,
+    "tournament_info": {
+      "id": "2024_WSOP_Main_Event",
+      "buyin": 10000,
+      "entry_fee": 0,
+      "bounty": 0,
+      "speed": {
+        "type": "missing",
+        "duration": 0
+      },
+      "start_time": "missing",
+      "table_size": 9,
+      "starting_stack": 10000000,
+      "current_level": 0,
+      "level_duration": 0,
+      "late_reg_duration": 0,
+      "rebuy_duration": 0,
+      "addon_duration": 0,
+      "players_remaining": 0,
+      "prize_pool": 0,
+      "in_the_money": false
+    },
+    "game_number": "1",
+    "start_date_utc": "missing",
+    "table_name": "Final Table",
+    "table_handle": "missing",
+    "table_skin": "missing",
+    "game_type": "Texas Hold'em",
+    "bet_limit": {
+      "bet_type": "No Limit",
+      "bet_cap": 0
+    },
+    "table_size": 9,
+    "currency": "USD",
+    "dealer_seat": 0,
+    "small_blind_amount": 800000,
+    "big_blind_amount": 1600000,
+    "ante_amount": 0,
+    "hero_player_id": 1,
+    "flags": [],
+    "players": [
+      {
+        "id": 1,
+        "seat": 1,
+        "name": "Griff",
+        "display": "GRIFF",
+        "starting_stack": 137000000,
+        "player_bounty": 0,
+        "is_sitting_out": false
+      },
+      {
+        "id": 2,
+        "seat": 2,
+        "name": "Tamayo",
+        "display": "TAMAYO",
+        "starting_stack": 22700000,
+        "player_bounty": 0,
+        "is_sitting_out": false
+      },
+      {
+        "id": 3,
+        "seat": 3,
+        "name": "Angelov",
+        "display": "ANGELOV",
+        "starting_stack": 56900000,
+        "player_bounty": 0,
+        "is_sitting_out": false
+      },
+      {
+        "id": 4,
+        "seat": 4,
+        "name": "Latinois",
+        "display": "LATINOIS",
+        "starting_stack": 24700000,
+        "player_bounty": 0,
+        "is_sitting_out": false
+      },
+      {
+        "id": 5,
+        "seat": 5,
+        "name": "Kim",
+        "display": "KIM",
+        "starting_stack": 98600000,
+        "player_bounty": 0,
+        "is_sitting_out": false
+      },
+      {
+        "id": 6,
+        "seat": 6,
+        "name": "Astedt",
+        "display": "ASTEDT",
+        "starting_stack": 98200000,
+        "player_bounty": 0,
+        "is_sitting_out": false
+      },
+      {
+        "id": 7,
+        "seat": 7,
+        "name": "Serock",
+        "display": "SEROCK",
+        "starting_stack": 86300000,
+        "player_bounty": 0,
+        "is_sitting_out": false
+      },
+      {
+        "id": 8,
+        "seat": 8,
+        "name": "Gonzalez",
+        "display": "GONZALEZ",
+        "starting_stack": 14300000,
+        "player_bounty": 0,
+        "is_sitting_out": false
+      },
+      {
+        "id": 9,
+        "seat": 9,
+        "name": "Sagle",
+        "display": "SAGLE",
+        "starting_stack": 68100000,
+        "player_bounty": 0,
+        "is_sitting_out": false
+      }
+    ],
+    "rounds": [
+      {
+        "name": "Pre-Flop",
+        "street_cards": [],
+        "actions": [
+          {
+            "player_id": 1,
+            "action_type": "raise",
+            "amount": 3200000,
+            "is_all_in": false
+          },
+          {
+            "player_id": 2,
+            "action_type": "missing",
+            "amount": 0,
+            "is_all_in": false
+          }
+        ]
+      }
+    ],
+    "pots": [
+      {
+        "type": "main",
+        "amount": 7200000,
+        "rake": 0,
+        "player_wins": [
+          {
+            "player_id": 1,
+            "amount": 7200000,
+            "hand": [],
+            "hand_name": "missing"
+          }
+        ]
+      }
+    ],
+    "tournament_bounties": []
+  }
+}

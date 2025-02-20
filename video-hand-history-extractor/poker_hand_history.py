@@ -190,7 +190,7 @@ class PokerHandHistoryGenerator:
                                         "bet_type": {"type": "string"},
                                         "bet_cap": {"type": ["number", "null"]}
                                     },
-                                    "required": ["bet_type"]
+                                    "required": ["bet_type", "bet_cap"]
                                 },
                                 "table_size": {"type": "integer"},
                                 "currency": {"type": "string"},
@@ -276,7 +276,7 @@ class PokerHandHistoryGenerator:
                                                 }
                                             }
                                         },
-                                        "required": ["amount", "player_wins"]
+                                        "required": ["type", "amount", "rake", "player_wins"]
                                     }
                                 },
                                 "tournament_bounties": {

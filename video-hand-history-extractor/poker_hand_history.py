@@ -47,25 +47,33 @@ class PokerHandHistoryGenerator:
         Fields to Extract:
         1. Tournament Details:
            • tournament_name: Name of the tournament.
-           • blind_levels: Current blinds (small blind, big blind).
+           • blind_levels: Current blinds (small blind, big blind) with full amounts (e.g., "$1,000" not "$1K").
         2. Player Information:
            • players: List of players with their chip stacks.
+             - Use Title Case for player names (e.g., "Phil Ivey" not "phil ivey")
+             - Write chip stacks in full with commas (e.g., "$1,000,000" not "$1M")
            • button_seat: Seat number of the dealer button.
         3. Pre-Flop Action:
-           • pre_flop: List of actions with player name, action type, and amount.
+           • pre_flop: List of actions with player name (in Title Case), action type, and full amount.
+             Example: {"player_name": "Daniel Negreanu", "action_type": "raises", "amount": "$25,000"}
         4. Post-Flop Actions:
            • flop_cards: Three community cards.
-           • flop_action: List of actions taken on the flop.
+           • flop_action: List of actions with player name (in Title Case) and full amounts.
         5. Turn Actions:
            • turn_card: Fourth community card.
-           • turn_action: List of actions taken on the turn.
+           • turn_action: List of actions with player name (in Title Case) and full amounts.
         6. River Actions:
            • river_card: Fifth community card.
-           • river_action: List of actions taken on the river.
+           • river_action: List of actions with player name (in Title Case) and full amounts.
         7. Showdown:
-           • showdown: Players who revealed their hands and the winner.
+           • showdown: Players (in Title Case) who revealed their hands and the winner.
         8. Summary:
-           • summary: Final pot size and board cards.
+           • summary: Final pot size (in full amount with commas) and board cards.
+        
+        Formatting Rules:
+        • Always use Title Case for player names (e.g., "Tom Dwan" not "tom dwan")
+        • Write all amounts in full with commas (e.g., "$1,000,000" not "$1M" or "$1000000")
+        • Include dollar signs for all amounts
         
         Note: If any information is unclear in the image, include a "missing_details" field with an explanation.
         """
@@ -391,14 +399,14 @@ def main():
         return
     
     # Number of times to process the directory
-    process_count = 1 # Change this value to process multiple times
+    process_count = 3 # Change this value to process multiple times
     
     for i in range(process_count):
         print(f"\nProcessing iteration {i+1} of {process_count}")
         generator = PokerHandHistoryGenerator(api_key)
         
         # Example usage
-        directory = "screenshots/game2"  # Directory containing poker screenshots
+        directory = "screenshots/game21"  # Directory containing poker screenshots
         hand_history = generator.process_directory(directory)
         
         # Save the hand history to a file with timestamp

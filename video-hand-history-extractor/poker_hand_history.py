@@ -391,7 +391,7 @@ def main():
         return
     
     # Number of times to process the directory
-    process_count = 1  # Change this value to process multiple times
+    process_count = 3 # Change this value to process multiple times
     
     for i in range(process_count):
         print(f"\nProcessing iteration {i+1} of {process_count}")

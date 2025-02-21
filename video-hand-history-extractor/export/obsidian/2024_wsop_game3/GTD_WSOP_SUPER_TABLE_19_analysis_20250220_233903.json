@@ -1,0 +1,56 @@
+{
+  "tournament_details": {
+    "tournament_name": "2024 WSOP Paradise",
+    "blind_levels": {
+      "small_blind": "$1,500,000",
+      "big_blind": "$3,000,000"
+    }
+  },
+  "player_information": {
+    "players": [
+      {
+        "name": "Addamo",
+        "chip_stack": "$194,000,000"
+      },
+      {
+        "name": "Kanit",
+        "chip_stack": "$133,000,000"
+      }
+    ],
+    "button_seat": null
+  },
+  "pre_flop": [],
+  "post_flop": {
+    "flop_cards": [
+      "5s",
+      "4h",
+      "7d"
+    ],
+    "flop_action": []
+  },
+  "turn_actions": {
+    "turn_card": "9d",
+    "turn_action": []
+  },
+  "river_actions": {
+    "river_card": "2c",
+    "river_action": []
+  },
+  "showdown": {
+    "players": [],
+    "winner": null
+  },
+  "summary": {
+    "summary": {
+      "final_pot_size": "$27,500,000",
+      "board_cards": [
+        "5s",
+        "4h",
+        "7d",
+        "9d",
+        "2c"
+      ]
+    }
+  },
+  "missing_details": "Player actions, button seat, and showdown details are not visible."
+}

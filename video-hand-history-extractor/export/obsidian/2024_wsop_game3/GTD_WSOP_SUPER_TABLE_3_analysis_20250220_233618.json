@@ -1,0 +1,42 @@
+{
+  "tournament_details": {
+    "tournament_name": "2024 WSOP Paradise",
+    "blind_levels": {
+      "small_blind": "$1,500,000",
+      "big_blind": "$3,000,000"
+    }
+  },
+  "player_information": {
+    "players": [
+      {
+        "name": "Nguyen",
+        "chip_stack": "$160,000,000"
+      }
+    ],
+    "button_seat": null
+  },
+  "pre_flop": [],
+  "post_flop": {
+    "flop_cards": null,
+    "flop_action": []
+  },
+  "turn_actions": {
+    "turn_card": null,
+    "turn_action": []
+  },
+  "river_actions": {
+    "river_card": null,
+    "river_action": []
+  },
+  "showdown": {
+    "players": [],
+    "winner": null
+  },
+  "summary": {
+    "summary": {
+      "final_pot_size": "$7,500,000",
+      "board_cards": null
+    }
+  },
+  "missing_details": "The image does not provide information on player actions, community cards, or the dealer button position."
+}

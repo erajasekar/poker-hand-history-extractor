@@ -1,0 +1,74 @@
+{
+  "tournament_details": {
+    "tournament_name": "Paradise Super Main Event Final Table",
+    "blind_levels": {
+      "small_blind": "$1,500,000",
+      "big_blind": "$3,000,000"
+    }
+  },
+  "player_information": {
+    "players": [
+      {
+        "name": "Michael Addamo",
+        "chip_stack": "$196,500,000"
+      },
+      {
+        "name": "Chris Nguyen",
+        "chip_stack": "$143,000,000"
+      },
+      {
+        "name": "Mustapha Kanit",
+        "chip_stack": "$141,500,000"
+      },
+      {
+        "name": "Liv Boree",
+        "chip_stack": "$111,500,000"
+      },
+      {
+        "name": "Marcelo Aziz",
+        "chip_stack": "$102,000,000"
+      },
+      {
+        "name": "Zhou Yinan",
+        "chip_stack": "$88,000,000"
+      },
+      {
+        "name": "Justin Bonomo",
+        "chip_stack": "$63,500,000"
+      },
+      {
+        "name": "Georg Lehmann",
+        "chip_stack": "$48,500,000"
+      },
+      {
+        "name": "Vadzim Lipauka",
+        "chip_stack": "$46,000,000"
+      }
+    ],
+    "button_seat": null
+  },
+  "pre_flop": [],
+  "post_flop": {
+    "flop_cards": null,
+    "flop_action": []
+  },
+  "turn_actions": {
+    "turn_card": null,
+    "turn_action": []
+  },
+  "river_actions": {
+    "river_card": null,
+    "river_action": []
+  },
+  "showdown": {
+    "players": [],
+    "winner": null
+  },
+  "summary": {
+    "summary": {
+      "final_pot_size": "",
+      "board_cards": null
+    }
+  },
+  "missing_details": "The image does not provide information on button seat, pre-flop, post-flop, turn, river actions, showdown, or final pot size."
+}

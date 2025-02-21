@@ -9,11 +9,13 @@ from datetime import datetime
 from pathlib import Path
 
 class PokerHandHistoryGenerator:
-    def __init__(self, api_key: str, log_dir: str = "logs"):
+    def __init__(self, api_key: str, output_dir: str , log_dir: str = "logs"):
         self.client = OpenAI(api_key=api_key)
+        self.output_dir = output_dir
         self.log_dir = log_dir
         
-        # Create logs directory if it doesn't exist
+        # Create output and logs directories if they don't exist
+        Path(output_dir).mkdir(parents=True, exist_ok=True)
         Path(log_dir).mkdir(parents=True, exist_ok=True)
         
         # Set up logging with timestamp in filename
@@ -39,7 +41,7 @@ class PokerHandHistoryGenerator:
                       if f.lower().endswith(('.png', '.jpg', '.jpeg'))]
         return sorted(image_files, key=self._extract_image_number)
         
-    def analyze_image(self, image_path: str) -> Dict[str, Any]:
+    def analyze_image(self, image_path: str, export_markdown: bool = False) -> Dict[str, Any]:
         """Analyze a single poker game image using OpenAI Vision."""
         prompt = """
         Extract the following poker game details from the provided image and output the information in a structured JSON format.
@@ -285,13 +287,29 @@ class PokerHandHistoryGenerator:
                 current_time = datetime.now().strftime("%Y%m%d_%H%M%S")
                 base_name = os.path.splitext(os.path.basename(image_path))[0]
                 analysis_filename = f"{base_name}_analysis_{current_time}.json"
-                analysis_path = os.path.join(self.log_dir, analysis_filename)
+                analysis_path = os.path.join(self.output_dir, analysis_filename)
                 with open(analysis_path, 'w') as f:
                     json.dump(result, f, indent=2)
                 logging.info(f"Saved analysis to: {analysis_path}")
                 
-                return result
+                # If markdown export is enabled, append to markdown file
+                if export_markdown:
+                    # Get parent directory name for markdown file name
+                    parent_dir = os.path.basename(os.path.dirname(image_path))
+                    markdown_path = os.path.join(self.output_dir, f"{parent_dir}.md")
                     
+                    # Extract image filename from path
+                    image_filename = os.path.basename(image_path)
+                    
+                    # Append image and analysis to markdown file
+                    with open(markdown_path, 'a') as f:
+                        f.write(f"\n![{parent_dir}]({image_filename})\n\n")
+                        f.write("```json\n")
+                        json.dump(result, f, indent=2)
+                        f.write("\n```\n")
+
+                return result
+                
         except Exception as e:
             error_msg = f"Error analyzing image {image_path}: {str(e)}"
             logging.error(error_msg)
@@ -388,7 +406,7 @@ class PokerHandHistoryGenerator:
             raise Exception(error_msg)
 
 
-    def process_directory(self, directory: str) -> str:
+    def process_directory(self, directory: str, export_markdown: bool = False) -> str:
         """Process all images in a directory and generate complete hand history."""
         try:
             image_files = self._get_sorted_images(directory)
@@ -400,7 +418,7 @@ class PokerHandHistoryGenerator:
             for image_file in image_files:
                 image_path = os.path.join(directory, image_file)
                 logging.info(f"Processing image: {image_file}")
-                analysis = self.analyze_image(image_path)
+                analysis = self.analyze_image(image_path, export_markdown)
                 
                 if 'error' in analysis:
                     logging.error(f"Error in analysis for {image_file}: {analysis['error']}")
@@ -411,7 +429,19 @@ class PokerHandHistoryGenerator:
             if not image_data:
                 raise Exception("No valid image analysis data available")
                 
-            return self.generate_hand_history(image_data)
+            hand_history = self.generate_hand_history(image_data)
+            
+            # If markdown export is enabled, append hand history to markdown file
+            if export_markdown:
+                parent_dir = os.path.basename(directory)
+                markdown_path = os.path.join(self.output_dir, f"{parent_dir}.md")
+                with open(markdown_path, 'a') as f:
+                    f.write("\n## Hand History\n\n")
+                    f.write("```\n")
+                    f.write(hand_history)
+                    f.write("\n```\n")
+            
+            return hand_history
             
         except Exception as e:
             error_msg = f"Error processing directory {directory}: {str(e)}"
@@ -428,17 +458,22 @@ def main():
     # Number of times to process the directory
     process_count = 1 # Change this value to process multiple times
     
+    # Default output directory
+    output_dir = "export/obsidian/2024_wsop_game1"
+    export_markdown = True
+    
     for i in range(process_count):
         print(f"\nProcessing iteration {i+1} of {process_count}")
-        generator = PokerHandHistoryGenerator(api_key)
+        generator = PokerHandHistoryGenerator(api_key, output_dir=output_dir)
         
         # Example usage
         directory = "screenshots/game2"  # Directory containing poker screenshots
-        hand_history = generator.process_directory(directory)
+        # Enable markdown export
+        hand_history = generator.process_directory(directory, export_markdown)
         
-        # Save the hand history to a file with timestamp
+        # Save the hand history to a file with timestamp in output directory
         current_time = datetime.now().strftime("%Y%m%d_%H%M%S")
-        output_file = f"hand_history_{current_time}.txt"
+        output_file = os.path.join(output_dir, f"hand_history_{current_time}.txt")
         with open(output_file, "w") as f:
             f.write(hand_history)
         

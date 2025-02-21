@@ -1,122 +1,157 @@
 {
-    "type": "object",
-    "additionalProperties": false,
-    "properties": {
-      "tournament_details": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "tournament_name": { "type": "string" },
-          "blind_levels": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "small_blind": { "type": "string" },
-              "big_blind": { "type": "string" }
-            },
-            "required": ["small_blind", "big_blind"]
-          }
-        },
-        "required": ["tournament_name", "blind_levels"]
-      },
-      "player_information": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "players": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "name": { "type": "string" },
-                "chip_stack": { "type": "string" }
-              },
-              "required": ["name", "chip_stack"]
-            }
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "tournament_details": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "tournament_name": { "type": "string" },
+        "blind_levels": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "small_blind": { "type": "string" },
+            "big_blind": { "type": "string" }
           },
-          "button_seat": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
-        },
-        "required": ["players", "button_seat"]
+          "required": ["small_blind", "big_blind"]
+        }
       },
-      "pre_flop": {
-        "anyOf": [
-          {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "player_name": { "type": "string" },
-                "action_type": { "type": "string" },
-                "amount": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
-              },
-              "required": ["player_name", "action_type", "amount"]
-            }
-          },
-          { "type": "object", "additionalProperties": false, "properties": { "actions": { "type": "array", "items": { "$ref": "#" } } }, "required": ["actions"] },
-          { "type": "array", "items": {} }
-        ]
-      },
-      "post_flop": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "flop_cards": { "anyOf": [{ "type": "array", "items": { "type": "string" } }, { "type": "string" }, { "type": "null" }] },
-          "flop_action": { "type": "array", "items": { "type": "object", "additionalProperties": false } }
-        },
-        "required": ["flop_cards", "flop_action"]
-      },
-      "turn_actions": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "turn_card": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
-          "turn_action": { "type": "array", "items": { "type": "object", "additionalProperties": false } }
-        },
-        "required": ["turn_card", "turn_action"]
-      },
-      "river_actions": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "river_card": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
-          "river_action": { "type": "array", "items": { "type": "object", "additionalProperties": false } }
-        },
-        "required": ["river_card", "river_action"]
-      },
-      "showdown": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "players": {
-            "anyOf": [
-              { "type": "array", "items": { "type": "object", "additionalProperties": false, "properties": { "name": { "type": "string" }, "hand": { "type": "string" } }, "required": ["name", "hand"] } },
-              { "type": "array", "items": {} }
-            ]
-          },
-          "winner": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
-        },
-        "required": ["players", "winner"]
-      },
-      "summary": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "summary": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "final_pot_size": { "type": "string" },
-              "board_cards": { "anyOf": [{ "type": "array", "items": { "type": "string" } }, { "type": "string" }, { "type": "null" }] }
-            },
-            "required": ["final_pot_size", "board_cards"]
-          }
-        },
-        "required": ["summary"]
-      },
-      "missing_details": { "type": "string" }
+      "required": ["tournament_name", "blind_levels"]
     },
-    "required": ["tournament_details", "player_information", "pre_flop", "post_flop", "turn_actions", "river_actions", "showdown", "summary", "missing_details"]
-  }
-  
+    "player_information": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "players": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "name": { "type": "string" },
+              "chip_stack": { "type": "string" }
+            },
+            "required": ["name", "chip_stack"]
+          }
+        },
+        "button_seat": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+      },
+      "required": ["players", "button_seat"]
+    },
+    "pre_flop": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "player_name": { "type": "string" },
+          "action_type": { "type": "string" },
+          "amount": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+        },
+        "required": ["player_name", "action_type", "amount"]
+      }
+    },
+    "post_flop": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "flop_cards": { "anyOf": [{ "type": "array", "items": { "type": "string" } }, { "type": "string" }, { "type": "null" }] },
+        "flop_action": { 
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "player_name": { "type": "string" },
+              "action_type": { "type": "string" },
+              "amount": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+            },
+            "required": ["player_name", "action_type", "amount"]
+          }
+        }
+      },
+      "required": ["flop_cards", "flop_action"]
+    },
+    "turn_actions": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "turn_card": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+        "turn_action": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "player_name": { "type": "string" },
+              "action_type": { "type": "string" },
+              "amount": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+            },
+            "required": ["player_name", "action_type", "amount"]
+          }
+        }
+      },
+      "required": ["turn_card", "turn_action"]
+    },
+    "river_actions": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "river_card": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+        "river_action": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "player_name": { "type": "string" },
+              "action_type": { "type": "string" },
+              "amount": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+            },
+            "required": ["player_name", "action_type", "amount"]
+          }
+        }
+      },
+      "required": ["river_card", "river_action"]
+    },
+    "showdown": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "players": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "name": { "type": "string" },
+              "hand": { "type": "string" }
+            },
+            "required": ["name", "hand"]
+          }
+        },
+        "winner": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+      },
+      "required": ["players", "winner"]
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "summary": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "final_pot_size": { "type": "string" },
+            "board_cards": { "anyOf": [{ "type": "array", "items": { "type": "string" } }, { "type": "string" }, { "type": "null" }] }
+          },
+          "required": ["final_pot_size", "board_cards"]
+        }
+      },
+      "required": ["summary"]
+    },
+    "missing_details": { "type": "string" }
+  },
+  "required": ["tournament_details", "player_information", "pre_flop", "post_flop", "turn_actions", "river_actions", "showdown", "summary", "missing_details"]
+}

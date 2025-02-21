@@ -76,6 +76,11 @@ class PokerHandHistoryGenerator:
         • Always use Title Case for player names (e.g., "Tom Dwan" not "tom dwan")
         • Write all amounts in full with commas (e.g., "$1,000,000" not "$1M" or "$1000000")
         • Include dollar signs for all amounts
+        • For card suites, use the following single character representations:
+          - Hearts: h (e.g., "Ah" for Ace of Hearts)
+          - Clubs: c (e.g., "Kc" for King of Clubs)
+          - Diamonds: d (e.g., "Qd" for Queen of Diamonds)
+          - Spades: s (e.g., "Js" for Jack of Spades)
         
         Note: If any information is unclear in the image, include a "missing_details" field with an explanation.
         """
@@ -364,6 +369,13 @@ class PokerHandHistoryGenerator:
             5. Determine the Winner: Identify the final showdown results.
             6. Format the Summary Section: List pot details, board cards, and final player results.
 
+        Card Suite Format:
+        Use the following single character representations for card suites:
+        - Hearts: h (e.g., "Ah" for Ace of Hearts)
+        - Clubs: c (e.g., "Kc" for King of Clubs)
+        - Diamonds: d (e.g., "Qd" for Queen of Diamonds)
+        - Spades: s (e.g., "Js" for Jack of Spades)
+
         Here is the JSON data from the analyzed images:
         """
         
@@ -459,7 +471,7 @@ def main():
     process_count = 1 # Change this value to process multiple times
     
     # Default output directory
-    output_dir = "export/obsidian/2024_wsop_game1"
+    output_dir = "export/obsidian/2024_wsop_game3"
     export_markdown = True
     
     for i in range(process_count):
@@ -467,7 +479,7 @@ def main():
         generator = PokerHandHistoryGenerator(api_key, output_dir=output_dir)
         
         # Example usage
-        directory = "screenshots/game2"  # Directory containing poker screenshots
+        directory = "screenshots/game3"  # Directory containing poker screenshots
         # Enable markdown export
         hand_history = generator.process_directory(directory, export_markdown)
         

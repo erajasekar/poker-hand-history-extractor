@@ -1,0 +1,47 @@
+PokerStars Hand #123456789: Tournament #987654321, 2024 WSOP Main Event - Final Table - $800,000/$1,600,000 - 2024/07/15 20:00:00
+Table 'Final Table' 9-max Seat #8 is the button
+
+Seat 1: Angelov ($56,900,000)
+Seat 2: Latinois ($24,700,000)
+Seat 3: Kim ($98,600,000)
+Seat 4: Astedt ($98,200,000)
+Seat 5: Serock ($86,300,000)
+Seat 6: Griff ($139,700,000)
+Seat 7: Tamayo ($22,700,000)
+Seat 8: Gonzalez ($14,300,000)
+Seat 9: Sagle ($68,100,000)
+
+*** HOLE CARDS ***
+Dealt to Griff [3s 3d]
+Dealt to Gonzalez [8s 8d]
+
+*** PRE-FLOP ***
+Griff: raises $3,200,000
+Tamayo: folds
+Sagle: folds
+Angelov: folds
+Gonzalez: all-in $14,300,000
+Griff: call $11,100,000
+
+*** FLOP *** [5h 8d 4h]
+
+*** TURN *** [5h 8d 4h] [5d]
+
+*** RIVER *** [5h 8d 4h 5d] [9s]
+
+*** SHOW DOWN ***
+Griff: shows [3s 3d]
+Gonzalez: shows [8s 8d]
+
+*** SUMMARY ***
+Total pot $32,600,000 | Rake $0
+Board [5h 8d 4h 5d 9s]
+Seat 1: Angelov folded before Flop (didn't bet)
+Seat 2: Latinois folded before Flop (didn't bet)
+Seat 3: Kim folded before Flop (didn't bet)
+Seat 4: Astedt folded before Flop (didn't bet)
+Seat 5: Serock folded before Flop (didn't bet)
+Seat 6: Griff lost with Three of a Kind, Threes [3s 3d]
+Seat 7: Tamayo folded before Flop (didn't bet)
+Seat 8: Gonzalez (button) won ($32,600,000) with Full House, Eights full of Fives [8s 8d]
+Seat 9: Sagle folded before Flop (didn't bet)

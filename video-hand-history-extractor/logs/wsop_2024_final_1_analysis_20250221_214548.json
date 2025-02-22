@@ -1,0 +1,55 @@
+{
+  "gameInfo": {
+    "tournamentName": "2024 WSOP Main Event",
+    "eventName": "Final Table",
+    "stage": "",
+    "blinds": {
+      "smallBlind": 800000.0,
+      "bigBlind": 1600000.0
+    }
+  },
+  "players": [
+    {
+      "name": "Griff",
+      "nationality": "",
+      "stack": 137000000.0,
+      "cards": [
+        "3s",
+        "3d"
+      ],
+      "actions": {
+        "preflop": [
+          {
+            "type": "raise",
+            "amount": 3200000.0
+          }
+        ],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0.0
+    },
+    {
+      "name": "Tamayo",
+      "nationality": "USA",
+      "stack": 22700000.0,
+      "cards": [
+        "Kd",
+        "Th"
+      ],
+      "actions": {
+        "preflop": [],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0.0
+    }
+  ],
+  "board": null,
+  "pot": 7200000.0,
+  "error": null
+}

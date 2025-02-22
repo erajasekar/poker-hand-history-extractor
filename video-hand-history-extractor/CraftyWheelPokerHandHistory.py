@@ -2,6 +2,7 @@ from enum import Enum
 from typing import List, Optional
 from pydantic import BaseModel, Field
 
+#TODO error field and find proper way to check for errors
 class ActionType(str, Enum):
     FOLD = "fold"
     CHECK = "check"

@@ -373,14 +373,24 @@ class PokerHandHistoryGenerator:
             for image_file in image_files:
                 image_path = os.path.join(directory, image_file)
                 logging.info(f"Processing image: {image_file}")
-                analysis = self.analyze_image(image_path, export_markdown)
-                
-                if hasattr(analysis, 'error'):
-                    logging.error(f"Error in analysis for {image_file}: {analysis.error}")
-                    continue
+                try:
+                    logging.info(f"Starting analysis for {image_file}")
+                    analysis = self.analyze_image(image_path, export_markdown)
+                    #logging.info(f"Raw analysis object: {analysis}")
                     
-                image_data.append(analysis.model_dump())
+                    if hasattr(analysis, 'error') and analysis.error is not None:
+                        logging.error(f"Error in analysis for {image_file}: {analysis.error}")
+                        continue
+                    
+                    analysis_data = analysis.model_dump()
+                    #logging.info(f"Analysis data after model_dump: {analysis_data}")
+                    image_data.append(analysis_data)
+                    logging.info(f"Successfully added analysis data for {image_file}")
+                except Exception as e:
+                    logging.error(f"Exception processing {image_file}: {str(e)}")
+                    continue
             
+            logging.info(f"Total image data collected: {len(image_data)}")
             if not image_data:
                 raise Exception("No valid image analysis data available")
                 

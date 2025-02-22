@@ -29,7 +29,8 @@
         ]
       },
       "isWinner": false,
-      "amountWon": 0.0
+      "amountWon": 0.0,
+      "isActive": true
     },
     {
       "name": "Kanit",
@@ -51,7 +52,8 @@
         ]
       },
       "isWinner": false,
-      "amountWon": 0.0
+      "amountWon": 0.0,
+      "isActive": true
     }
   ],
   "board": {

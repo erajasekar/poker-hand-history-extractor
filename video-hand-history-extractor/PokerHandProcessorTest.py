@@ -55,7 +55,7 @@ final_history = processor.get_final_hand_history()
 if final_history:
     # Print final history in JSON format
     print("\nFinal History JSON:")
-    print(json.dumps(final_history, indent=2))
+    print(processor.get_final_hand_history_json())
     
     # Generate hand history in PokerStars format
     hand_history = generator.generate_hand_history(final_history)

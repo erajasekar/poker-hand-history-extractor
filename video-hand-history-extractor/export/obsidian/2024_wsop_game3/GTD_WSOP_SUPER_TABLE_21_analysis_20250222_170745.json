@@ -20,12 +20,7 @@
       "actions": {
         "preflop": [],
         "flop": [],
-        "turn": [
-          {
-            "type": "check",
-            "amount": 0.0
-          }
-        ],
+        "turn": [],
         "river": []
       },
       "isWinner": false,
@@ -35,7 +30,7 @@
     {
       "name": "Kanit",
       "nationality": "Italy",
-      "stack": 133000000.0,
+      "stack": 161000000.0,
       "cards": [
         "Ad",
         "Tc"
@@ -46,19 +41,19 @@
         "turn": [],
         "river": []
       },
-      "isWinner": false,
-      "amountWon": 0.0,
+      "isWinner": true,
+      "amountWon": 16000000.0,
       "isActive": true
     }
   ],
   "board": {
     "flop": [
       "5s",
-      "4c",
+      "4d",
       "7d"
     ],
     "turn": "9d",
-    "river": ""
+    "river": "2c"
   },
   "pot": 27500000.0,
   "error": null

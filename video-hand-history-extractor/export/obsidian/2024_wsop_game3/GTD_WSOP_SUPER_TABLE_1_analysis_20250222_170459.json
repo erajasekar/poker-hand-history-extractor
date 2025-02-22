@@ -1,0 +1,34 @@
+{
+  "gameInfo": {
+    "tournamentName": "2024 WSOP Paradise",
+    "eventName": "Super Main Event",
+    "stage": "Final Table",
+    "blinds": {
+      "smallBlind": 1500000.0,
+      "bigBlind": 3000000.0
+    }
+  },
+  "players": [
+    {
+      "name": "Lehmann",
+      "nationality": "Germany",
+      "stack": 30000000.0,
+      "cards": [
+        "7h",
+        "6d"
+      ],
+      "actions": {
+        "preflop": [],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0.0,
+      "isActive": true
+    }
+  ],
+  "board": null,
+  "pot": 7500000.0,
+  "error": null
+}

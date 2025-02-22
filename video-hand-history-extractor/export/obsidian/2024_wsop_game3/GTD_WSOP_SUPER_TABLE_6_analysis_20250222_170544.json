@@ -12,7 +12,7 @@
     {
       "name": "Player 1",
       "nationality": "Australia",
-      "stack": 0.0,
+      "stack": 194000000.0,
       "cards": [],
       "actions": {
         "preflop": [],
@@ -27,7 +27,7 @@
     {
       "name": "Player 2",
       "nationality": "USA",
-      "stack": 0.0,
+      "stack": 160000000.0,
       "cards": [],
       "actions": {
         "preflop": [],
@@ -42,7 +42,7 @@
     {
       "name": "Player 3",
       "nationality": "Belarus",
-      "stack": 0.0,
+      "stack": 146000000.0,
       "cards": [],
       "actions": {
         "preflop": [],

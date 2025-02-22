@@ -11,7 +11,7 @@
   "players": [
     {
       "name": "Player 1",
-      "nationality": "UK",
+      "nationality": "USA",
       "stack": 0.0,
       "cards": [],
       "actions": {
@@ -26,7 +26,7 @@
     },
     {
       "name": "Player 2",
-      "nationality": "Germany",
+      "nationality": "Unknown",
       "stack": 0.0,
       "cards": [],
       "actions": {
@@ -41,7 +41,7 @@
     },
     {
       "name": "Player 3",
-      "nationality": "China",
+      "nationality": "Italy",
       "stack": 0.0,
       "cards": [],
       "actions": {
@@ -55,12 +55,12 @@
       "isActive": true
     },
     {
-      "name": "Lehmann",
-      "nationality": "Germany",
-      "stack": 30000000.0,
+      "name": "Aziz",
+      "nationality": "Brazil",
+      "stack": 92000000.0,
       "cards": [
-        "7h",
-        "6d"
+        "Jh",
+        "2h"
       ],
       "actions": {
         "preflop": [],

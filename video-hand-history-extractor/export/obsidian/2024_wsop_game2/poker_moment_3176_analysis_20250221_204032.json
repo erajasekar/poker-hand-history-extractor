@@ -1,0 +1,89 @@
+{
+  "gameInfo": {
+    "tournamentName": "High Stakes Poker",
+    "eventName": "GTO Wizard",
+    "stage": "N/A",
+    "blinds": {
+      "smallBlind": 0,
+      "bigBlind": 0
+    }
+  },
+  "players": [
+    {
+      "name": "Keating",
+      "nationality": "Unknown",
+      "stack": 983000,
+      "cards": [
+        "As",
+        "Ks"
+      ],
+      "actions": {
+        "preflop": [],
+        "flop": [
+          {
+            "type": "check",
+            "amount": 0
+          }
+        ],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0
+    },
+    {
+      "name": "Feldman",
+      "nationality": "Unknown",
+      "stack": 178000,
+      "cards": [
+        "8c",
+        "6c"
+      ],
+      "actions": {
+        "preflop": [],
+        "flop": [
+          {
+            "type": "bet",
+            "amount": 80000
+          }
+        ],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0
+    },
+    {
+      "name": "Kulick",
+      "nationality": "Unknown",
+      "stack": 495000,
+      "cards": [
+        "9h",
+        "6d"
+      ],
+      "actions": {
+        "preflop": [],
+        "flop": [
+          {
+            "type": "call",
+            "amount": 80000
+          }
+        ],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0
+    }
+  ],
+  "board": {
+    "flop": [
+      "Ad",
+      "7h",
+      "5c"
+    ],
+    "turn": "4s",
+    "river": "N/A"
+  },
+  "pot": 269000
+}

@@ -1,0 +1,85 @@
+{
+  "gameInfo": {
+    "tournamentName": "2024 WSOP Main Event",
+    "eventName": "Final Table",
+    "stage": "Final Table",
+    "blinds": {
+      "smallBlind": 800000,
+      "bigBlind": 1600000
+    }
+  },
+  "players": [
+    {
+      "name": "Sagle",
+      "nationality": "USA",
+      "stack": 68100000,
+      "cards": [
+        "Ts",
+        "2d"
+      ],
+      "actions": {
+        "preflop": [
+          {
+            "type": "fold",
+            "amount": 0
+          }
+        ],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0
+    },
+    {
+      "name": "Griff",
+      "nationality": "Unknown",
+      "stack": 139700000,
+      "cards": [
+        "3s",
+        "3d"
+      ],
+      "actions": {
+        "preflop": [
+          {
+            "type": "raise",
+            "amount": 3200000
+          }
+        ],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0
+    },
+    {
+      "name": "Gonzalez",
+      "nationality": "Unknown",
+      "stack": 14300000,
+      "cards": [
+        "8d",
+        "8c"
+      ],
+      "actions": {
+        "preflop": [
+          {
+            "type": "raise",
+            "amount": 14300000
+          }
+        ],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0
+    }
+  ],
+  "board": {
+    "flop": [],
+    "turn": "",
+    "river": ""
+  },
+  "pot": 21500000
+}

@@ -1,0 +1,84 @@
+{
+  "gameInfo": {
+    "tournamentName": "Aria",
+    "eventName": "High Stakes Poker",
+    "stage": "Unknown",
+    "blinds": {
+      "smallBlind": 0,
+      "bigBlind": 0
+    }
+  },
+  "players": [
+    {
+      "name": "Keating",
+      "nationality": "Unknown",
+      "stack": 983000,
+      "cards": [
+        "As",
+        "Ks"
+      ],
+      "actions": {
+        "preflop": [
+          {
+            "type": "check",
+            "amount": 0
+          }
+        ],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0
+    },
+    {
+      "name": "Feldman",
+      "nationality": "Unknown",
+      "stack": 258000,
+      "cards": [
+        "8c",
+        "6c"
+      ],
+      "actions": {
+        "preflop": [
+          {
+            "type": "check",
+            "amount": 0
+          }
+        ],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0
+    },
+    {
+      "name": "Kulick",
+      "nationality": "Unknown",
+      "stack": 575000,
+      "cards": [
+        "9h",
+        "6d"
+      ],
+      "actions": {
+        "preflop": [],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0
+    }
+  ],
+  "board": {
+    "flop": [
+      "Ad",
+      "7h",
+      "5c"
+    ],
+    "turn": "",
+    "river": ""
+  },
+  "pot": 109000
+}

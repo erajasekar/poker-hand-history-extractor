@@ -1,0 +1,39 @@
+PokerStars Hand #N/A: Tournament #N/A, High Stakes Poker - 1000/2000 - N/A
+Table 'Aria' 3-max Seat #N/A is the button
+
+Seat 1: Feldman (294000) 
+Seat 2: Keating (983000)
+Seat 3: Kulick (575000)
+
+Feldman: posts small blind 1000
+Keating: posts big blind 2000
+
+*** HOLE CARDS ***
+Dealt to Feldman [8c 6c]
+Dealt to Keating [As Ks]
+Dealt to Kulick [9h 6d]
+
+*** PRE-FLOP ***
+Feldman: checks
+Keating: checks
+
+*** FLOP *** [Ad 7h 5c]
+Feldman: bets 80000
+Keating: checks
+Kulick: calls 80000
+
+*** TURN *** [Ad 7h 5c] [4s]
+No actions
+
+*** RIVER *** [Ad 7h 5c 4s] [N/A]
+No actions
+
+*** SHOW DOWN ***
+No showdown details
+
+*** SUMMARY ***
+Total pot 269000 | Rake N/A
+Board [Ad 7h 5c 4s N/A]
+Seat 1: Feldman lost
+Seat 2: Keating lost
+Seat 3: Kulick lost

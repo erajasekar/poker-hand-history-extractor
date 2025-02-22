@@ -1,0 +1,36 @@
+{
+  "gameInfo": {
+    "tournamentName": "Aria",
+    "eventName": "High Stakes Poker",
+    "stage": "Presented by GTO Wizard",
+    "blinds": {
+      "smallBlind": 1000,
+      "bigBlind": 2000
+    }
+  },
+  "players": [
+    {
+      "name": "Feldman",
+      "nationality": "Unknown",
+      "stack": 294000,
+      "cards": [
+        "8c",
+        "6c"
+      ],
+      "actions": {
+        "preflop": [],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0
+    }
+  ],
+  "board": {
+    "flop": [],
+    "turn": "",
+    "river": ""
+  },
+  "pot": 2000
+}

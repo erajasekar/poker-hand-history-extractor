@@ -1,0 +1,33 @@
+PokerStars Hand #2024WSOP: Tournament #2024WSOP, 2024 WSOP Main Event - 800000/1600000 - Final Table
+Table 'Final Table' 9-max Seat #1 is the button
+
+Seat 1: Griff (125000000) 
+Seat 2: Gonzalez (18300000) 
+
+Griff: posts small blind 800000
+Gonzalez: posts big blind 1600000
+
+*** HOLE CARDS ***
+Dealt to Griff [3s 3d]
+Dealt to Gonzalez [8s 8d]
+
+Griff: calls 14300000
+Gonzalez: raises 14300000
+
+*** FLOP *** [5h 8d 4h]
+
+*** TURN *** [5h 8d 4h] [5d]
+
+*** RIVER *** [5h 8d 4h 5d] [9s]
+
+*** SHOW DOWN ***
+Gonzalez: shows [8s 8d] (Three of a Kind, Eights)
+Griff: mucks hand 
+
+Gonzalez collected 32600000 from pot
+
+*** SUMMARY ***
+Total pot 32600000 | Rake 0
+Board [5h 8d 4h 5d 9s]
+Seat 1: Griff (small blind) mucked [3s 3d]
+Seat 2: Gonzalez (big blind) showed [8s 8d] and won (32600000) with Three of a Kind, Eights

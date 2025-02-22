@@ -1,0 +1,85 @@
+{
+  "gameInfo": {
+    "tournamentName": "WSOP 2024",
+    "eventName": "Main Event",
+    "stage": "Final Table",
+    "blinds": {
+      "smallBlind": 800000,
+      "bigBlind": 1600000
+    }
+  },
+  "players": [
+    {
+      "name": "Angelov",
+      "nationality": "Unknown",
+      "stack": 54000000,
+      "cards": [
+        "6c",
+        "3h"
+      ],
+      "actions": {
+        "preflop": [
+          {
+            "type": "fold",
+            "amount": 0
+          }
+        ],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0
+    },
+    {
+      "name": "Griff",
+      "nationality": "Unknown",
+      "stack": 137000000,
+      "cards": [
+        "3c",
+        "3d"
+      ],
+      "actions": {
+        "preflop": [
+          {
+            "type": "raise",
+            "amount": 3200000
+          }
+        ],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0
+    },
+    {
+      "name": "Gonzalez",
+      "nationality": "Unknown",
+      "stack": 14300000,
+      "cards": [
+        "8h",
+        "8d"
+      ],
+      "actions": {
+        "preflop": [
+          {
+            "type": "raise",
+            "amount": 14300000
+          }
+        ],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0
+    }
+  ],
+  "board": {
+    "flop": [],
+    "turn": "",
+    "river": ""
+  },
+  "pot": 21500000
+}

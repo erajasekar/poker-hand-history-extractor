@@ -1,0 +1,67 @@
+{
+  "gameInfo": {
+    "tournamentName": "2024 WSOP Main Event",
+    "eventName": "Final Table",
+    "stage": "Final Table",
+    "blinds": {
+      "smallBlind": 800000,
+      "bigBlind": 1600000
+    }
+  },
+  "players": [
+    {
+      "name": "Griff",
+      "nationality": "Unknown",
+      "stack": 125000000,
+      "cards": [
+        "3s",
+        "3d"
+      ],
+      "actions": {
+        "preflop": [
+          {
+            "type": "call",
+            "amount": 14300000
+          }
+        ],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0
+    },
+    {
+      "name": "Gonzalez",
+      "nationality": "Unknown",
+      "stack": 14300000,
+      "cards": [
+        "8s",
+        "8d"
+      ],
+      "actions": {
+        "preflop": [
+          {
+            "type": "raise",
+            "amount": 14300000
+          }
+        ],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": true,
+      "amountWon": 32600000
+    }
+  ],
+  "board": {
+    "flop": [
+      "5h",
+      "8h",
+      "4d"
+    ],
+    "turn": "4c",
+    "river": ""
+  },
+  "pot": 32600000
+}

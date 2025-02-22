@@ -14,6 +14,7 @@ class ActionType(str, Enum):
     CALL = "call"
     BET = "bet"
     RAISE = "raise"
+    ALL_IN = "all_in"
 
 class Action(BaseModel):
     type: ActionType

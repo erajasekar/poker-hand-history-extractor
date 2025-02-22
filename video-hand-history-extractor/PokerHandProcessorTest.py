@@ -1,8 +1,10 @@
 import os
 import json
 import re
+from datetime import datetime
 from CraftyWheelPokerHandHistory import CraftyWheelPokerHandHistory
 from PokerHandProcessor import PokerHandProcessor
+from poker_hand_history import PokerHandHistoryGenerator
 
 # Input directory containing JSON files
 input_dir = "export/obsidian/2024_wsop_game3_process"
@@ -17,8 +19,14 @@ def extract_number(filename):
 
 json_files.sort(key=extract_number)
 
-# Create PokerHandProcessor instance
+# Get OpenAI API key from environment
+api_key = os.getenv("OPENAI_API_KEY")
+if not api_key:
+    raise Exception("OPENAI_API_KEY environment variable not set")
+
+# Create processor and generator instances
 processor = PokerHandProcessor()
+generator = PokerHandHistoryGenerator(api_key=api_key, output_dir="logs")
 
 # Process each file
 for json_file in json_files:
@@ -42,7 +50,25 @@ for json_file in json_files:
     except Exception as e:
         print(f"Error processing {json_file}: {str(e)}")
 
-# Print final hand history
+# Get final hand history
 final_history = processor.get_final_hand_history()
-print("\nFinal Hand History:")
-print(final_history)
+if final_history:
+    # Print final history in JSON format
+    print("\nFinal History JSON:")
+    print(json.dumps(final_history, indent=2))
+    
+    # Generate hand history in PokerStars format
+    hand_history = generator.generate_hand_history(final_history)
+    
+    # Generate timestamp for filename
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    output_filename = f"hand_history_{timestamp}.txt"
+    output_path = os.path.join(input_dir, output_filename)
+    
+    # Write hand history to file
+    with open(output_path, 'w') as f:
+        f.write(hand_history)
+    
+    print(f"\nHand history written to: {output_path}")
+else:
+    print("\nNo valid hand history data available")

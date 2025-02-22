@@ -1,0 +1,66 @@
+PokerStars Hand #2024WSOP: Tournament #SuperMainEvent, 2024 WSOP Paradise - 1500000/3000000 - Final Table
+Table 'Final Table' 9-max Seat #1 is the button
+
+Seat 1: Lehmann (30000000) 
+Seat 2: Yinan (94000000) 
+Seat 3: Nguyen (160000000) 
+Seat 4: Boeree (104000000) 
+Seat 5: Aziz (92000000) 
+Seat 6: Kanit (161000000) 
+Seat 7: Lipauka (46000000) 
+Seat 8: Bonomo (61000000) 
+Seat 9: Addamo (194000000) 
+
+Lehmann: posts small blind 1500000
+Yinan: posts big blind 3000000
+
+*** HOLE CARDS ***
+Dealt to Lehmann [7h 6d]
+Dealt to Yinan [Ah 5c]
+Dealt to Nguyen [3s 2s]
+Dealt to Boeree [8c 4s]
+Dealt to Aziz [Jh 2h]
+Dealt to Kanit [Ad Tc]
+Dealt to Lipauka [9s 7c]
+Dealt to Bonomo [Kd 7s]
+Dealt to Addamo [Kc Th]
+
+Lehmann: folds
+Yinan: folds
+Nguyen: folds
+Boeree: folds
+Aziz: folds
+Kanit: raises 6000000
+Lipauka: folds
+Bonomo: folds
+Addamo: calls 6000000
+
+*** FLOP *** [5s 4d 7d]
+Kanit: calls 5500000
+Addamo: bets 5500000
+
+*** TURN *** [5s 4d 7d] [9c]
+Kanit: checks
+Addamo: checks
+
+*** RIVER *** [5s 4d 7d 9c] [2c]
+Kanit: checks
+Addamo: checks
+
+*** SHOW DOWN ***
+Kanit: shows [Ad Tc] (High Card Ace)
+Addamo: shows [Kc Th] (High Card King)
+Kanit collected 16000000 from pot
+
+*** SUMMARY ***
+Total pot 27500000 | Rake 0
+Board [5s 4d 7d 9c 2c]
+Seat 1: Lehmann folded before Flop (didn't bet)
+Seat 2: Yinan folded before Flop (didn't bet)
+Seat 3: Nguyen folded before Flop (didn't bet)
+Seat 4: Boeree folded before Flop (didn't bet)
+Seat 5: Aziz folded before Flop (didn't bet)
+Seat 6: Kanit showed [Ad Tc] and won (16000000) with High Card Ace
+Seat 7: Lipauka folded before Flop (didn't bet)
+Seat 8: Bonomo folded before Flop (didn't bet)
+Seat 9: Addamo showed [Kc Th] and lost with High Card King

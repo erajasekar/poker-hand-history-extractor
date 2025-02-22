@@ -103,3 +103,6 @@ class PokerHandProcessor:
         
     def get_final_hand_history(self) -> CraftyWheelPokerHandHistory:
         return self.final_history
+    
+    def get_final_hand_history_json(self) -> str:
+        return json.dumps(self.final_history, default=lambda o: o.__dict__, indent=4)

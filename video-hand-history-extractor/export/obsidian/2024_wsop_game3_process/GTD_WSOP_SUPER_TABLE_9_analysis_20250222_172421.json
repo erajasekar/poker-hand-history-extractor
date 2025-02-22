@@ -33,12 +33,12 @@
       "isActive": true
     },
     {
-      "name": "Bonomo",
-      "nationality": "USA",
-      "stack": 61000000.0,
+      "name": "Addamo",
+      "nationality": "Australia",
+      "stack": 203000000.0,
       "cards": [
-        "Kd",
-        "7s"
+        "Kc",
+        "Tc"
       ],
       "actions": {
         "preflop": [],

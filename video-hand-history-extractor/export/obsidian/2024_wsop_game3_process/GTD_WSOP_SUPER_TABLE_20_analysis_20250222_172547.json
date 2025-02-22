@@ -21,7 +21,12 @@
         "preflop": [],
         "flop": [],
         "turn": [],
-        "river": []
+        "river": [
+          {
+            "type": "check",
+            "amount": 0.0
+          }
+        ]
       },
       "isWinner": false,
       "amountWon": 0.0,
@@ -39,20 +44,25 @@
         "preflop": [],
         "flop": [],
         "turn": [],
-        "river": []
+        "river": [
+          {
+            "type": "check",
+            "amount": 0.0
+          }
+        ]
       },
       "isWinner": true,
-      "amountWon": 16000000.0,
+      "amountWon": 27500000.0,
       "isActive": true
     }
   ],
   "board": {
     "flop": [
       "5s",
-      "4d",
+      "4s",
       "7d"
     ],
-    "turn": "9c",
+    "turn": "9d",
     "river": "2c"
   },
   "pot": 27500000.0,

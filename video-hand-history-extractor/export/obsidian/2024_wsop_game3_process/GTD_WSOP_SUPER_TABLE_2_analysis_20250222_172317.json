@@ -10,8 +10,8 @@
   },
   "players": [
     {
-      "name": "Player 1",
-      "nationality": "UK",
+      "name": "Unknown",
+      "nationality": "Brazil",
       "stack": 0.0,
       "cards": [],
       "actions": {
@@ -25,7 +25,22 @@
       "isActive": true
     },
     {
-      "name": "Player 2",
+      "name": "Unknown",
+      "nationality": "United Kingdom",
+      "stack": 0.0,
+      "cards": [],
+      "actions": {
+        "preflop": [],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0.0,
+      "isActive": true
+    },
+    {
+      "name": "Unknown",
       "nationality": "Germany",
       "stack": 0.0,
       "cards": [],
@@ -40,27 +55,12 @@
       "isActive": true
     },
     {
-      "name": "Player 3",
+      "name": "Yinan",
       "nationality": "China",
-      "stack": 0.0,
-      "cards": [],
-      "actions": {
-        "preflop": [],
-        "flop": [],
-        "turn": [],
-        "river": []
-      },
-      "isWinner": false,
-      "amountWon": 0.0,
-      "isActive": true
-    },
-    {
-      "name": "Lehmann",
-      "nationality": "Germany",
-      "stack": 30000000.0,
+      "stack": 94000000.0,
       "cards": [
-        "7h",
-        "6d"
+        "Ah",
+        "5c"
       ],
       "actions": {
         "preflop": [],
@@ -68,12 +68,19 @@
         "turn": [],
         "river": []
       },
-      "isWinner": false,
-      "amountWon": 0.0,
+      "isWinner": true,
+      "amountWon": 7500000.0,
       "isActive": true
     }
   ],
-  "board": null,
+  "board": {
+    "flop": [
+      "As",
+      "5d"
+    ],
+    "turn": "",
+    "river": ""
+  },
   "pot": 7500000.0,
   "error": null
 }

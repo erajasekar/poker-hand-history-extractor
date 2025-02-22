@@ -10,12 +10,12 @@
   },
   "players": [
     {
-      "name": "Boeree",
-      "nationality": "UK",
-      "stack": 104000000.0,
+      "name": "LEHMANN",
+      "nationality": "German",
+      "stack": 30000000.0,
       "cards": [
-        "8c",
-        "4s"
+        "7h",
+        "6d"
       ],
       "actions": {
         "preflop": [],

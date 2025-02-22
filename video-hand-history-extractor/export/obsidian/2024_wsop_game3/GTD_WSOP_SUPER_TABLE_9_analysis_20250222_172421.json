@@ -33,12 +33,12 @@
       "isActive": true
     },
     {
-      "name": "Lipauka",
-      "nationality": "Belarus",
-      "stack": 46000000.0,
+      "name": "Addamo",
+      "nationality": "Australia",
+      "stack": 203000000.0,
       "cards": [
-        "9s",
-        "7c"
+        "Kc",
+        "Tc"
       ],
       "actions": {
         "preflop": [],

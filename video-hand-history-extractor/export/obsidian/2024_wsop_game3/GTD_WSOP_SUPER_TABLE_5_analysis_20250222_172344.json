@@ -10,13 +10,25 @@
   },
   "players": [
     {
-      "name": "Aziz",
-      "nationality": "Brazil",
-      "stack": 92000000.0,
-      "cards": [
-        "Jh",
-        "2h"
-      ],
+      "name": "Unknown",
+      "nationality": "USA",
+      "stack": 0.0,
+      "cards": [],
+      "actions": {
+        "preflop": [],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0.0,
+      "isActive": true
+    },
+    {
+      "name": "Unknown",
+      "nationality": "Unknown",
+      "stack": 0.0,
+      "cards": [],
       "actions": {
         "preflop": [],
         "flop": [],
@@ -43,25 +55,13 @@
       "isActive": true
     },
     {
-      "name": "Unknown",
-      "nationality": "Belarus",
-      "stack": 0.0,
-      "cards": [],
-      "actions": {
-        "preflop": [],
-        "flop": [],
-        "turn": [],
-        "river": []
-      },
-      "isWinner": false,
-      "amountWon": 0.0,
-      "isActive": true
-    },
-    {
-      "name": "Unknown",
-      "nationality": "USA",
-      "stack": 0.0,
-      "cards": [],
+      "name": "Aziz",
+      "nationality": "Brazil",
+      "stack": 92000000.0,
+      "cards": [
+        "Jh",
+        "2h"
+      ],
       "actions": {
         "preflop": [],
         "flop": [],

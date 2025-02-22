@@ -9,6 +9,9 @@ from poker_hand_history import PokerHandHistoryGenerator
 # Input directory containing JSON files
 input_dir = "export/obsidian/2024_wsop_game3_process"
 
+# Configuration flags
+generate_hand_history = False  # Set to False to skip hand history text generation
+
 # Get all JSON files from the directory
 json_files = [f for f in os.listdir(input_dir) if f.endswith('.json')]
 
@@ -53,22 +56,27 @@ for json_file in json_files:
 # Get final hand history
 final_history = processor.get_final_hand_history()
 if final_history:
-    # Print final history in JSON format
-    print("\nFinal History JSON:")
-    print(processor.get_final_hand_history_json())
-    
-    # Generate hand history in PokerStars format
-    hand_history = generator.generate_hand_history(final_history)
-    
-    # Generate timestamp for filename
+    # Generate timestamp for filenames
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    output_filename = f"hand_history_{timestamp}.txt"
-    output_path = os.path.join(input_dir, output_filename)
     
-    # Write hand history to file
-    with open(output_path, 'w') as f:
-        f.write(hand_history)
+    # Save final history to JSON file
+    json_filename = f"final_history_{timestamp}.json"
+    json_path = os.path.join(input_dir, json_filename)
+    with open(json_path, 'w') as f:
+        json.dump(final_history.model_dump(), f, indent=2)
+    print(f"\nFinal history JSON written to: {json_path}")
     
-    print(f"\nHand history written to: {output_path}")
+    # Generate and save hand history text if flag is enabled
+    if generate_hand_history:
+        # Generate hand history in PokerStars format
+        hand_history = generator.generate_hand_history(final_history)
+        
+        # Save hand history to text file
+        output_filename = f"hand_history_{timestamp}.txt"
+        output_path = os.path.join(input_dir, output_filename)
+        with open(output_path, 'w') as f:
+            f.write(hand_history)
+        
+        print(f"\nHand history written to: {output_path}")
 else:
     print("\nNo valid hand history data available")

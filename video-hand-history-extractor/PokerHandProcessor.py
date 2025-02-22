@@ -4,6 +4,17 @@ import json;
 class PokerHandProcessor:
     def __init__(self):
         self.final_history = CraftyWheelPokerHandHistory()
+    
+    def add_non_duplicate_actions(self, existing_actions, new_actions):
+        for new_action in new_actions:
+            # Check if action already exists
+            exists = False
+            for existing_action in existing_actions:
+                if existing_action.type == new_action.type and existing_action.amount == new_action.amount:
+                    exists = True
+                    break
+            if not exists:
+                existing_actions.append(new_action)
         
     def handle(self, hand_history: CraftyWheelPokerHandHistory):
         # Skip if either history is empty or has error
@@ -15,25 +26,27 @@ class PokerHandProcessor:
         # Get current street from hand_history
         current_street = hand_history.get_current_street()
 
-        # Step 1: For each player in final_history, check if present in hand_history
-        for final_player in self.final_history.players:
+        # Step 1: For each active player in final_history, check if present in hand_history
+        for final_player in [p for p in self.final_history.players if p.isActive]:
             found = False
             for hand_player in hand_history.players:
                 if final_player.name == hand_player.name:
                     found = True
                     break
             
-            # If player not found in hand_history, add flop action
+            # If player not found in hand_history, add fold action if it doesn't exist
             if not found:
                 fold_action = Action(type=ActionType.FOLD, amount=0)
+                fold_actions = [fold_action]
                 if current_street == Street.PREFLOP:
-                    final_player.actions.preflop.append(fold_action)
+                    self.add_non_duplicate_actions(final_player.actions.preflop, fold_actions)
                 elif current_street == Street.FLOP:
-                    final_player.actions.flop.append(fold_action)
+                    self.add_non_duplicate_actions(final_player.actions.flop, fold_actions)
                 elif current_street == Street.TURN:
-                    final_player.actions.turn.append(fold_action)
+                    self.add_non_duplicate_actions(final_player.actions.turn, fold_actions)
                 elif current_street == Street.RIVER:
-                    final_player.actions.river.append(fold_action)
+                    self.add_non_duplicate_actions(final_player.actions.river, fold_actions)
+                final_player.isActive = False  # Set isActive to False when fold action is added
 
         # Step 2: Get players with cards and copy their actions
         players_with_cards = hand_history.get_player_with_cards()
@@ -41,11 +54,11 @@ class PokerHandProcessor:
             found = False
             for final_player in self.final_history.players:
                 if final_player.name == player_with_cards.name:
-                    # Copy all actions from all streets
-                    final_player.actions.preflop.extend(player_with_cards.actions.preflop)
-                    final_player.actions.flop.extend(player_with_cards.actions.flop)
-                    final_player.actions.turn.extend(player_with_cards.actions.turn)
-                    final_player.actions.river.extend(player_with_cards.actions.river)
+                    # Copy non-duplicate actions from all streets
+                    self.add_non_duplicate_actions(final_player.actions.preflop, player_with_cards.actions.preflop)
+                    self.add_non_duplicate_actions(final_player.actions.flop, player_with_cards.actions.flop)
+                    self.add_non_duplicate_actions(final_player.actions.turn, player_with_cards.actions.turn)
+                    self.add_non_duplicate_actions(final_player.actions.river, player_with_cards.actions.river)
                     found = True
                     break
             

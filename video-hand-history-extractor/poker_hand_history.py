@@ -400,13 +400,25 @@ class PokerHandHistoryGenerator:
             if not final_history:
                 raise Exception("No valid hand history data available")
             
+            # Save final history to JSON file
+            current_time = datetime.now().strftime("%Y%m%d_%H%M%S")
+            parent_dir = os.path.basename(directory)
+            json_filename = f"final_history_{current_time}.json"
+            json_path = os.path.join(self.output_dir, json_filename)
+            with open(json_path, 'w') as f:
+                json.dump(final_history.model_dump(), f, indent=2)
+            logging.info(f"Saved final history to: {json_path}")
+            
             hand_history = self.generate_hand_history(final_history)
             
-            # If markdown export is enabled, append hand history to markdown file
+            # If markdown export is enabled, append final history and hand history to markdown file
             if export_markdown:
-                parent_dir = os.path.basename(directory)
                 markdown_path = os.path.join(self.output_dir, f"{parent_dir}.md")
                 with open(markdown_path, 'a') as f:
+                    f.write("\n## Final History\n\n")
+                    f.write("```json\n")
+                    json.dump(final_history.model_dump(), f, indent=2)
+                    f.write("\n```\n")
                     f.write("\n## Hand History\n\n")
                     f.write("```\n")
                     f.write(hand_history)

@@ -2,7 +2,12 @@ from enum import Enum
 from typing import List, Optional
 from pydantic import BaseModel, Field
 
-#TODO error field and find proper way to check for errors
+class Street(str, Enum):
+    PREFLOP = "preflop"
+    FLOP = "flop"
+    TURN = "turn"
+    RIVER = "river"
+
 class ActionType(str, Enum):
     FOLD = "fold"
     CHECK = "check"
@@ -70,3 +75,22 @@ class CraftyWheelPokerHandHistory(BaseModel):
             CraftyWheelPokerHandHistory instance
         """
         return cls.model_validate(response_data)
+
+    def get_current_street(self) -> Street:
+        """
+        Determine the current street based on the board state.
+        Returns Street enum value.
+        """
+        if not self.board:
+            return Street.PREFLOP
+            
+        if not self.board.flop:
+            return Street.PREFLOP
+            
+        if not self.board.turn:
+            return Street.FLOP
+            
+        if not self.board.river:
+            return Street.TURN
+            
+        return Street.RIVER

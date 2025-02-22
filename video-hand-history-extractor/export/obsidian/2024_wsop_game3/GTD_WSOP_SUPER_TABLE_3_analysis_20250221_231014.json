@@ -1,0 +1,75 @@
+{
+  "gameInfo": {
+    "tournamentName": "2024 WSOP Paradise",
+    "eventName": "Super Main Event",
+    "stage": "Final Table",
+    "blinds": {
+      "smallBlind": 1500000.0,
+      "bigBlind": 3000000.0
+    }
+  },
+  "players": [
+    {
+      "name": "Player 1",
+      "nationality": "Italy",
+      "stack": 0.0,
+      "cards": [],
+      "actions": {
+        "preflop": [],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0.0
+    },
+    {
+      "name": "Player 2",
+      "nationality": "Brazil",
+      "stack": 0.0,
+      "cards": [],
+      "actions": {
+        "preflop": [],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0.0
+    },
+    {
+      "name": "Player 3",
+      "nationality": "United Kingdom",
+      "stack": 0.0,
+      "cards": [],
+      "actions": {
+        "preflop": [],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0.0
+    },
+    {
+      "name": "Nguyen",
+      "nationality": "Germany",
+      "stack": 160000000.0,
+      "cards": [
+        "3s",
+        "2s"
+      ],
+      "actions": {
+        "preflop": [],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": true,
+      "amountWon": 2000000.0
+    }
+  ],
+  "board": null,
+  "pot": 7500000.0,
+  "error": null
+}

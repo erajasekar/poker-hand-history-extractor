@@ -425,16 +425,16 @@ def main():
     process_count = 1 # Change this value to process multiple times
     
     # Default output directory
-    #output_dir = "export/obsidian/2024_wsop_game2"
-    output_dir = "logs"
-    export_markdown = False
+    output_dir = "export/obsidian/2024_wsop_game3"
+    #output_dir = "logs"
+    export_markdown = True
     
     for i in range(process_count):
         print(f"\nProcessing iteration {i+1} of {process_count}")
         generator = PokerHandHistoryGenerator(api_key, output_dir=output_dir)
         
         # Example usage
-        directory = "screenshots/game21"  # Directory containing poker screenshots
+        directory = "screenshots/game3"  # Directory containing poker screenshots
         # Enable markdown export
         hand_history = generator.process_directory(directory, export_markdown)
         

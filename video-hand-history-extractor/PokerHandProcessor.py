@@ -48,17 +48,32 @@ class PokerHandProcessor:
                     self.add_non_duplicate_actions(final_player.actions.river, fold_actions)
                 final_player.isActive = False  # Set isActive to False when fold action is added
 
-        # Step 2: Get players with cards and copy their actions
+        # Step 2: Get players with cards and copy their actions based on current street
         players_with_cards = hand_history.get_player_with_cards()
         for player_with_cards in players_with_cards:
             found = False
             for final_player in self.final_history.players:
                 if final_player.name == player_with_cards.name:
-                    # Copy non-duplicate actions from all streets
-                    self.add_non_duplicate_actions(final_player.actions.preflop, player_with_cards.actions.preflop)
-                    self.add_non_duplicate_actions(final_player.actions.flop, player_with_cards.actions.flop)
-                    self.add_non_duplicate_actions(final_player.actions.turn, player_with_cards.actions.turn)
-                    self.add_non_duplicate_actions(final_player.actions.river, player_with_cards.actions.river)
+                    # Get all actions from hand_history player
+                    all_actions = []
+                    if player_with_cards.actions.preflop:
+                        all_actions.extend(player_with_cards.actions.preflop)
+                    if player_with_cards.actions.flop:
+                        all_actions.extend(player_with_cards.actions.flop)
+                    if player_with_cards.actions.turn:
+                        all_actions.extend(player_with_cards.actions.turn)
+                    if player_with_cards.actions.river:
+                        all_actions.extend(player_with_cards.actions.river)
+                    
+                    # Add actions to appropriate street based on current_street
+                    if current_street == Street.PREFLOP:
+                        self.add_non_duplicate_actions(final_player.actions.preflop, all_actions)
+                    elif current_street == Street.FLOP:
+                        self.add_non_duplicate_actions(final_player.actions.flop, all_actions)
+                    elif current_street == Street.TURN:
+                        self.add_non_duplicate_actions(final_player.actions.turn, all_actions)
+                    elif current_street == Street.RIVER:
+                        self.add_non_duplicate_actions(final_player.actions.river, all_actions)
                     found = True
                     break
             
@@ -75,6 +90,7 @@ class PokerHandProcessor:
                     final_player.cards = hand_player.cards
                     final_player.isWinner = hand_player.isWinner
                     final_player.amountWon = hand_player.amountWon
+                    final_player.isActive = hand_player.isActive
                     break
 
         # Step 4: Copy game info, board and pot

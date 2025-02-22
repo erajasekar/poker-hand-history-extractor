@@ -43,7 +43,7 @@ class Player(BaseModel):
     actions: PlayerActions
     isWinner: bool
     amountWon: float
-    isActive: bool = True  # Default to True when player is created
+    isActive: bool
 
 class Board(BaseModel):
     flop: List[str]

@@ -10,44 +10,22 @@
   },
   "players": [
     {
-      "name": "Player 1",
+      "name": "Addamo",
       "nationality": "Australia",
-      "stack": 0.0,
-      "cards": [],
+      "stack": 194000000.0,
+      "cards": [
+        "Kc",
+        "Th"
+      ],
       "actions": {
         "preflop": [],
         "flop": [],
-        "turn": [],
-        "river": []
-      },
-      "isWinner": false,
-      "amountWon": 0.0,
-      "isActive": true
-    },
-    {
-      "name": "Player 2",
-      "nationality": "USA",
-      "stack": 0.0,
-      "cards": [],
-      "actions": {
-        "preflop": [],
-        "flop": [],
-        "turn": [],
-        "river": []
-      },
-      "isWinner": false,
-      "amountWon": 0.0,
-      "isActive": true
-    },
-    {
-      "name": "Player 3",
-      "nationality": "Belarus",
-      "stack": 0.0,
-      "cards": [],
-      "actions": {
-        "preflop": [],
-        "flop": [],
-        "turn": [],
+        "turn": [
+          {
+            "type": "bet",
+            "amount": 5500000.0
+          }
+        ],
         "river": []
       },
       "isWinner": false,
@@ -57,7 +35,7 @@
     {
       "name": "Kanit",
       "nationality": "Italy",
-      "stack": 145000000.0,
+      "stack": 139000000.0,
       "cards": [
         "Ad",
         "Tc"
@@ -73,7 +51,15 @@
       "isActive": true
     }
   ],
-  "board": null,
-  "pot": 7500000.0,
+  "board": {
+    "flop": [
+      "5s",
+      "4c",
+      "7d"
+    ],
+    "turn": "",
+    "river": ""
+  },
+  "pot": 22000000.0,
   "error": null
 }

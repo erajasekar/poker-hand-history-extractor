@@ -10,7 +10,7 @@
   },
   "players": [
     {
-      "name": "Unknown",
+      "name": "Player 1",
       "nationality": "Australia",
       "stack": 0.0,
       "cards": [],
@@ -21,10 +21,11 @@
         "river": []
       },
       "isWinner": false,
-      "amountWon": 0.0
+      "amountWon": 0.0,
+      "isActive": true
     },
     {
-      "name": "Unknown",
+      "name": "Player 2",
       "nationality": "USA",
       "stack": 0.0,
       "cards": [],
@@ -35,11 +36,12 @@
         "river": []
       },
       "isWinner": false,
-      "amountWon": 0.0
+      "amountWon": 0.0,
+      "isActive": true
     },
     {
-      "name": "Unknown",
-      "nationality": "Unknown",
+      "name": "Player 3",
+      "nationality": "Belarus",
       "stack": 0.0,
       "cards": [],
       "actions": {
@@ -49,7 +51,8 @@
         "river": []
       },
       "isWinner": false,
-      "amountWon": 0.0
+      "amountWon": 0.0,
+      "isActive": true
     },
     {
       "name": "Kanit",
@@ -66,14 +69,11 @@
         "river": []
       },
       "isWinner": false,
-      "amountWon": 0.0
+      "amountWon": 0.0,
+      "isActive": true
     }
   ],
-  "board": {
-    "flop": [],
-    "turn": "",
-    "river": ""
-  },
+  "board": null,
   "pot": 7500000.0,
   "error": null
 }

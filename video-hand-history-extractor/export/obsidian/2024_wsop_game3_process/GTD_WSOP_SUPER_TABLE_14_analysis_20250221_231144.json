@@ -10,21 +10,21 @@
   },
   "players": [
     {
-      "name": "Kanit",
-      "nationality": "Italy",
-      "stack": 139000000.0,
+      "name": "Addamo",
+      "nationality": "Australia",
+      "stack": 194000000.0,
       "cards": [
-        "Ad",
-        "Tc"
+        "Kc",
+        "Th"
       ],
       "actions": {
-        "preflop": [
+        "preflop": [],
+        "flop": [
           {
-            "type": "raise",
-            "amount": 6000000.0
+            "type": "bet",
+            "amount": 5500000.0
           }
         ],
-        "flop": [],
         "turn": [],
         "river": []
       },
@@ -33,16 +33,21 @@
       "isActive": true
     },
     {
-      "name": "Lipauka",
-      "nationality": "Belarus",
-      "stack": 46000000.0,
+      "name": "Kanit",
+      "nationality": "Italy",
+      "stack": 133000000.0,
       "cards": [
-        "9s",
-        "7c"
+        "Ad",
+        "Tc"
       ],
       "actions": {
         "preflop": [],
-        "flop": [],
+        "flop": [
+          {
+            "type": "call",
+            "amount": 5500000.0
+          }
+        ],
         "turn": [],
         "river": []
       },
@@ -51,7 +56,15 @@
       "isActive": true
     }
   ],
-  "board": null,
-  "pot": 13500000.0,
+  "board": {
+    "flop": [
+      "5s",
+      "4c",
+      "7d"
+    ],
+    "turn": "",
+    "river": ""
+  },
+  "pot": 27500000.0,
   "error": null
 }

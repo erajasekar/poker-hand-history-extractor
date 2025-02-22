@@ -29,7 +29,8 @@
         "river": []
       },
       "isWinner": false,
-      "amountWon": 0.0
+      "amountWon": 0.0,
+      "isActive": true
     },
     {
       "name": "Addamo",
@@ -46,7 +47,8 @@
         "river": []
       },
       "isWinner": false,
-      "amountWon": 0.0
+      "amountWon": 0.0,
+      "isActive": true
     }
   ],
   "board": null,

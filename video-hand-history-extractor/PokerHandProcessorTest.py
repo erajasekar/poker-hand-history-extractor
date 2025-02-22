@@ -31,7 +31,12 @@ for json_file in json_files:
         # Print the object and current street
         print(f"\nProcessing file: {json_file}")
         print(f"Current street: {hand_history.get_current_street()}")
-       # print(hand_history.model_dump_json(indent=2))
+        
+        # Print players with cards
+        players_with_cards = hand_history.get_player_with_cards()
+        print("Players with cards:")
+        for player in players_with_cards:
+            print(f"- {player.name}: {player.cards}")
         
     except Exception as e:
         print(f"Error processing {json_file}: {str(e)}")

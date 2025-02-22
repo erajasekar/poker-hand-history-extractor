@@ -94,3 +94,11 @@ class CraftyWheelPokerHandHistory(BaseModel):
             return Street.TURN
             
         return Street.RIVER
+
+    def get_player_with_cards(self) -> List[Player]:
+        """
+        Returns a list of players who have cards.
+        """
+        if not self.players:
+            return []
+        return [player for player in self.players if player.cards]

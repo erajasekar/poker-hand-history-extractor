@@ -69,6 +69,11 @@ class PokerHandHistoryGenerator:
           * "Bet" with amount
           * "Raise" with amount
         - Record amounts when shown (in millions)
+        - Add actions to appropriate section based on board status:
+          * If no flop cards visible: add actions to preflop section
+          * If flop cards visible but no turn/river: add actions to flop section
+          * If flop and turn cards visible but no river: add actions to turn section
+          * If all flop, turn, river cards visible: add actions to river section
 
         4. BOARD CARDS
         - Record community cards as they appear

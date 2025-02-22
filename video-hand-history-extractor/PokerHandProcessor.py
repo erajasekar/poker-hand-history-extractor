@@ -102,4 +102,4 @@ class PokerHandProcessor:
             self.final_history.pot = hand_history.pot
         
     def get_final_hand_history(self) -> CraftyWheelPokerHandHistory:
-        return json.dumps(self.final_history, indent=4, default=lambda x: x.__dict__)
+        return self.final_history

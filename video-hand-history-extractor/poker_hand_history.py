@@ -7,7 +7,8 @@ from typing import List, Dict, Any
 from openai import OpenAI
 from datetime import datetime
 from pathlib import Path
-from CraftyWheelPokerHandHistory import CraftyWheelPokerHandHistory;
+from CraftyWheelPokerHandHistory import CraftyWheelPokerHandHistory
+from PokerHandProcessor import PokerHandProcessor
 
 class PokerHandHistoryGenerator:
     def __init__(self, api_key: str, output_dir: str , log_dir: str = "logs"):
@@ -270,7 +271,7 @@ class PokerHandHistoryGenerator:
             error_result.error = error_msg
             return error_result
 
-    def _generate_hand_history_prompt(self, image_data: List[Dict[str, Any]]) -> str:
+    def _generate_hand_history_prompt(self, image_data: CraftyWheelPokerHandHistory) -> str:
         """Generate the prompt for LLM to create hand history."""
         prompt = """
         Using multiple structured outputs from previous extractions, generate a complete poker hand history in the following format:
@@ -330,11 +331,12 @@ class PokerHandHistoryGenerator:
         """
         
         # Add the image data as JSON
-        prompt += "\n" + json.dumps(image_data, indent=2)
+        # Convert CraftyWheelPokerHandHistory object to dict format for JSON serialization
+        prompt += "\n" + json.dumps(image_data.model_dump(), indent=2)
         
         return prompt
 
-    def generate_hand_history(self, image_data: List[Dict[str, Any]]) -> str:
+    def generate_hand_history(self, image_data: CraftyWheelPokerHandHistory) -> str:
         """Generate PokerStars format hand history using LLM."""
         
         # Generate the prompt for the LLM
@@ -372,7 +374,7 @@ class PokerHandHistoryGenerator:
         """Process all images in a directory and generate complete hand history."""
         try:
             image_files = self._get_sorted_images(directory)
-            image_data = []
+            processor = PokerHandProcessor()
             
             logging.info(f"Processing directory: {directory}")
             logging.info(f"Found {len(image_files)} images to process")
@@ -382,27 +384,23 @@ class PokerHandHistoryGenerator:
                 logging.info(f"Processing image: {image_file}")
                 try:
                     logging.info(f"Starting analysis for {image_file}")
-                    analysis = self.analyze_image(image_path, export_markdown)
-                    #logging.info(f"Raw analysis object: {analysis}")
+                    hand_analysis = self.analyze_image(image_path, export_markdown)
                     
-                    if hasattr(analysis, 'error') and analysis.error is not None:
-                        logging.error(f"Error in analysis for {image_file}: {analysis.error}")
+                    if hasattr(hand_analysis, 'error') and hand_analysis.error is not None:
+                        logging.error(f"Error in analysis for {image_file}: {hand_analysis.error}")
                         continue
                     
-                    analysis_data = analysis.model_dump()
-                    #logging.info(f"Analysis data after model_dump: {analysis_data}")
-                    image_data.append(analysis_data)
-                    logging.info(f"Successfully added analysis data for {image_file}")
+                    processor.handle(hand_analysis)
+                    logging.info(f"Successfully processed analysis for {image_file}")
                 except Exception as e:
                     logging.error(f"Exception processing {image_file}: {str(e)}")
                     continue
             
-            logging.info(f"Total image data collected: {len(image_data)}")
-            if not image_data:
-                raise Exception("No valid image analysis data available")
-                
-            #hand_history = self.generate_hand_history(image_data)
-            hand_history = json.dumps(image_data, indent=4)
+            final_history = processor.get_final_hand_history()
+            if not final_history:
+                raise Exception("No valid hand history data available")
+            
+            hand_history = self.generate_hand_history(final_history)
             
             # If markdown export is enabled, append hand history to markdown file
             if export_markdown:

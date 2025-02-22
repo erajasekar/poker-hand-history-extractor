@@ -70,10 +70,7 @@
     }
   ],
   "board": {
-    "flop": [
-      "As",
-      "Td"
-    ],
+    "flop": [],
     "turn": "",
     "river": ""
   },

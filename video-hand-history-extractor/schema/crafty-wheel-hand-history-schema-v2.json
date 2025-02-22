@@ -1,0 +1,92 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Poker Hand History",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "gameInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "tournamentName": { "type": "string" },
+          "eventName": { "type": "string" },
+          "stage": { "type": "string" },
+          "blinds": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "smallBlind": { "type": "number" },
+              "bigBlind": { "type": "number" }
+            },
+            "required": ["smallBlind", "bigBlind"]
+          }
+        },
+        "required": ["tournamentName", "eventName", "stage", "blinds"]
+      },
+      "players": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "name": { "type": "string" },
+            "nationality": { "type": "string" },
+            "stack": { "type": "number" },
+            "cards": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "actions": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "preflop": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "type": { 
+                        "type": "string",
+                        "enum": ["fold", "check", "call", "bet", "raise"]
+                      },
+                      "amount": { "type": "number" }
+                    },
+                    "required": ["type", "amount"]
+                  }
+                },
+                "flop": {
+                  "$ref": "#/properties/players/items/properties/actions/properties/preflop"
+                },
+                "turn": {
+                  "$ref": "#/properties/players/items/properties/actions/properties/preflop"
+                },
+                "river": {
+                  "$ref": "#/properties/players/items/properties/actions/properties/preflop"
+                }
+              },
+              "required": ["preflop", "flop", "turn", "river"]
+            },
+            "isWinner": { "type": "boolean" },
+            "amountWon": { "type": "number" }
+          },
+          "required": ["name", "nationality", "stack", "cards", "actions", "isWinner", "amountWon"]
+        }
+      },
+      "board": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "flop": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "turn": { "type": "string" },
+          "river": { "type": "string" }
+        },
+        "required": ["flop", "turn", "river"]
+      },
+      "pot": { "type": "number" }
+    },
+    "required": ["gameInfo", "players", "board", "pot"]
+  }

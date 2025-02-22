@@ -1,0 +1,58 @@
+{
+  "gameInfo": {
+    "tournamentName": "WSOP Paradise",
+    "eventName": "Super Main Event",
+    "stage": "Final Table",
+    "blinds": {
+      "smallBlind": 1500000,
+      "bigBlind": 3000000
+    }
+  },
+  "players": [
+    {
+      "name": "Kanit",
+      "nationality": "Italy",
+      "stack": 139000000,
+      "cards": [
+        "Ad",
+        "Tc"
+      ],
+      "actions": {
+        "preflop": [
+          {
+            "type": "raise",
+            "amount": 6000000
+          }
+        ],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0
+    },
+    {
+      "name": "Lipauka",
+      "nationality": "Belarus",
+      "stack": 46000000,
+      "cards": [
+        "9s",
+        "7c"
+      ],
+      "actions": {
+        "preflop": [],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0
+    }
+  ],
+  "board": {
+    "flop": [],
+    "turn": "",
+    "river": ""
+  },
+  "pot": 13500000
+}

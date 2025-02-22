@@ -1,0 +1,145 @@
+{
+  "gameInfo": {
+    "tournamentName": "Paradise Poker Championship",
+    "eventName": "Super Main Event",
+    "stage": "Final Table",
+    "blinds": {
+      "smallBlind": 1500000,
+      "bigBlind": 3000000
+    }
+  },
+  "players": [
+    {
+      "name": "Michael Addamo",
+      "nationality": "Australia",
+      "stack": 196500000,
+      "cards": [],
+      "actions": {
+        "preflop": [],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0
+    },
+    {
+      "name": "Chris Nguyen",
+      "nationality": "Germany",
+      "stack": 143000000,
+      "cards": [],
+      "actions": {
+        "preflop": [],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0
+    },
+    {
+      "name": "Mustapha Kanit",
+      "nationality": "Italy",
+      "stack": 141500000,
+      "cards": [],
+      "actions": {
+        "preflop": [],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0
+    },
+    {
+      "name": "Liv Boeree",
+      "nationality": "United Kingdom",
+      "stack": 111500000,
+      "cards": [],
+      "actions": {
+        "preflop": [],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0
+    },
+    {
+      "name": "Marcelo Aziz",
+      "nationality": "Brazil",
+      "stack": 102000000,
+      "cards": [],
+      "actions": {
+        "preflop": [],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0
+    },
+    {
+      "name": "Zhou Yinan",
+      "nationality": "China",
+      "stack": 88000000,
+      "cards": [],
+      "actions": {
+        "preflop": [],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0
+    },
+    {
+      "name": "Justin Bonomo",
+      "nationality": "United States",
+      "stack": 63500000,
+      "cards": [],
+      "actions": {
+        "preflop": [],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0
+    },
+    {
+      "name": "Georg Lehmann",
+      "nationality": "Germany",
+      "stack": 48500000,
+      "cards": [],
+      "actions": {
+        "preflop": [],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0
+    },
+    {
+      "name": "Vadzim Lipauka",
+      "nationality": "Belarus",
+      "stack": 46000000,
+      "cards": [],
+      "actions": {
+        "preflop": [],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0
+    }
+  ],
+  "board": {
+    "flop": [],
+    "turn": "",
+    "river": ""
+  },
+  "pot": 0
+}

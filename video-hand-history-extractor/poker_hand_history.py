@@ -7,6 +7,7 @@ from typing import List, Dict, Any
 from openai import OpenAI
 from datetime import datetime
 from pathlib import Path
+from CraftyWheelPokerHandHistory import CraftyWheelPokerHandHistory;
 
 class PokerHandHistoryGenerator:
     def __init__(self, api_key: str, output_dir: str , log_dir: str = "logs"):
@@ -203,7 +204,7 @@ class PokerHandHistoryGenerator:
                   "required": ["gameInfo", "players", "board", "pot"]
                 }
 
-                response = self.client.chat.completions.create(
+                response = self.client.beta.chat.completions.parse(
                     model="gpt-4o",
                     messages=[
                         {
@@ -221,14 +222,7 @@ class PokerHandHistoryGenerator:
                     ],
                     max_tokens=4000,
                     temperature=0,
-                    response_format={
-                        "type": "json_schema",
-                        "json_schema": {
-                            "name": "Crafty_Wheel_Hand_Schema",
-                            "strict": True,
-                            "schema": json_schema
-                        }
-                    }
+                    response_format=CraftyWheelPokerHandHistory
                 )
                 
                 # Extract and parse JSON from response
@@ -396,7 +390,8 @@ class PokerHandHistoryGenerator:
             if not image_data:
                 raise Exception("No valid image analysis data available")
                 
-            hand_history = self.generate_hand_history(image_data)
+            #hand_history = self.generate_hand_history(image_data)
+            hand_history = json.dumps(image_data, indent=4)
             
             # If markdown export is enabled, append hand history to markdown file
             if export_markdown:
@@ -426,15 +421,16 @@ def main():
     process_count = 1 # Change this value to process multiple times
     
     # Default output directory
-    output_dir = "export/obsidian/2024_wsop_game2"
-    export_markdown = True
+    #output_dir = "export/obsidian/2024_wsop_game2"
+    output_dir = "logs"
+    export_markdown = False
     
     for i in range(process_count):
         print(f"\nProcessing iteration {i+1} of {process_count}")
         generator = PokerHandHistoryGenerator(api_key, output_dir=output_dir)
         
         # Example usage
-        directory = "screenshots/game2"  # Directory containing poker screenshots
+        directory = "screenshots/game21"  # Directory containing poker screenshots
         # Enable markdown export
         hand_history = generator.process_directory(directory, export_markdown)
         

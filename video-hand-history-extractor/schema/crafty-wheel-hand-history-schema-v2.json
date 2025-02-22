@@ -2,6 +2,23 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "title": "Poker Hand History",
     "type": "object",
+    "definitions": {
+      "actionArray": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["fold", "check", "call", "bet", "raise"]
+            },
+            "amount": { "type": "number" }
+          },
+          "required": ["type", "amount"]
+        }
+      }
+    },
     "additionalProperties": false,
     "properties": {
       "gameInfo": {
@@ -40,30 +57,10 @@
               "type": "object",
               "additionalProperties": false,
               "properties": {
-                "preflop": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                      "type": { 
-                        "type": "string",
-                        "enum": ["fold", "check", "call", "bet", "raise"]
-                      },
-                      "amount": { "type": "number" }
-                    },
-                    "required": ["type", "amount"]
-                  }
-                },
-                "flop": {
-                  "$ref": "#/properties/players/items/properties/actions/properties/preflop"
-                },
-                "turn": {
-                  "$ref": "#/properties/players/items/properties/actions/properties/preflop"
-                },
-                "river": {
-                  "$ref": "#/properties/players/items/properties/actions/properties/preflop"
-                }
+                "preflop": { "$ref": "#/definitions/actionArray" },
+                "flop": { "$ref": "#/definitions/actionArray" },
+                "turn": { "$ref": "#/definitions/actionArray" },
+                "river": { "$ref": "#/definitions/actionArray" }
               },
               "required": ["preflop", "flop", "turn", "river"]
             },

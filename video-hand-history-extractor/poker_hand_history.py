@@ -46,43 +46,66 @@ class PokerHandHistoryGenerator:
         prompt = """
         Extract the following poker game details from the provided image and output the information in a structured JSON format.
 
-        Fields to Extract:
-        1. Tournament Details:
-           • tournament_name: Name of the tournament.
-           • blind_levels: Current blinds (small blind, big blind) with full amounts (e.g., "$1,000" not "$1K").
-        2. Player Information:
-           • players: List of players with their chip stacks.
-             - Use Title Case for player names (e.g., "Phil Ivey" not "phil ivey")
-             - Write chip stacks in full with commas (e.g., "$1,000,000" not "$1M")
-           • button_seat: Seat number of the dealer button.
-        3. Pre-Flop Action:
-           • pre_flop: List of actions with player name (in Title Case), action type, and full amount.
-             Example: {"player_name": "Daniel Negreanu", "action_type": "raises", "amount": "$25,000"}
-        4. Post-Flop Actions:
-           • flop_cards: Three community cards.
-           • flop_action: List of actions with player name (in Title Case) and full amounts.
-        5. Turn Actions:
-           • turn_card: Fourth community card.
-           • turn_action: List of actions with player name (in Title Case) and full amounts.
-        6. River Actions:
-           • river_card: Fifth community card.
-           • river_action: List of actions with player name (in Title Case) and full amounts.
-        7. Showdown:
-           • showdown: Players (in Title Case) who revealed their hands and the winner.
-        8. Summary:
-           • summary: Final pot size (in full amount with commas) and board cards.
-        
-        Formatting Rules:
-        • Always use Title Case for player names (e.g., "Tom Dwan" not "tom dwan")
-        • Write all amounts in full with commas (e.g., "$1,000,000" not "$1M" or "$1000000")
-        • Include dollar signs for all amounts
-        • For card suites, use the following single character representations:
-          - Hearts: h (e.g., "Ah" for Ace of Hearts)
-          - Clubs: c (e.g., "Kc" for King of Clubs)
-          - Diamonds: d (e.g., "Qd" for Queen of Diamonds)
-          - Spades: s (e.g., "Js" for Jack of Spades)
-        
-        Note: If any information is unclear in the image, include a "missing_details" field with an explanation.
+        1. TOURNAMENT INFORMATION
+        - Look at the top of the screen for tournament name, event name, and stage
+        - Check bottom of screen for blind levels (shown as "BLINDS X/Y/Z")
+
+        2. PLAYER INFORMATION
+        For each player visible:
+        - Extract name and nationality (shown by country flag)
+        - Note current stack size (shown in millions, e.g., "194 M")
+        - Record hole cards when visible
+        - Format cards as: [rank][suite] where:
+          * rank is 2-9, T, J, Q, K, or A
+          * suite is 's' for spades, 'h' for hearts, 'd' for diamonds, 'c' for clubs
+          Example: "Kc" for King of clubs, "Th" for Ten of hearts
+
+        3. ACTIONS
+        For each street (preflop, flop, turn, river):
+        - Watch for action indicators:
+          * "Check" text
+          * "Call" with amount
+          * "Bet" with amount
+          * "Raise" with amount
+        - Record amounts when shown (in millions)
+
+        4. BOARD CARDS
+        - Record community cards as they appear
+        - Use same card formatting as hole cards
+        - Group by street: flop (3 cards), turn (1 card), river (1 card)
+
+        5. POT SIZE
+        - Look for total pot amount shown on screen
+
+        6. WINNER IDENTIFICATION
+        Look for visual cues:
+        - Green checkmark (✓) under player name
+        - Plus sign (+) with amount
+        - Stack size increasing
+        - Any highlighting or emphasis on a player
+        The player with these indicators should have:
+          * isWinner: true
+          * amountWon: [amount shown with + sign]
+        Other players should have:
+          * isWinner: false
+          * amountWon: 0
+
+        OUTPUT FORMAT:
+        Generate JSON confirming to provide json schema
+
+        IMPORTANT NOTES:
+        - Convert all monetary values to actual numbers (multiply M by 1,000,000)
+        - Record all actions in chronological order
+        - Include amount field only for bet/raise/call actions
+        - Ensure card notation is consistent (Kc, Th, etc.)
+        - Watch for hand progression through multiple screenshots
+        - Always check winner indicators carefully
+
+        Example card translations:
+        K♣ → "Kc"
+        T♥ → "Th"
+        A♦ → "Ad"
+        2♠ → "2s"
         """
         
         try:
@@ -91,162 +114,94 @@ class PokerHandHistoryGenerator:
             with open(image_path, "rb") as image_file:
                 # Define the JSON schema
                 json_schema = {
-                    "type": "object",
-                    "additionalProperties": False,
-                    "properties": {
-                      "tournament_details": {
+                  "$schema": "http://json-schema.org/draft-07/schema#",
+                  "title": "Poker Hand History",
+                  "type": "object",
+                  "definitions": {
+                    "actionArray": {
+                      "type": "array",
+                      "items": {
                         "type": "object",
                         "additionalProperties": False,
                         "properties": {
-                          "tournament_name": { "type": "string" },
-                          "blind_levels": {
-                            "type": "object",
-                            "additionalProperties": False,
-                            "properties": {
-                              "small_blind": { "type": "string" },
-                              "big_blind": { "type": "string" }
-                            },
-                            "required": ["small_blind", "big_blind"]
-                          }
-                        },
-                        "required": ["tournament_name", "blind_levels"]
-                      },
-                      "player_information": {
-                        "type": "object",
-                        "additionalProperties": False,
-                        "properties": {
-                          "players": {
-                            "type": "array",
-                            "items": {
-                              "type": "object",
-                              "additionalProperties": False,
-                              "properties": {
-                                "name": { "type": "string" },
-                                "chip_stack": { "type": "string" }
-                              },
-                              "required": ["name", "chip_stack"]
-                            }
+                          "type": {
+                            "type": "string",
+                            "enum": ["fold", "check", "call", "bet", "raise"]
                           },
-                          "button_seat": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+                          "amount": { "type": "number" }
                         },
-                        "required": ["players", "button_seat"]
-                      },
-                      "pre_flop": {
-                        "type": "array",
-                        "items": {
+                        "required": ["type", "amount"]
+                      }
+                    }
+                  },
+                  "additionalProperties": False,
+                  "properties": {
+                    "gameInfo": {
+                      "type": "object",
+                      "additionalProperties": False,
+                      "properties": {
+                        "tournamentName": { "type": "string" },
+                        "eventName": { "type": "string" },
+                        "stage": { "type": "string" },
+                        "blinds": {
                           "type": "object",
                           "additionalProperties": False,
                           "properties": {
-                            "player_name": { "type": "string" },
-                            "action_type": { "type": "string" },
-                            "amount": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+                            "smallBlind": { "type": "number" },
+                            "bigBlind": { "type": "number" }
                           },
-                          "required": ["player_name", "action_type", "amount"]
+                          "required": ["smallBlind", "bigBlind"]
                         }
                       },
-                      "post_flop": {
+                      "required": ["tournamentName", "eventName", "stage", "blinds"]
+                    },
+                    "players": {
+                      "type": "array",
+                      "items": {
                         "type": "object",
                         "additionalProperties": False,
                         "properties": {
-                          "flop_cards": { "anyOf": [{ "type": "array", "items": { "type": "string" } }, { "type": "string" }, { "type": "null" }] },
-                          "flop_action": { 
+                          "name": { "type": "string" },
+                          "nationality": { "type": "string" },
+                          "stack": { "type": "number" },
+                          "cards": {
                             "type": "array",
-                            "items": {
-                              "type": "object",
-                              "additionalProperties": False,
-                              "properties": {
-                                "player_name": { "type": "string" },
-                                "action_type": { "type": "string" },
-                                "amount": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
-                              },
-                              "required": ["player_name", "action_type", "amount"]
-                            }
-                          }
-                        },
-                        "required": ["flop_cards", "flop_action"]
-                      },
-                      "turn_actions": {
-                        "type": "object",
-                        "additionalProperties": False,
-                        "properties": {
-                          "turn_card": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
-                          "turn_action": {
-                            "type": "array",
-                            "items": {
-                              "type": "object",
-                              "additionalProperties": False,
-                              "properties": {
-                                "player_name": { "type": "string" },
-                                "action_type": { "type": "string" },
-                                "amount": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
-                              },
-                              "required": ["player_name", "action_type", "amount"]
-                            }
-                          }
-                        },
-                        "required": ["turn_card", "turn_action"]
-                      },
-                      "river_actions": {
-                        "type": "object",
-                        "additionalProperties": False,
-                        "properties": {
-                          "river_card": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
-                          "river_action": {
-                            "type": "array",
-                            "items": {
-                              "type": "object",
-                              "additionalProperties": False,
-                              "properties": {
-                                "player_name": { "type": "string" },
-                                "action_type": { "type": "string" },
-                                "amount": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
-                              },
-                              "required": ["player_name", "action_type", "amount"]
-                            }
-                          }
-                        },
-                        "required": ["river_card", "river_action"]
-                      },
-                      "showdown": {
-                        "type": "object",
-                        "additionalProperties": False,
-                        "properties": {
-                          "players": {
-                            "type": "array",
-                            "items": {
-                              "type": "object",
-                              "additionalProperties": False,
-                              "properties": {
-                                "name": { "type": "string" },
-                                "hand": { "type": "string" }
-                              },
-                              "required": ["name", "hand"]
-                            }
+                            "items": { "type": "string" }
                           },
-                          "winner": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
-                        },
-                        "required": ["players", "winner"]
-                      },
-                      "summary": {
-                        "type": "object",
-                        "additionalProperties": False,
-                        "properties": {
-                          "summary": {
+                          "actions": {
                             "type": "object",
                             "additionalProperties": False,
                             "properties": {
-                              "final_pot_size": { "type": "string" },
-                              "board_cards": { "anyOf": [{ "type": "array", "items": { "type": "string" } }, { "type": "string" }, { "type": "null" }] }
+                              "preflop": { "$ref": "#/definitions/actionArray" },
+                              "flop": { "$ref": "#/definitions/actionArray" },
+                              "turn": { "$ref": "#/definitions/actionArray" },
+                              "river": { "$ref": "#/definitions/actionArray" }
                             },
-                            "required": ["final_pot_size", "board_cards"]
-                          }
+                            "required": ["preflop", "flop", "turn", "river"]
+                          },
+                          "isWinner": { "type": "boolean" },
+                          "amountWon": { "type": "number" }
                         },
-                        "required": ["summary"]
-                      },
-                      "missing_details": { "type": "string" }
+                        "required": ["name", "nationality", "stack", "cards", "actions", "isWinner", "amountWon"]
+                      }
                     },
-                    "required": ["tournament_details", "player_information", "pre_flop", "post_flop", "turn_actions", "river_actions", "showdown", "summary", "missing_details"]
-                  }
+                    "board": {
+                      "type": "object",
+                      "additionalProperties": False,
+                      "properties": {
+                        "flop": {
+                          "type": "array",
+                          "items": { "type": "string" }
+                        },
+                        "turn": { "type": "string" },
+                        "river": { "type": "string" }
+                      },
+                      "required": ["flop", "turn", "river"]
+                    },
+                    "pot": { "type": "number" }
+                  },
+                  "required": ["gameInfo", "players", "board", "pot"]
+                }
 
                 response = self.client.chat.completions.create(
                     model="gpt-4o",

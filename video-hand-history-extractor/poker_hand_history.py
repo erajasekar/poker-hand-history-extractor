@@ -42,7 +42,7 @@ class PokerHandHistoryGenerator:
                       if f.lower().endswith(('.png', '.jpg', '.jpeg'))]
         return sorted(image_files, key=self._extract_image_number)
         
-    def analyze_image(self, image_path: str, export_markdown: bool = False) -> Dict[str, Any]:
+    def analyze_image(self, image_path: str, export_markdown: bool = False) -> CraftyWheelPokerHandHistory:
         """Analyze a single poker game image using OpenAI Vision."""
         prompt = """
         Extract the following poker game details from the provided image and output the information in a structured JSON format.
@@ -225,17 +225,8 @@ class PokerHandHistoryGenerator:
                     response_format=CraftyWheelPokerHandHistory
                 )
                 
-                # Extract and parse JSON from response
-                content = response.choices[0].message.content
-                try:
-                    result = json.loads(content)
-                except json.JSONDecodeError:
-                    # If the response isn't pure JSON, try to extract JSON portion
-                    json_match = re.search(r'\{.*\}', content, re.DOTALL)
-                    if json_match:
-                        result = json.loads(json_match.group())
-                    else:
-                        raise Exception("Failed to parse JSON from response")
+                # Get parsed CraftyWheelPokerHandHistory from response
+                result = response.choices[0].message.parsed
                 
                 # Save analysis output to a JSON file with timestamp
                 current_time = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -243,7 +234,7 @@ class PokerHandHistoryGenerator:
                 analysis_filename = f"{base_name}_analysis_{current_time}.json"
                 analysis_path = os.path.join(self.output_dir, analysis_filename)
                 with open(analysis_path, 'w') as f:
-                    json.dump(result, f, indent=2)
+                    json.dump(result.model_dump(), f, indent=2)
                 logging.info(f"Saved analysis to: {analysis_path}")
                 
                 # If markdown export is enabled, append to markdown file
@@ -259,7 +250,7 @@ class PokerHandHistoryGenerator:
                     with open(markdown_path, 'a') as f:
                         f.write(f"\n![{parent_dir}]({image_filename})\n\n")
                         f.write("```json\n")
-                        json.dump(result, f, indent=2)
+                        json.dump(result.model_dump(), f, indent=2)
                         f.write("\n```\n")
 
                 return result
@@ -267,7 +258,10 @@ class PokerHandHistoryGenerator:
         except Exception as e:
             error_msg = f"Error analyzing image {image_path}: {str(e)}"
             logging.error(error_msg)
-            return {"error": error_msg}
+            # Create an error CraftyWheelPokerHandHistory object
+            error_result = CraftyWheelPokerHandHistory()
+            error_result.error = error_msg
+            return error_result
 
     def _generate_hand_history_prompt(self, image_data: List[Dict[str, Any]]) -> str:
         """Generate the prompt for LLM to create hand history."""
@@ -381,11 +375,11 @@ class PokerHandHistoryGenerator:
                 logging.info(f"Processing image: {image_file}")
                 analysis = self.analyze_image(image_path, export_markdown)
                 
-                if 'error' in analysis:
-                    logging.error(f"Error in analysis for {image_file}: {analysis['error']}")
+                if hasattr(analysis, 'error'):
+                    logging.error(f"Error in analysis for {image_file}: {analysis.error}")
                     continue
                     
-                image_data.append(analysis)
+                image_data.append(analysis.model_dump())
             
             if not image_data:
                 raise Exception("No valid image analysis data available")

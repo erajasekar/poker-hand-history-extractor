@@ -1,5 +1,5 @@
 from enum import Enum
-from typing import List
+from typing import List, Optional
 from pydantic import BaseModel, Field
 
 class ActionType(str, Enum):
@@ -44,10 +44,11 @@ class Board(BaseModel):
     river: str
 
 class CraftyWheelPokerHandHistory(BaseModel):
-    gameInfo: GameInfo
-    players: List[Player]
-    board: Board
-    pot: float
+    gameInfo: Optional[GameInfo] = None
+    players: Optional[List[Player]] = None
+    board: Optional[Board] = None
+    pot: Optional[float] = None
+    error: Optional[str] = None
 
     def to_openai_format(self) -> dict:
         """

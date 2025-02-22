@@ -84,12 +84,14 @@ class PokerHandHistoryGenerator:
         - Plus sign (+) with amount
         - Stack size increasing
         - Any highlighting or emphasis on a player
-        The player with these indicators should have:
+        The player with a + sign and amount below their name indicators should have:
           * isWinner: true
           * amountWon: [amount shown with + sign]
+          * If after + sign, if there is just number, but not amount, then isWinner must be false.
         Other players should have:
           * isWinner: false
           * amountWon: 0
+      
 
         OUTPUT FORMAT:
         Generate JSON confirming to provide json schema
@@ -425,16 +427,16 @@ def main():
     process_count = 1 # Change this value to process multiple times
     
     # Default output directory
-    output_dir = "export/obsidian/2024_wsop_game3"
-    #output_dir = "logs"
-    export_markdown = True
+    #output_dir = "export/obsidian/2024_wsop_game3"
+    output_dir = "logs"
+    export_markdown = False
     
     for i in range(process_count):
         print(f"\nProcessing iteration {i+1} of {process_count}")
         generator = PokerHandHistoryGenerator(api_key, output_dir=output_dir)
         
         # Example usage
-        directory = "screenshots/game3"  # Directory containing poker screenshots
+        directory = "screenshots/game22"  # Directory containing poker screenshots
         # Enable markdown export
         hand_history = generator.process_directory(directory, export_markdown)
         

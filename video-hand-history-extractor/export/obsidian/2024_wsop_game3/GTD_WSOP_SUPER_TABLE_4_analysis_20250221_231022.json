@@ -14,51 +14,9 @@
       "nationality": "UK",
       "stack": 104000000.0,
       "cards": [
-        "8s",
+        "8c",
         "4s"
       ],
-      "actions": {
-        "preflop": [],
-        "flop": [],
-        "turn": [],
-        "river": []
-      },
-      "isWinner": true,
-      "amountWon": 3000000.0
-    },
-    {
-      "name": "Unknown",
-      "nationality": "Belarus",
-      "stack": 0.0,
-      "cards": [],
-      "actions": {
-        "preflop": [],
-        "flop": [],
-        "turn": [],
-        "river": []
-      },
-      "isWinner": false,
-      "amountWon": 0.0
-    },
-    {
-      "name": "Unknown",
-      "nationality": "Italy",
-      "stack": 0.0,
-      "cards": [],
-      "actions": {
-        "preflop": [],
-        "flop": [],
-        "turn": [],
-        "river": []
-      },
-      "isWinner": false,
-      "amountWon": 0.0
-    },
-    {
-      "name": "Unknown",
-      "nationality": "Brazil",
-      "stack": 0.0,
-      "cards": [],
       "actions": {
         "preflop": [],
         "flop": [],

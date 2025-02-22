@@ -2,6 +2,7 @@ import os
 import json
 import re
 from CraftyWheelPokerHandHistory import CraftyWheelPokerHandHistory
+from PokerHandProcessor import PokerHandProcessor
 
 # Input directory containing JSON files
 input_dir = "export/obsidian/2024_wsop_game3_process"
@@ -15,6 +16,9 @@ def extract_number(filename):
     return int(match.group(1)) if match else float('inf')
 
 json_files.sort(key=extract_number)
+
+# Create PokerHandProcessor instance
+processor = PokerHandProcessor()
 
 # Process each file
 for json_file in json_files:
@@ -32,11 +36,13 @@ for json_file in json_files:
         print(f"\nProcessing file: {json_file}")
         print(f"Current street: {hand_history.get_current_street()}")
         
-        # Print players with cards
-        players_with_cards = hand_history.get_player_with_cards()
-        print("Players with cards:")
-        for player in players_with_cards:
-            print(f"- {player.name}: {player.cards}")
+        # Process the hand history
+        processor.handle(hand_history)
         
     except Exception as e:
         print(f"Error processing {json_file}: {str(e)}")
+
+# Print final hand history
+final_history = processor.get_final_hand_history()
+print("\nFinal Hand History:")
+print(final_history)

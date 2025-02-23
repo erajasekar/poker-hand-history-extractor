@@ -1,0 +1,49 @@
+PokerStars Hand #123456789: Tournament #987654, WSOP Main Event - 800000/1600000 - 2022/01/01 20:00:00
+Table 'Final Table' 5-max Seat #1 is the button
+
+Seat 1: Griff (125000000) 
+Seat 2: Tamayo (23000000) 
+Seat 3: Sagle (67000000) 
+Seat 4: Gonzalez (33000000) 
+Seat 5: Angelov (54000000) 
+
+Griff: posts small blind 800000
+Tamayo: posts big blind 1600000
+
+*** HOLE CARDS ***
+Dealt to Griff [3s 3d]
+Dealt to Tamayo [Kh 10h]
+Dealt to Sagle [Ts 2d]
+Dealt to Gonzalez [8s 8d]
+Dealt to Angelov [6c 3h]
+
+Griff: raises 3200000
+Tamayo: folds
+Sagle: folds
+Gonzalez: raises all-in 14300000
+Angelov: folds
+Griff: calls 11100000
+
+*** FLOP *** [5h 8d 4h]
+Griff: raises 3200000
+Gonzalez: calls all-in 14300000
+
+*** TURN *** [5h 8d 4h] [5d]
+
+*** RIVER *** [5h 8d 4h] [5d] [9s]
+
+*** SHOW DOWN ***
+Gonzalez shows [8s 8d] (Three of a Kind, Eights)
+Griff shows [3s 3d] (Pair of Threes)
+Gonzalez wins 18300000
+
+*** SUMMARY ***
+Total pot 32600000 | Rake 0
+Board [5h 8d 4h 5d 9s]
+Seat 1: Griff lost 18300000
+Seat 2: Tamayo folded before Flop
+Seat 3: Sagle folded before Flop
+Seat 4: Gonzalez collected 18300000
+Seat 5: Angelov folded before Flop
+
+Note: The hand history does not include the nationality of the players, and the actions of the players who folded are not detailed after they folded. The winner's hand is described in a common poker language. The rake is assumed to be 0 as it is not provided in the JSON data.

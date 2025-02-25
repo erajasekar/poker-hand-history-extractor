@@ -442,7 +442,7 @@ def main():
     process_count = 1 # Change this value to process multiple times
     
     # Default output directory
-    output_dir = "export/obsidian/2024_wsop_game3"
+    output_dir = "export/obsidian/2024_wsop_game3_1"
     #output_dir = "logs"
     export_markdown = True
     

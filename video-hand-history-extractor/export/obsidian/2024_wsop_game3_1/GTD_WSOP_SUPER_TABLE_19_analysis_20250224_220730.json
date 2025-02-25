@@ -1,0 +1,65 @@
+{
+  "gameInfo": {
+    "tournamentName": "2024 WSOP Paradise",
+    "eventName": "Super Main Event",
+    "stage": "Final Table",
+    "blinds": {
+      "smallBlind": 1500000.0,
+      "bigBlind": 3000000.0
+    }
+  },
+  "players": [
+    {
+      "name": "Addamo",
+      "nationality": "Australia",
+      "stack": 194000000.0,
+      "cards": [
+        "Kc",
+        "Th"
+      ],
+      "actions": {
+        "preflop": [],
+        "flop": [],
+        "turn": [],
+        "river": [
+          {
+            "type": "check",
+            "amount": 0.0
+          }
+        ]
+      },
+      "isWinner": false,
+      "amountWon": 0.0,
+      "isActive": true
+    },
+    {
+      "name": "Kanit",
+      "nationality": "Italy",
+      "stack": 133000000.0,
+      "cards": [
+        "Ad",
+        "Tc"
+      ],
+      "actions": {
+        "preflop": [],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": true,
+      "amountWon": 27500000.0,
+      "isActive": true
+    }
+  ],
+  "board": {
+    "flop": [
+      "5s",
+      "4h",
+      "7d"
+    ],
+    "turn": "9d",
+    "river": "2c"
+  },
+  "pot": 27500000.0,
+  "error": null
+}

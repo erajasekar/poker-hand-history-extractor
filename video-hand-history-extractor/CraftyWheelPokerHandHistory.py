@@ -104,3 +104,13 @@ class CraftyWheelPokerHandHistory(BaseModel):
         if not self.players:
             return []
         return [player for player in self.players if player.cards]
+
+    def validate(self):
+        """
+        Validates the hand history data and fixes any inconsistencies.
+        Currently checks:
+        - If flop is non-empty but has less than 3 cards, sets it to empty array
+        """
+        if self.board and self.board.flop and len(self.board.flop) < 3:
+            print(f"Warning: Flop had {len(self.board.flop)} cards instead of required 3 cards. Setting flop to empty array.")
+            self.board.flop = []

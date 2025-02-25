@@ -17,6 +17,10 @@ class PokerHandProcessor:
                 existing_actions.append(new_action)
         
     def handle(self, hand_history: CraftyWheelPokerHandHistory):
+
+        # Validate hand_history
+        hand_history.validate()
+        
         # Skip if either history is empty or has error
         if not hand_history.players or hand_history.error:
             return

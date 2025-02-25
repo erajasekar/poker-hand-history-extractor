@@ -1,0 +1,251 @@
+{
+  "gameInfo": {
+    "tournamentName": "2024 WSOP Paradise",
+    "eventName": "Super Main Event",
+    "stage": "Final Table",
+    "blinds": {
+      "smallBlind": 1500000.0,
+      "bigBlind": 3000000.0
+    }
+  },
+  "players": [
+    {
+      "name": "Nguyen",
+      "nationality": "Germany",
+      "stack": 160000000.0,
+      "cards": [
+        "Kc",
+        "7h"
+      ],
+      "actions": {
+        "preflop": [
+          {
+            "type": "fold",
+            "amount": 0.0
+          }
+        ],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0.0,
+      "isActive": false
+    },
+    {
+      "name": "Boeree",
+      "nationality": "United Kingdom",
+      "stack": 98000000.0,
+      "cards": [
+        "Qd",
+        "2h"
+      ],
+      "actions": {
+        "preflop": [
+          {
+            "type": "fold",
+            "amount": 0.0
+          }
+        ],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": true,
+      "amountWon": 1000000.0,
+      "isActive": false
+    },
+    {
+      "name": "Aziz",
+      "nationality": "Brazil",
+      "stack": 92000000.0,
+      "cards": [
+        "Qc",
+        "6c"
+      ],
+      "actions": {
+        "preflop": [
+          {
+            "type": "fold",
+            "amount": 0.0
+          }
+        ],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": true,
+      "amountWon": 2000000.0,
+      "isActive": false
+    },
+    {
+      "name": "Kanit",
+      "nationality": "Italy",
+      "stack": 175000000.0,
+      "cards": [
+        "7s",
+        "5d"
+      ],
+      "actions": {
+        "preflop": [
+          {
+            "type": "fold",
+            "amount": 0.0
+          }
+        ],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0.0,
+      "isActive": false
+    },
+    {
+      "name": "Lipauka",
+      "nationality": "Belarus",
+      "stack": 46000000.0,
+      "cards": [
+        "Td",
+        "6d"
+      ],
+      "actions": {
+        "preflop": [
+          {
+            "type": "fold",
+            "amount": 0.0
+          }
+        ],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0.0,
+      "isActive": false
+    },
+    {
+      "name": "Bonomo",
+      "nationality": "USA",
+      "stack": 61000000.0,
+      "cards": [
+        "Ks",
+        "2c"
+      ],
+      "actions": {
+        "preflop": [
+          {
+            "type": "fold",
+            "amount": 0.0
+          }
+        ],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0.0,
+      "isActive": false
+    },
+    {
+      "name": "Addamo",
+      "nationality": "Australia",
+      "stack": 223000000.0,
+      "cards": [
+        "As",
+        "Jh"
+      ],
+      "actions": {
+        "preflop": [
+          {
+            "type": "raise",
+            "amount": 6000000.0
+          }
+        ],
+        "flop": [
+          {
+            "type": "call",
+            "amount": 24000000.0
+          }
+        ],
+        "turn": [
+          {
+            "type": "call",
+            "amount": 24000000.0
+          }
+        ],
+        "river": []
+      },
+      "isWinner": true,
+      "amountWon": 30000000.0,
+      "isActive": true
+    },
+    {
+      "name": "Lehmann",
+      "nationality": "Germany",
+      "stack": 24000000.0,
+      "cards": [
+        "As",
+        "9c"
+      ],
+      "actions": {
+        "preflop": [
+          {
+            "type": "all_in",
+            "amount": 24000000.0
+          }
+        ],
+        "flop": [
+          {
+            "type": "all_in",
+            "amount": 24000000.0
+          }
+        ],
+        "turn": [
+          {
+            "type": "all_in",
+            "amount": 24000000.0
+          }
+        ],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0.0,
+      "isActive": false
+    },
+    {
+      "name": "Yinan",
+      "nationality": "China",
+      "stack": 88000000.0,
+      "cards": [
+        "Js",
+        "3s"
+      ],
+      "actions": {
+        "preflop": [
+          {
+            "type": "fold",
+            "amount": 0.0
+          }
+        ],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0.0,
+      "isActive": false
+    }
+  ],
+  "board": {
+    "flop": [
+      "Kh",
+      "3h",
+      "Qd"
+    ],
+    "turn": "2s",
+    "river": "Jc"
+  },
+  "pot": 54000000.0,
+  "error": null
+}

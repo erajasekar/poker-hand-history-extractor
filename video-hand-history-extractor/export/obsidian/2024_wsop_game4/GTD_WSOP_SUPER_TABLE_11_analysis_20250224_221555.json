@@ -1,0 +1,62 @@
+{
+  "gameInfo": {
+    "tournamentName": "2024 WSOP Paradise",
+    "eventName": "Super Main Event",
+    "stage": "Final Table",
+    "blinds": {
+      "smallBlind": 1500000.0,
+      "bigBlind": 3000000.0
+    }
+  },
+  "players": [
+    {
+      "name": "Addamo",
+      "nationality": "Australia",
+      "stack": 187000000.0,
+      "cards": [
+        "As",
+        "Jh"
+      ],
+      "actions": {
+        "preflop": [
+          {
+            "type": "raise",
+            "amount": 6000000.0
+          }
+        ],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0.0,
+      "isActive": true
+    },
+    {
+      "name": "Lehmann",
+      "nationality": "Germany",
+      "stack": 24000000.0,
+      "cards": [
+        "Ad",
+        "9c"
+      ],
+      "actions": {
+        "preflop": [
+          {
+            "type": "all_in",
+            "amount": 24000000.0
+          }
+        ],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0.0,
+      "isActive": true
+    }
+  ],
+  "board": null,
+  "pot": 36000000.0,
+  "error": null
+}

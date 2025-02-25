@@ -1,0 +1,79 @@
+{
+  "gameInfo": {
+    "tournamentName": "2024 WSOP Paradise",
+    "eventName": "Super Main Event",
+    "stage": "Final Table",
+    "blinds": {
+      "smallBlind": 1500000.0,
+      "bigBlind": 3000000.0
+    }
+  },
+  "players": [
+    {
+      "name": "Unknown",
+      "nationality": "China",
+      "stack": 0.0,
+      "cards": [],
+      "actions": {
+        "preflop": [],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0.0,
+      "isActive": true
+    },
+    {
+      "name": "Unknown",
+      "nationality": "Germany",
+      "stack": 0.0,
+      "cards": [],
+      "actions": {
+        "preflop": [],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0.0,
+      "isActive": true
+    },
+    {
+      "name": "Unknown",
+      "nationality": "Australia",
+      "stack": 0.0,
+      "cards": [],
+      "actions": {
+        "preflop": [],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0.0,
+      "isActive": true
+    },
+    {
+      "name": "Bonomo",
+      "nationality": "USA",
+      "stack": 61000000.0,
+      "cards": [
+        "Ks",
+        "2c"
+      ],
+      "actions": {
+        "preflop": [],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0.0,
+      "isActive": true
+    }
+  ],
+  "board": null,
+  "pot": 7500000.0,
+  "error": null
+}

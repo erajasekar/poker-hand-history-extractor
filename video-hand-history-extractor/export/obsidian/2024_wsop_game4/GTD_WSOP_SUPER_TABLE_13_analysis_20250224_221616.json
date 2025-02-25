@@ -1,0 +1,70 @@
+{
+  "gameInfo": {
+    "tournamentName": "2024 WSOP Paradise",
+    "eventName": "Triton Poker Series",
+    "stage": "Final Table",
+    "blinds": {
+      "smallBlind": 1500000.0,
+      "bigBlind": 3000000.0
+    }
+  },
+  "players": [
+    {
+      "name": "Lehmann",
+      "nationality": "Germany",
+      "stack": 24000000.0,
+      "cards": [
+        "As",
+        "9c"
+      ],
+      "actions": {
+        "preflop": [
+          {
+            "type": "all_in",
+            "amount": 24000000.0
+          }
+        ],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0.0,
+      "isActive": false
+    },
+    {
+      "name": "Addamo",
+      "nationality": "Australia",
+      "stack": 169000000.0,
+      "cards": [
+        "As",
+        "Jd"
+      ],
+      "actions": {
+        "preflop": [
+          {
+            "type": "call",
+            "amount": 24000000.0
+          }
+        ],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0.0,
+      "isActive": true
+    }
+  ],
+  "board": {
+    "flop": [
+      "Kh",
+      "3h",
+      "Qh"
+    ],
+    "turn": "2s",
+    "river": ""
+  },
+  "pot": 54000000.0,
+  "error": null
+}

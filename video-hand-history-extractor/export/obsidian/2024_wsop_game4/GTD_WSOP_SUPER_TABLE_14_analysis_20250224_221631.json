@@ -1,0 +1,60 @@
+{
+  "gameInfo": {
+    "tournamentName": "WSOP Paradise",
+    "eventName": "Super Main Event",
+    "stage": "Final Table",
+    "blinds": {
+      "smallBlind": 1500000.0,
+      "bigBlind": 3000000.0
+    }
+  },
+  "players": [
+    {
+      "name": "Lehmann",
+      "nationality": "Germany",
+      "stack": 58000000.0,
+      "cards": [
+        "As",
+        "9c"
+      ],
+      "actions": {
+        "preflop": [],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0.0,
+      "isActive": true
+    },
+    {
+      "name": "Addamo",
+      "nationality": "Australia",
+      "stack": 160000000.0,
+      "cards": [
+        "As",
+        "Jh"
+      ],
+      "actions": {
+        "preflop": [],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0.0,
+      "isActive": true
+    }
+  ],
+  "board": {
+    "flop": [
+      "Kh",
+      "Qh",
+      "2s"
+    ],
+    "turn": "Jc",
+    "river": ""
+  },
+  "pot": 54000000.0,
+  "error": null
+}

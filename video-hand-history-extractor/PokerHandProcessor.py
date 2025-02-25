@@ -90,13 +90,11 @@ class PokerHandProcessor:
             if not found:
                 self.final_history.players.append(player_with_cards)
 
-        # Step 3: Copy remaining fields from hand_history players to final_history
+        # Step 3: Copy remaining fields from hand_history players to final_history (only for active players)
         for hand_player in hand_history.players:
-            for final_player in self.final_history.players:
+            for final_player in [p for p in self.final_history.players if p.isActive]:
                 if final_player.name == hand_player.name:
-                    # Only update isActive if the player hasn't folded
-                    if final_player.isActive:  # If player hasn't folded yet
-                        final_player.isActive = hand_player.isActive
+                    final_player.isActive = hand_player.isActive
                     # Update other fields regardless
                     final_player.nationality = hand_player.nationality
                     final_player.stack = hand_player.stack

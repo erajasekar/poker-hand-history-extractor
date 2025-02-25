@@ -10,7 +10,7 @@ from poker_hand_history import PokerHandHistoryGenerator
 input_dir = "export/obsidian/2024_wsop_game3_process"
 
 # Configuration flags
-generate_hand_history = False  # Set to False to skip hand history text generation
+generate_hand_history = True  # Set to False to skip hand history text generation
 
 # Get all JSON files from the directory (excluding final_history files)
 json_files = [f for f in os.listdir(input_dir) if f.endswith('.json') and not f.startswith('final_history')]

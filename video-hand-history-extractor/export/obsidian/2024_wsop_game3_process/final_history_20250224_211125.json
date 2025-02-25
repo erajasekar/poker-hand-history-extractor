@@ -18,13 +18,13 @@
         "6d"
       ],
       "actions": {
-        "preflop": [],
-        "flop": [
+        "preflop": [
           {
             "type": "fold",
             "amount": 0.0
           }
         ],
+        "flop": [],
         "turn": [],
         "river": []
       },

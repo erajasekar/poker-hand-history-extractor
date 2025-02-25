@@ -30,6 +30,10 @@ class PokerHandProcessor:
         # Get current street from hand_history
         current_street = hand_history.get_current_street()
 
+        # Log player info before Step 1
+        for final_player in [p for p in self.final_history.players]:
+            print(f"Before Step 1 - Player: {final_player.name}, isActive: {final_player.isActive}")
+
         # Step 1: For each active player in final_history, check if present in hand_history
         for final_player in [p for p in self.final_history.players if p.isActive]:
             found = False
@@ -50,6 +54,7 @@ class PokerHandProcessor:
                     self.add_non_duplicate_actions(final_player.actions.turn, fold_actions)
                 elif current_street == Street.RIVER:
                     self.add_non_duplicate_actions(final_player.actions.river, fold_actions)
+                print(f"Player {final_player.name} not found in hand_history, adding fold action")
                 final_player.isActive = False  # Set isActive to False when fold action is added
 
         # Step 2: Get players with cards and copy their actions based on current street
@@ -89,12 +94,15 @@ class PokerHandProcessor:
         for hand_player in hand_history.players:
             for final_player in self.final_history.players:
                 if final_player.name == hand_player.name:
+                    # Only update isActive if the player hasn't folded
+                    if final_player.isActive:  # If player hasn't folded yet
+                        final_player.isActive = hand_player.isActive
+                    # Update other fields regardless
                     final_player.nationality = hand_player.nationality
                     final_player.stack = hand_player.stack
                     final_player.cards = hand_player.cards
                     final_player.isWinner = hand_player.isWinner
                     final_player.amountWon = hand_player.amountWon
-                    final_player.isActive = hand_player.isActive
                     break
 
         # Step 4: Copy game info, board and pot

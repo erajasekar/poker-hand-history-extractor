@@ -73,6 +73,8 @@ class PokerHandProcessor:
                         all_actions.extend(player_with_cards.actions.turn)
                     if player_with_cards.actions.river:
                         all_actions.extend(player_with_cards.actions.river)
+
+                    print(f"All actions for player {final_player.name}: {all_actions}")
                     
                     # Add actions to appropriate street based on current_street
                     if current_street == Street.PREFLOP:

@@ -1,0 +1,70 @@
+{
+  "gameInfo": {
+    "tournamentName": "2024 WSOP Paradise",
+    "eventName": "Paradise",
+    "stage": "Final Table",
+    "blinds": {
+      "smallBlind": 2000000.0,
+      "bigBlind": 4000000.0
+    }
+  },
+  "players": [
+    {
+      "name": "Kanit",
+      "nationality": "Italy",
+      "stack": 168500000.0,
+      "cards": [
+        "Qc",
+        "4h"
+      ],
+      "actions": {
+        "preflop": [
+          {
+            "type": "all_in",
+            "amount": 168500000.0
+          }
+        ],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0.0,
+      "isActive": true
+    },
+    {
+      "name": "Lipauka",
+      "nationality": "Belarus",
+      "stack": 42000000.0,
+      "cards": [
+        "Ac",
+        "Ad"
+      ],
+      "actions": {
+        "preflop": [
+          {
+            "type": "all_in",
+            "amount": 42000000.0
+          }
+        ],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0.0,
+      "isActive": true
+    }
+  ],
+  "board": {
+    "flop": [
+      "5s",
+      "Qd",
+      "9s"
+    ],
+    "turn": "3c",
+    "river": ""
+  },
+  "pot": 88000000.0,
+  "error": null
+}

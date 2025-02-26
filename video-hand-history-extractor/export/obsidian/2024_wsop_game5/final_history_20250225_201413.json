@@ -1,0 +1,228 @@
+{
+  "gameInfo": {
+    "tournamentName": "2024 WSOP Paradise",
+    "eventName": "Super Main Event",
+    "stage": "Final Table",
+    "blinds": {
+      "smallBlind": 2000000.0,
+      "bigBlind": 4000000.0
+    }
+  },
+  "players": [
+    {
+      "name": "Bonomo",
+      "nationality": "USA",
+      "stack": 61000000.0,
+      "cards": [
+        "Ac",
+        "5h"
+      ],
+      "actions": {
+        "preflop": [
+          {
+            "type": "fold",
+            "amount": 0.0
+          }
+        ],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0.0,
+      "isActive": false
+    },
+    {
+      "name": "Addamo",
+      "nationality": "Australia",
+      "stack": 245000000.0,
+      "cards": [
+        "7s",
+        "2h"
+      ],
+      "actions": {
+        "preflop": [
+          {
+            "type": "fold",
+            "amount": 0.0
+          }
+        ],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": true,
+      "amountWon": 0.0,
+      "isActive": false
+    },
+    {
+      "name": "Yinan",
+      "nationality": "China",
+      "stack": 87000000.0,
+      "cards": [
+        "Tc",
+        "2s"
+      ],
+      "actions": {
+        "preflop": [
+          {
+            "type": "fold",
+            "amount": 0.0
+          }
+        ],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0.0,
+      "isActive": false
+    },
+    {
+      "name": "Nguyen",
+      "nationality": "Germany",
+      "stack": 160000000.0,
+      "cards": [
+        "8s",
+        "6h"
+      ],
+      "actions": {
+        "preflop": [
+          {
+            "type": "fold",
+            "amount": 0.0
+          }
+        ],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0.0,
+      "isActive": false
+    },
+    {
+      "name": "BOEREE",
+      "nationality": "UK",
+      "stack": 90000000.0,
+      "cards": [
+        "Th",
+        "4s"
+      ],
+      "actions": {
+        "preflop": [
+          {
+            "type": "fold",
+            "amount": 0.0
+          }
+        ],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0.0,
+      "isActive": false
+    },
+    {
+      "name": "Aziz",
+      "nationality": "Brazil",
+      "stack": 84000000.0,
+      "cards": [
+        "4c",
+        "3d"
+      ],
+      "actions": {
+        "preflop": [
+          {
+            "type": "fold",
+            "amount": 0.0
+          }
+        ],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0.0,
+      "isActive": false
+    },
+    {
+      "name": "Kanit",
+      "nationality": "Italy",
+      "stack": 215000000.0,
+      "cards": [
+        "Qc",
+        "4h"
+      ],
+      "actions": {
+        "preflop": [
+          {
+            "type": "all_in",
+            "amount": 168500000.0
+          }
+        ],
+        "flop": [
+          {
+            "type": "all_in",
+            "amount": 168500000.0
+          }
+        ],
+        "turn": [
+          {
+            "type": "all_in",
+            "amount": 168500000.0
+          }
+        ],
+        "river": []
+      },
+      "isWinner": true,
+      "amountWon": 46000000.0,
+      "isActive": true
+    },
+    {
+      "name": "Lipauka",
+      "nationality": "Unknown",
+      "stack": 0.0,
+      "cards": [
+        "Ah",
+        "8h"
+      ],
+      "actions": {
+        "preflop": [
+          {
+            "type": "all_in",
+            "amount": 42000000.0
+          }
+        ],
+        "flop": [
+          {
+            "type": "all_in",
+            "amount": 42000000.0
+          }
+        ],
+        "turn": [
+          {
+            "type": "all_in",
+            "amount": 42000000.0
+          }
+        ],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0.0,
+      "isActive": false
+    }
+  ],
+  "board": {
+    "flop": [
+      "5s",
+      "Qd",
+      "9s"
+    ],
+    "turn": "3s",
+    "river": "Jc"
+  },
+  "pot": 88000000.0,
+  "error": null
+}

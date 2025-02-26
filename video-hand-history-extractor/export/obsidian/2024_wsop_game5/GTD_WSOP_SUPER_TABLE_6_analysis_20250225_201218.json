@@ -1,0 +1,71 @@
+{
+  "gameInfo": {
+    "tournamentName": "2024 WSOP Paradise",
+    "eventName": "Super Main Event",
+    "stage": "Final Table",
+    "blinds": {
+      "smallBlind": 2000000.0,
+      "bigBlind": 4000000.0
+    }
+  },
+  "players": [
+    {
+      "name": "Aziz",
+      "nationality": "Brazil",
+      "stack": 84000000.0,
+      "cards": [
+        "4c",
+        "3d"
+      ],
+      "actions": {
+        "preflop": [],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0.0,
+      "isActive": true
+    },
+    {
+      "name": "Unknown",
+      "nationality": "Portugal",
+      "stack": 0.0,
+      "cards": [],
+      "actions": {
+        "preflop": [],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0.0,
+      "isActive": true
+    },
+    {
+      "name": "Unknown",
+      "nationality": "Italy",
+      "stack": 0.0,
+      "cards": [],
+      "actions": {
+        "preflop": [],
+        "flop": [],
+        "turn": [],
+        "river": []
+      },
+      "isWinner": false,
+      "amountWon": 0.0,
+      "isActive": true
+    }
+  ],
+  "board": {
+    "flop": [
+      "4s",
+      "3h"
+    ],
+    "turn": "",
+    "river": ""
+  },
+  "pot": 10000000.0,
+  "error": null
+}

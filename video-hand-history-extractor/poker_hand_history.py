@@ -121,97 +121,7 @@ class PokerHandHistoryGenerator:
             logging.info(f"Analyzing image: {image_path}")
             
             with open(image_path, "rb") as image_file:
-                # Define the JSON schema
-                json_schema = {
-                  "$schema": "http://json-schema.org/draft-07/schema#",
-                  "title": "Poker Hand History",
-                  "type": "object",
-                  "definitions": {
-                    "actionArray": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "additionalProperties": False,
-                        "properties": {
-                          "type": {
-                            "type": "string",
-                            "enum": ["fold", "check", "call", "bet", "raise"]
-                          },
-                          "amount": { "type": "number" }
-                        },
-                        "required": ["type", "amount"]
-                      }
-                    }
-                  },
-                  "additionalProperties": False,
-                  "properties": {
-                    "gameInfo": {
-                      "type": "object",
-                      "additionalProperties": False,
-                      "properties": {
-                        "tournamentName": { "type": "string" },
-                        "eventName": { "type": "string" },
-                        "stage": { "type": "string" },
-                        "blinds": {
-                          "type": "object",
-                          "additionalProperties": False,
-                          "properties": {
-                            "smallBlind": { "type": "number" },
-                            "bigBlind": { "type": "number" }
-                          },
-                          "required": ["smallBlind", "bigBlind"]
-                        }
-                      },
-                      "required": ["tournamentName", "eventName", "stage", "blinds"]
-                    },
-                    "players": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "additionalProperties": False,
-                        "properties": {
-                          "name": { "type": "string" },
-                          "nationality": { "type": "string" },
-                          "stack": { "type": "number" },
-                          "cards": {
-                            "type": "array",
-                            "items": { "type": "string" }
-                          },
-                          "actions": {
-                            "type": "object",
-                            "additionalProperties": False,
-                            "properties": {
-                              "preflop": { "$ref": "#/definitions/actionArray" },
-                              "flop": { "$ref": "#/definitions/actionArray" },
-                              "turn": { "$ref": "#/definitions/actionArray" },
-                              "river": { "$ref": "#/definitions/actionArray" }
-                            },
-                            "required": ["preflop", "flop", "turn", "river"]
-                          },
-                          "isWinner": { "type": "boolean" },
-                          "amountWon": { "type": "number" }
-                        },
-                        "required": ["name", "nationality", "stack", "cards", "actions", "isWinner", "amountWon"]
-                      }
-                    },
-                    "board": {
-                      "type": "object",
-                      "additionalProperties": False,
-                      "properties": {
-                        "flop": {
-                          "type": "array",
-                          "items": { "type": "string" }
-                        },
-                        "turn": { "type": "string" },
-                        "river": { "type": "string" }
-                      },
-                      "required": ["flop", "turn", "river"]
-                    },
-                    "pot": { "type": "number" }
-                  },
-                  "required": ["gameInfo", "players", "board", "pot"]
-                }
-
+               # Call the API with the image and prompt
                 response = self.client.beta.chat.completions.parse(
                     model="gpt-4o",
                     messages=[
@@ -258,7 +168,7 @@ class PokerHandHistoryGenerator:
                     with open(markdown_path, 'a') as f:
                         f.write(f"\n![{parent_dir}]({image_filename})\n\n")
                         f.write("```json\n")
-                        json.dump(result.model_dump(), f, indent=2)
+                        json.dump(result.model_dump(), f, indent=4)
                         f.write("\n```\n")
 
                 return result
